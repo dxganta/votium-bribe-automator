@@ -1,0 +1,5257 @@
+{
+  "abi": [],
+  "allSourcePaths": {
+    "2": "contracts/library/BribesLogic.sol",
+    "3": "interfaces/curve/IBribeV2.sol",
+    "4": "interfaces/token/IERC20.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/library/BribesLogic.sol",
+    "exportedSymbols": {
+      "BribesLogic": [
+        188
+      ],
+      "IBribeV2": [
+        296
+      ],
+      "IERC20": [
+        273
+      ]
+    },
+    "id": 189,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 113,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:2"
+      },
+      {
+        "absolutePath": "interfaces/curve/IBribeV2.sol",
+        "file": "../../interfaces/curve/IBribeV2.sol",
+        "id": 114,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 189,
+        "sourceUnit": 297,
+        "src": "57:45:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "interfaces/token/IERC20.sol",
+        "file": "../../interfaces/token/IERC20.sol",
+        "id": 115,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 189,
+        "sourceUnit": 274,
+        "src": "103:43:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "BribesLogic",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 188,
+        "linearizedBaseContracts": [
+          188
+        ],
+        "name": "BribesLogic",
+        "nameLocation": "156:11:2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 186,
+              "nodeType": "Block",
+              "src": "397:544:2",
+              "statements": [
+                {
+                  "assignments": [
+                    132
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 132,
+                      "mutability": "mutable",
+                      "name": "balance",
+                      "nameLocation": "412:7:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 186,
+                      "src": "407:12:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 131,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "407:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 142,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 139,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -28,
+                            "src": "454:4:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_BribesLogic_$188",
+                              "typeString": "library BribesLogic"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_BribesLogic_$188",
+                              "typeString": "library BribesLogic"
+                            }
+                          ],
+                          "id": 138,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "446:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 137,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "446:7:2",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 140,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "446:13:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 134,
+                            "name": "TOKEN",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 118,
+                            "src": "429:5:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 133,
+                          "name": "IERC20",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 273,
+                          "src": "422:6:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IERC20_$273_$",
+                            "typeString": "type(contract IERC20)"
+                          }
+                        },
+                        "id": 135,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "422:13:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IERC20_$273",
+                          "typeString": "contract IERC20"
+                        }
+                      },
+                      "id": 136,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "balanceOf",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 202,
+                      "src": "422:23:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                        "typeString": "function (address) view external returns (uint256)"
+                      }
+                    },
+                    "id": 141,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "422:38:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "407:53:2"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 146,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 144,
+                          "name": "balance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 132,
+                          "src": "478:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "hexValue": "30",
+                          "id": 145,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "488:1:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "478:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4e6f20746f6b656e73",
+                        "id": 147,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "491:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_00edc2c3a8877f5a241dfbfdd7979302a964c365b4d66d5aec2b6d6e063514d4",
+                          "typeString": "literal_string \"No tokens\""
+                        },
+                        "value": "No tokens"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_00edc2c3a8877f5a241dfbfdd7979302a964c365b4d66d5aec2b6d6e063514d4",
+                          "typeString": "literal_string \"No tokens\""
+                        }
+                      ],
+                      "id": 143,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "470:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 148,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "470:33:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 149,
+                  "nodeType": "ExpressionStatement",
+                  "src": "470:33:2"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 152,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 150,
+                      "name": "TOKENS_PER_VOTE",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 122,
+                      "src": "518:15:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "id": 151,
+                      "name": "balance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 132,
+                      "src": "536:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "518:25:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 158,
+                  "nodeType": "IfStatement",
+                  "src": "514:81:2",
+                  "trueBody": {
+                    "id": 157,
+                    "nodeType": "Block",
+                    "src": "545:50:2",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 155,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 153,
+                            "name": "TOKENS_PER_VOTE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 122,
+                            "src": "559:15:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "id": 154,
+                            "name": "balance",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 132,
+                            "src": "577:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "559:25:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 156,
+                        "nodeType": "ExpressionStatement",
+                        "src": "559:25:2"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 165,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 160,
+                            "name": "block",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -4,
+                            "src": "699:5:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_block",
+                              "typeString": "block"
+                            }
+                          },
+                          "id": 161,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "timestamp",
+                          "nodeType": "MemberAccess",
+                          "src": "699:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 164,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 162,
+                            "name": "lastPeriod",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 124,
+                            "src": "717:10:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "+",
+                          "rightExpression": {
+                            "hexValue": "363034383030",
+                            "id": 163,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "730:6:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_604800_by_1",
+                              "typeString": "int_const 604800"
+                            },
+                            "value": "604800"
+                          },
+                          "src": "717:19:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "699:37:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "427269626520616c72656164792073656e74",
+                        "id": 166,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "738:20:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_a4af05b52d58ba2b4c078ce7ac92d81cf4bc23e3c1e387656d88bd69bbd59a5a",
+                          "typeString": "literal_string \"Bribe already sent\""
+                        },
+                        "value": "Bribe already sent"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_a4af05b52d58ba2b4c078ce7ac92d81cf4bc23e3c1e387656d88bd69bbd59a5a",
+                          "typeString": "literal_string \"Bribe already sent\""
+                        }
+                      ],
+                      "id": 159,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "690:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 167,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "690:69:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 168,
+                  "nodeType": "ExpressionStatement",
+                  "src": "690:69:2"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 173,
+                        "name": "GAUGE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 120,
+                        "src": "838:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 174,
+                        "name": "TOKEN",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 118,
+                        "src": "845:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 175,
+                        "name": "TOKENS_PER_VOTE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 122,
+                        "src": "852:15:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 170,
+                            "name": "CURVE_BRIBE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 126,
+                            "src": "807:11:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 169,
+                          "name": "IBribeV2",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 296,
+                          "src": "798:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IBribeV2_$296_$",
+                            "typeString": "type(contract IBribeV2)"
+                          }
+                        },
+                        "id": 171,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "798:21:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBribeV2_$296",
+                          "typeString": "contract IBribeV2"
+                        }
+                      },
+                      "id": 172,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "add_reward_amount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 295,
+                      "src": "798:39:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 176,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "798:70:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 177,
+                  "nodeType": "ExpressionStatement",
+                  "src": "798:70:2"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 182,
+                        "name": "GAUGE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 120,
+                        "src": "921:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 183,
+                        "name": "TOKEN",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 118,
+                        "src": "928:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 179,
+                            "name": "CURVE_BRIBE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 126,
+                            "src": "894:11:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 178,
+                          "name": "IBribeV2",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 296,
+                          "src": "885:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IBribeV2_$296_$",
+                            "typeString": "type(contract IBribeV2)"
+                          }
+                        },
+                        "id": 180,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "885:21:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBribeV2_$296",
+                          "typeString": "contract IBribeV2"
+                        }
+                      },
+                      "id": 181,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "active_period",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 284,
+                      "src": "885:35:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$",
+                        "typeString": "function (address,address) view external returns (uint256)"
+                      }
+                    },
+                    "id": 184,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "885:49:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 130,
+                  "id": 185,
+                  "nodeType": "Return",
+                  "src": "878:56:2"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 116,
+              "nodeType": "StructuredDocumentation",
+              "src": "174:87:2",
+              "text": "@dev sends the token incentives to curve gauge votes for the next vote cycle/period"
+            },
+            "functionSelector": "13523a87",
+            "id": 187,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "sendBribe",
+            "nameLocation": "275:9:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 127,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 118,
+                  "mutability": "mutable",
+                  "name": "TOKEN",
+                  "nameLocation": "293:5:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 187,
+                  "src": "285:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 117,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "285:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 120,
+                  "mutability": "mutable",
+                  "name": "GAUGE",
+                  "nameLocation": "308:5:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 187,
+                  "src": "300:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "300:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 122,
+                  "mutability": "mutable",
+                  "name": "TOKENS_PER_VOTE",
+                  "nameLocation": "320:15:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 187,
+                  "src": "315:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 121,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "315:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 124,
+                  "mutability": "mutable",
+                  "name": "lastPeriod",
+                  "nameLocation": "342:10:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 187,
+                  "src": "337:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 123,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "337:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 126,
+                  "mutability": "mutable",
+                  "name": "CURVE_BRIBE",
+                  "nameLocation": "362:11:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 187,
+                  "src": "354:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 125,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "354:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "284:90:2"
+            },
+            "returnParameters": {
+              "id": 130,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 129,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 187,
+                  "src": "391:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "391:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "390:6:2"
+            },
+            "scope": 188,
+            "src": "266:675:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 189,
+        "src": "148:795:2",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:911:2"
+  },
+  "bytecode": "6103af61003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100355760003560e01c806313523a871461003a575b600080fd5b81801561004657600080fd5b5061005a6100553660046102ba565b61006c565b60405190815260200160405180910390f35b6040516370a0823160e01b815230600482015260009081906001600160a01b038816906370a082319060240160206040518083038186803b1580156100b057600080fd5b505afa1580156100c4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100e89190610311565b90506000811161012b5760405162461bcd60e51b81526020600482015260096024820152684e6f20746f6b656e7360b81b60448201526064015b60405180910390fd5b80851115610137578094505b6101448462093a8061032a565b42116101875760405162461bcd60e51b8152602060048201526012602482015271109c9a589948185b1c9958591e481cd95b9d60721b6044820152606401610122565b60405163df40696760e01b81526001600160a01b03878116600483015288811660248301526044820187905284169063df40696790606401602060405180830381600087803b1580156101d957600080fd5b505af11580156101ed573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102119190610350565b50604051632de24ac760e01b81526001600160a01b0387811660048301528881166024830152841690632de24ac79060440160206040518083038186803b15801561025b57600080fd5b505afa15801561026f573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102939190610311565b979650505050505050565b80356001600160a01b03811681146102b557600080fd5b919050565b600080600080600060a086880312156102d257600080fd5b6102db8661029e565b94506102e96020870161029e565b935060408601359250606086013591506103056080870161029e565b90509295509295909350565b60006020828403121561032357600080fd5b5051919050565b6000821982111561034b57634e487b7160e01b600052601160045260246000fd5b500190565b60006020828403121561036257600080fd5b8151801515811461037257600080fd5b939250505056fea264697066735822122068bdb0bc44715a31123ed82964a302f09931a159f24594ce11451a9a9621a7b364736f6c63430008090033",
+  "bytecodeSha1": "9506a6151b77cd7f5a13fca8fc4bab5833cdb61a",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.9+commit.e5eed63a"
+  },
+  "contractName": "BribesLogic",
+  "coverageMap": {
+    "branches": {
+      "2": {
+        "BribesLogic.sendBribe": {
+          "5": [
+            478,
+            489,
+            true
+          ],
+          "6": [
+            518,
+            543,
+            false
+          ],
+          "7": [
+            699,
+            736,
+            true
+          ]
+        }
+      },
+      "3": {},
+      "4": {}
+    },
+    "statements": {
+      "2": {
+        "BribesLogic.sendBribe": {
+          "0": [
+            470,
+            503
+          ],
+          "1": [
+            559,
+            584
+          ],
+          "2": [
+            690,
+            759
+          ],
+          "3": [
+            798,
+            868
+          ],
+          "4": [
+            878,
+            934
+          ]
+        }
+      },
+      "3": {},
+      "4": {}
+    }
+  },
+  "dependencies": [
+    "IBribeV2",
+    "IERC20"
+  ],
+  "deployedBytecode": "73000000000000000000000000000000000000000030146080604052600436106100355760003560e01c806313523a871461003a575b600080fd5b81801561004657600080fd5b5061005a6100553660046102ba565b61006c565b60405190815260200160405180910390f35b6040516370a0823160e01b815230600482015260009081906001600160a01b038816906370a082319060240160206040518083038186803b1580156100b057600080fd5b505afa1580156100c4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100e89190610311565b90506000811161012b5760405162461bcd60e51b81526020600482015260096024820152684e6f20746f6b656e7360b81b60448201526064015b60405180910390fd5b80851115610137578094505b6101448462093a8061032a565b42116101875760405162461bcd60e51b8152602060048201526012602482015271109c9a589948185b1c9958591e481cd95b9d60721b6044820152606401610122565b60405163df40696760e01b81526001600160a01b03878116600483015288811660248301526044820187905284169063df40696790606401602060405180830381600087803b1580156101d957600080fd5b505af11580156101ed573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102119190610350565b50604051632de24ac760e01b81526001600160a01b0387811660048301528881166024830152841690632de24ac79060440160206040518083038186803b15801561025b57600080fd5b505afa15801561026f573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102939190610311565b979650505050505050565b80356001600160a01b03811681146102b557600080fd5b919050565b600080600080600060a086880312156102d257600080fd5b6102db8661029e565b94506102e96020870161029e565b935060408601359250606086013591506103056080870161029e565b90509295509295909350565b60006020828403121561032357600080fd5b5051919050565b6000821982111561034b57634e487b7160e01b600052601160045260246000fd5b500190565b60006020828403121561036257600080fd5b8151801515811461037257600080fd5b939250505056fea264697066735822122068bdb0bc44715a31123ed82964a302f09931a159f24594ce11451a9a9621a7b364736f6c63430008090033",
+  "deployedSourceMap": "148:795:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;266:675;;;;;;;;;;-1:-1:-1;266:675:2;;;;;:::i;:::-;;:::i;:::-;;;823:25:5;;;811:2;796:18;266:675:2;;;;;;;;422:38;;-1:-1:-1;;;422:38:2;;454:4;422:38;;;1005:51:5;391:4:2;;;;-1:-1:-1;;;;;422:23:2;;;;;978:18:5;;422:38:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;407:53;;488:1;478:7;:11;470:33;;;;-1:-1:-1;;;470:33:2;;1458:2:5;470:33:2;;;1440:21:5;1497:1;1477:18;;;1470:29;-1:-1:-1;;;1515:18:5;;;1508:39;1564:18;;470:33:2;;;;;;;;;536:7;518:15;:25;514:81;;;577:7;559:25;;514:81;717:19;:10;730:6;717:19;:::i;:::-;699:15;:37;690:69;;;;-1:-1:-1;;;690:69:2;;2025:2:5;690:69:2;;;2007:21:5;2064:2;2044:18;;;2037:30;-1:-1:-1;;;2083:18:5;;;2076:48;2141:18;;690:69:2;1823:342:5;690:69:2;798:70;;-1:-1:-1;;;798:70:2;;-1:-1:-1;;;;;2428:15:5;;;798:70:2;;;2410:34:5;2480:15;;;2460:18;;;2453:43;2512:18;;;2505:34;;;798:39:2;;;;;2345:18:5;;798:70:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;885:49:2;;-1:-1:-1;;;885:49:2;;-1:-1:-1;;;;;3062:15:5;;;885:49:2;;;3044:34:5;3114:15;;;3094:18;;;3087:43;885:35:2;;;;;2979:18:5;;885:49:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;878:56;266:675;-1:-1:-1;;;;;;;266:675:2:o;14:173:5:-;82:20;;-1:-1:-1;;;;;131:31:5;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:472::-;287:6;295;303;311;319;372:3;360:9;351:7;347:23;343:33;340:53;;;389:1;386;379:12;340:53;412:29;431:9;412:29;:::i;:::-;402:39;;460:38;494:2;483:9;479:18;460:38;:::i;:::-;450:48;;545:2;534:9;530:18;517:32;507:42;;596:2;585:9;581:18;568:32;558:42;;619:39;653:3;642:9;638:19;619:39;:::i;:::-;609:49;;192:472;;;;;;;;:::o;1067:184::-;1137:6;1190:2;1178:9;1169:7;1165:23;1161:32;1158:52;;;1206:1;1203;1196:12;1158:52;-1:-1:-1;1229:16:5;;1067:184;-1:-1:-1;1067:184:5:o;1593:225::-;1633:3;1664:1;1660:6;1657:1;1654:13;1651:136;;;1709:10;1704:3;1700:20;1697:1;1690:31;1744:4;1741:1;1734:15;1772:4;1769:1;1762:15;1651:136;-1:-1:-1;1803:9:5;;1593:225::o;2550:277::-;2617:6;2670:2;2658:9;2649:7;2645:23;2641:32;2638:52;;;2686:1;2683;2676:12;2638:52;2718:9;2712:16;2771:5;2764:13;2757:21;2750:5;2747:32;2737:60;;2793:1;2790;2783:12;2737:60;2816:5;2550:277;-1:-1:-1;;;2550:277:5:o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {
+      "sendBribe(address,address,uint256,uint256,address)": {
+        "details": "sends the token incentives to curve gauge votes for the next vote cycle/period"
+      }
+    },
+    "version": 1
+  },
+  "offset": [
+    148,
+    943
+  ],
+  "opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x35 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x13523A87 EQ PUSH2 0x3A JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 DUP1 ISZERO PUSH2 0x46 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0x5A PUSH2 0x55 CALLDATASIZE PUSH1 0x4 PUSH2 0x2BA JUMP JUMPDEST PUSH2 0x6C JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x40 MLOAD PUSH4 0x70A08231 PUSH1 0xE0 SHL DUP2 MSTORE ADDRESS PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x0 SWAP1 DUP2 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP9 AND SWAP1 PUSH4 0x70A08231 SWAP1 PUSH1 0x24 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0xB0 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS STATICCALL ISZERO DUP1 ISZERO PUSH2 0xC4 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0xE8 SWAP2 SWAP1 PUSH2 0x311 JUMP JUMPDEST SWAP1 POP PUSH1 0x0 DUP2 GT PUSH2 0x12B JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x9 PUSH1 0x24 DUP3 ADD MSTORE PUSH9 0x4E6F20746F6B656E73 PUSH1 0xB8 SHL PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST DUP1 DUP6 GT ISZERO PUSH2 0x137 JUMPI DUP1 SWAP5 POP JUMPDEST PUSH2 0x144 DUP5 PUSH3 0x93A80 PUSH2 0x32A JUMP JUMPDEST TIMESTAMP GT PUSH2 0x187 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x12 PUSH1 0x24 DUP3 ADD MSTORE PUSH18 0x109C9A589948185B1C9958591E481CD95B9D PUSH1 0x72 SHL PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 ADD PUSH2 0x122 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH4 0xDF406967 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP8 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE DUP9 DUP2 AND PUSH1 0x24 DUP4 ADD MSTORE PUSH1 0x44 DUP3 ADD DUP8 SWAP1 MSTORE DUP5 AND SWAP1 PUSH4 0xDF406967 SWAP1 PUSH1 0x64 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1D9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1ED JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x211 SWAP2 SWAP1 PUSH2 0x350 JUMP JUMPDEST POP PUSH1 0x40 MLOAD PUSH4 0x2DE24AC7 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP8 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE DUP9 DUP2 AND PUSH1 0x24 DUP4 ADD MSTORE DUP5 AND SWAP1 PUSH4 0x2DE24AC7 SWAP1 PUSH1 0x44 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x25B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS STATICCALL ISZERO DUP1 ISZERO PUSH2 0x26F JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x293 SWAP2 SWAP1 PUSH2 0x311 JUMP JUMPDEST SWAP8 SWAP7 POP POP POP POP POP POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x2B5 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0xA0 DUP7 DUP9 SUB SLT ISZERO PUSH2 0x2D2 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x2DB DUP7 PUSH2 0x29E JUMP JUMPDEST SWAP5 POP PUSH2 0x2E9 PUSH1 0x20 DUP8 ADD PUSH2 0x29E JUMP JUMPDEST SWAP4 POP PUSH1 0x40 DUP7 ADD CALLDATALOAD SWAP3 POP PUSH1 0x60 DUP7 ADD CALLDATALOAD SWAP2 POP PUSH2 0x305 PUSH1 0x80 DUP8 ADD PUSH2 0x29E JUMP JUMPDEST SWAP1 POP SWAP3 SWAP6 POP SWAP3 SWAP6 SWAP1 SWAP4 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x323 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP MLOAD SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP3 NOT DUP3 GT ISZERO PUSH2 0x34B JUMPI PUSH4 0x4E487B71 PUSH1 0xE0 SHL PUSH1 0x0 MSTORE PUSH1 0x11 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH1 0x0 REVERT JUMPDEST POP ADD SWAP1 JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x362 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x372 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH9 0xBDB0BC44715A31123E 0xD8 0x29 PUSH5 0xA302F09931 LOG1 MSIZE CALLCODE GASLIMIT SWAP5 0xCE GT GASLIMIT BYTE SWAP11 SWAP7 0x21 0xA7 0xB3 PUSH5 0x736F6C6343 STOP ADDMOD MULMOD STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH20",
+      "path": "2",
+      "value": "0x0"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "ADDRESS",
+      "path": "2"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "23": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x80"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "27": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "30": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "LT",
+      "path": "2"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x35"
+    },
+    "35": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "36": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "CALLDATALOAD",
+      "path": "2"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0xE0"
+    },
+    "41": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "SHR",
+      "path": "2"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x13523A87"
+    },
+    "48": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x3A"
+    },
+    "52": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "56": {
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "57": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        148,
+        943
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "58": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "59": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "60": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "61": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "62": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x46"
+    },
+    "65": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "66": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "68": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "69": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "70": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "71": {
+      "op": "POP"
+    },
+    "72": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x5A"
+    },
+    "75": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x55"
+    },
+    "78": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "79": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "81": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x2BA"
+    },
+    "84": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "i",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "85": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "86": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x6C"
+    },
+    "89": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "i",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "90": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "91": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "93": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "94": {
+      "op": "SWAP1"
+    },
+    "95": {
+      "op": "DUP2"
+    },
+    "96": {
+      "op": "MSTORE"
+    },
+    "97": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "99": {
+      "op": "ADD"
+    },
+    "100": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "102": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "103": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "104": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "105": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "106": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "107": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "RETURN",
+      "path": "2"
+    },
+    "108": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "109": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "111": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "112": {
+      "op": "PUSH4",
+      "value": "0x70A08231"
+    },
+    "117": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "119": {
+      "op": "SHL"
+    },
+    "120": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "121": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "122": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        454,
+        458
+      ],
+      "op": "ADDRESS",
+      "path": "2"
+    },
+    "123": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "125": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "126": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "127": {
+      "op": "MSTORE"
+    },
+    "128": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        391,
+        395
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "130": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        391,
+        395
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "131": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        391,
+        395
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "132": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        391,
+        395
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "133": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "135": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "137": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "139": {
+      "op": "SHL"
+    },
+    "140": {
+      "op": "SUB"
+    },
+    "141": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        445
+      ],
+      "op": "DUP9",
+      "path": "2"
+    },
+    "142": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        445
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "143": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        445
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "144": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        445
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x70A08231"
+    },
+    "149": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        445
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "150": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "152": {
+      "op": "ADD"
+    },
+    "153": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "155": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "157": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "158": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "159": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "160": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "161": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "162": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP7",
+      "path": "2"
+    },
+    "163": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "164": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "EXTCODESIZE",
+      "path": "2"
+    },
+    "165": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "166": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "167": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "168": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xB0"
+    },
+    "171": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "172": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "174": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "175": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "176": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "177": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "178": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "GAS",
+      "path": "2"
+    },
+    "179": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "STATICCALL",
+      "path": "2"
+    },
+    "180": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "181": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "182": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "183": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xC4"
+    },
+    "186": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "187": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "188": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "190": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "191": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "2"
+    },
+    "192": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "193": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "195": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "196": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "197": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "198": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "199": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "200": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "201": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "203": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "204": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "205": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1F"
+    },
+    "207": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "NOT",
+      "path": "2"
+    },
+    "208": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1F"
+    },
+    "210": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "211": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "212": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "213": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "214": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "215": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "216": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "218": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "219": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "220": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "221": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "222": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "223": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xE8"
+    },
+    "226": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "227": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "228": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x311"
+    },
+    "231": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "i",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "232": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        422,
+        460
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "233": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        407,
+        460
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "234": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        407,
+        460
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "235": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        488,
+        489
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 0,
+      "value": "0x0"
+    },
+    "237": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        478,
+        485
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "238": {
+      "branch": 5,
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        478,
+        489
+      ],
+      "op": "GT",
+      "path": "2"
+    },
+    "239": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x12B"
+    },
+    "242": {
+      "branch": 5,
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "243": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "245": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "246": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "250": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "252": {
+      "op": "SHL"
+    },
+    "253": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "254": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "255": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "257": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "259": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "260": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "261": {
+      "op": "MSTORE"
+    },
+    "262": {
+      "op": "PUSH1",
+      "value": "0x9"
+    },
+    "264": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "266": {
+      "op": "DUP3"
+    },
+    "267": {
+      "op": "ADD"
+    },
+    "268": {
+      "op": "MSTORE"
+    },
+    "269": {
+      "op": "PUSH9",
+      "value": "0x4E6F20746F6B656E73"
+    },
+    "279": {
+      "op": "PUSH1",
+      "value": "0xB8"
+    },
+    "281": {
+      "op": "SHL"
+    },
+    "282": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "284": {
+      "op": "DUP3"
+    },
+    "285": {
+      "op": "ADD"
+    },
+    "286": {
+      "op": "MSTORE"
+    },
+    "287": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "289": {
+      "op": "ADD"
+    },
+    "290": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "291": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "293": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "294": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "295": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "296": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "297": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "298": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "REVERT",
+      "optimizer_revert": true,
+      "path": "2"
+    },
+    "299": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        470,
+        503
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "300": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        536,
+        543
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "301": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        518,
+        533
+      ],
+      "op": "DUP6",
+      "path": "2"
+    },
+    "302": {
+      "branch": 6,
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        518,
+        543
+      ],
+      "op": "GT",
+      "path": "2"
+    },
+    "303": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        514,
+        595
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "304": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        514,
+        595
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x137"
+    },
+    "307": {
+      "branch": 6,
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        514,
+        595
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "308": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        577,
+        584
+      ],
+      "op": "DUP1",
+      "path": "2",
+      "statement": 1
+    },
+    "309": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        559,
+        584
+      ],
+      "op": "SWAP5",
+      "path": "2"
+    },
+    "310": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        559,
+        584
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "311": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        514,
+        595
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "312": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        717,
+        736
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "statement": 2,
+      "value": "0x144"
+    },
+    "315": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        717,
+        727
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "316": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        730,
+        736
+      ],
+      "op": "PUSH3",
+      "path": "2",
+      "value": "0x93A80"
+    },
+    "320": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        717,
+        736
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x32A"
+    },
+    "323": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "i",
+      "offset": [
+        717,
+        736
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "324": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        717,
+        736
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "325": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        699,
+        714
+      ],
+      "op": "TIMESTAMP",
+      "path": "2"
+    },
+    "326": {
+      "branch": 7,
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        699,
+        736
+      ],
+      "op": "GT",
+      "path": "2"
+    },
+    "327": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x187"
+    },
+    "330": {
+      "branch": 7,
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "331": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "333": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "334": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "338": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "340": {
+      "op": "SHL"
+    },
+    "341": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "342": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "343": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "345": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "347": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "348": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "349": {
+      "op": "MSTORE"
+    },
+    "350": {
+      "op": "PUSH1",
+      "value": "0x12"
+    },
+    "352": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "354": {
+      "op": "DUP3"
+    },
+    "355": {
+      "op": "ADD"
+    },
+    "356": {
+      "op": "MSTORE"
+    },
+    "357": {
+      "op": "PUSH18",
+      "value": "0x109C9A589948185B1C9958591E481CD95B9D"
+    },
+    "376": {
+      "op": "PUSH1",
+      "value": "0x72"
+    },
+    "378": {
+      "op": "SHL"
+    },
+    "379": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "381": {
+      "op": "DUP3"
+    },
+    "382": {
+      "op": "ADD"
+    },
+    "383": {
+      "op": "MSTORE"
+    },
+    "384": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "386": {
+      "op": "ADD"
+    },
+    "387": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x122"
+    },
+    "390": {
+      "op": "JUMP"
+    },
+    "391": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        690,
+        759
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "392": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 3,
+      "value": "0x40"
+    },
+    "394": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "395": {
+      "op": "PUSH4",
+      "value": "0xDF406967"
+    },
+    "400": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "402": {
+      "op": "SHL"
+    },
+    "403": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "404": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "405": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "407": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "409": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "411": {
+      "op": "SHL"
+    },
+    "412": {
+      "op": "SUB"
+    },
+    "413": {
+      "op": "DUP8"
+    },
+    "414": {
+      "op": "DUP2"
+    },
+    "415": {
+      "op": "AND"
+    },
+    "416": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "418": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "419": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "420": {
+      "op": "MSTORE"
+    },
+    "421": {
+      "op": "DUP9"
+    },
+    "422": {
+      "op": "DUP2"
+    },
+    "423": {
+      "op": "AND"
+    },
+    "424": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "426": {
+      "op": "DUP4"
+    },
+    "427": {
+      "op": "ADD"
+    },
+    "428": {
+      "op": "MSTORE"
+    },
+    "429": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "431": {
+      "op": "DUP3"
+    },
+    "432": {
+      "op": "ADD"
+    },
+    "433": {
+      "op": "DUP8"
+    },
+    "434": {
+      "op": "SWAP1"
+    },
+    "435": {
+      "op": "MSTORE"
+    },
+    "436": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        837
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "437": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        837
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "438": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        837
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "439": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        837
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xDF406967"
+    },
+    "444": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        837
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "445": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "447": {
+      "op": "ADD"
+    },
+    "448": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "450": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "452": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "453": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "454": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "455": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "456": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "457": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "459": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP8",
+      "path": "2"
+    },
+    "460": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "461": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "EXTCODESIZE",
+      "path": "2"
+    },
+    "462": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "463": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "464": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "465": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1D9"
+    },
+    "468": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "469": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "471": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "472": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "473": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "474": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "475": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "GAS",
+      "path": "2"
+    },
+    "476": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "CALL",
+      "path": "2"
+    },
+    "477": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "478": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "479": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "480": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1ED"
+    },
+    "483": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "484": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "485": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "487": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "488": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "2"
+    },
+    "489": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "490": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "492": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "493": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "494": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "495": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "496": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "497": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "498": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "500": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "501": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "502": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1F"
+    },
+    "504": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "NOT",
+      "path": "2"
+    },
+    "505": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1F"
+    },
+    "507": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "508": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "509": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "510": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "511": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "512": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "513": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "515": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "516": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "517": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "518": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "519": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "520": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x211"
+    },
+    "523": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "524": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "525": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x350"
+    },
+    "528": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "i",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "529": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        798,
+        868
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "530": {
+      "op": "POP"
+    },
+    "531": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 4,
+      "value": "0x40"
+    },
+    "533": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "534": {
+      "op": "PUSH4",
+      "value": "0x2DE24AC7"
+    },
+    "539": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "541": {
+      "op": "SHL"
+    },
+    "542": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "543": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "544": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "546": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "548": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "550": {
+      "op": "SHL"
+    },
+    "551": {
+      "op": "SUB"
+    },
+    "552": {
+      "op": "DUP8"
+    },
+    "553": {
+      "op": "DUP2"
+    },
+    "554": {
+      "op": "AND"
+    },
+    "555": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "557": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "558": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "559": {
+      "op": "MSTORE"
+    },
+    "560": {
+      "op": "DUP9"
+    },
+    "561": {
+      "op": "DUP2"
+    },
+    "562": {
+      "op": "AND"
+    },
+    "563": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "565": {
+      "op": "DUP4"
+    },
+    "566": {
+      "op": "ADD"
+    },
+    "567": {
+      "op": "MSTORE"
+    },
+    "568": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        920
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "569": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        920
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "570": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        920
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "571": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        920
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x2DE24AC7"
+    },
+    "576": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        920
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "577": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "579": {
+      "op": "ADD"
+    },
+    "580": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "582": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "584": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "585": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "586": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "587": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "588": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "589": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP7",
+      "path": "2"
+    },
+    "590": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "591": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "EXTCODESIZE",
+      "path": "2"
+    },
+    "592": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "593": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "594": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "595": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x25B"
+    },
+    "598": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "599": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "601": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "602": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "603": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "604": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "605": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "GAS",
+      "path": "2"
+    },
+    "606": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "STATICCALL",
+      "path": "2"
+    },
+    "607": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "608": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "609": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "610": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x26F"
+    },
+    "613": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "614": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "615": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "617": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "618": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "2"
+    },
+    "619": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "620": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "622": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "623": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "624": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "625": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "626": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "627": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "628": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "630": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "631": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "632": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1F"
+    },
+    "634": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "NOT",
+      "path": "2"
+    },
+    "635": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1F"
+    },
+    "637": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "638": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "639": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "640": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "641": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "642": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "643": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "645": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "646": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "647": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "648": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "649": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "650": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x293"
+    },
+    "653": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "654": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "655": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x311"
+    },
+    "658": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "i",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "659": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        885,
+        934
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "660": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        878,
+        934
+      ],
+      "op": "SWAP8",
+      "path": "2"
+    },
+    "661": {
+      "fn": "BribesLogic.sendBribe",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "SWAP7",
+      "path": "2"
+    },
+    "662": {
+      "op": "POP"
+    },
+    "663": {
+      "op": "POP"
+    },
+    "664": {
+      "op": "POP"
+    },
+    "665": {
+      "op": "POP"
+    },
+    "666": {
+      "op": "POP"
+    },
+    "667": {
+      "op": "POP"
+    },
+    "668": {
+      "op": "POP"
+    },
+    "669": {
+      "fn": "BribesLogic.sendBribe",
+      "jump": "o",
+      "offset": [
+        266,
+        941
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "670": {
+      "op": "JUMPDEST"
+    },
+    "671": {
+      "op": "DUP1"
+    },
+    "672": {
+      "op": "CALLDATALOAD"
+    },
+    "673": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "675": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "677": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "679": {
+      "op": "SHL"
+    },
+    "680": {
+      "op": "SUB"
+    },
+    "681": {
+      "op": "DUP2"
+    },
+    "682": {
+      "op": "AND"
+    },
+    "683": {
+      "op": "DUP2"
+    },
+    "684": {
+      "op": "EQ"
+    },
+    "685": {
+      "op": "PUSH2",
+      "value": "0x2B5"
+    },
+    "688": {
+      "op": "JUMPI"
+    },
+    "689": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "691": {
+      "op": "DUP1"
+    },
+    "692": {
+      "op": "REVERT"
+    },
+    "693": {
+      "op": "JUMPDEST"
+    },
+    "694": {
+      "op": "SWAP2"
+    },
+    "695": {
+      "op": "SWAP1"
+    },
+    "696": {
+      "op": "POP"
+    },
+    "697": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "698": {
+      "op": "JUMPDEST"
+    },
+    "699": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "701": {
+      "op": "DUP1"
+    },
+    "702": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "704": {
+      "op": "DUP1"
+    },
+    "705": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "707": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "709": {
+      "op": "DUP7"
+    },
+    "710": {
+      "op": "DUP9"
+    },
+    "711": {
+      "op": "SUB"
+    },
+    "712": {
+      "op": "SLT"
+    },
+    "713": {
+      "op": "ISZERO"
+    },
+    "714": {
+      "op": "PUSH2",
+      "value": "0x2D2"
+    },
+    "717": {
+      "op": "JUMPI"
+    },
+    "718": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "720": {
+      "op": "DUP1"
+    },
+    "721": {
+      "op": "REVERT"
+    },
+    "722": {
+      "op": "JUMPDEST"
+    },
+    "723": {
+      "op": "PUSH2",
+      "value": "0x2DB"
+    },
+    "726": {
+      "op": "DUP7"
+    },
+    "727": {
+      "op": "PUSH2",
+      "value": "0x29E"
+    },
+    "730": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "731": {
+      "op": "JUMPDEST"
+    },
+    "732": {
+      "op": "SWAP5"
+    },
+    "733": {
+      "op": "POP"
+    },
+    "734": {
+      "op": "PUSH2",
+      "value": "0x2E9"
+    },
+    "737": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "739": {
+      "op": "DUP8"
+    },
+    "740": {
+      "op": "ADD"
+    },
+    "741": {
+      "op": "PUSH2",
+      "value": "0x29E"
+    },
+    "744": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "745": {
+      "op": "JUMPDEST"
+    },
+    "746": {
+      "op": "SWAP4"
+    },
+    "747": {
+      "op": "POP"
+    },
+    "748": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "750": {
+      "op": "DUP7"
+    },
+    "751": {
+      "op": "ADD"
+    },
+    "752": {
+      "op": "CALLDATALOAD"
+    },
+    "753": {
+      "op": "SWAP3"
+    },
+    "754": {
+      "op": "POP"
+    },
+    "755": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "757": {
+      "op": "DUP7"
+    },
+    "758": {
+      "op": "ADD"
+    },
+    "759": {
+      "op": "CALLDATALOAD"
+    },
+    "760": {
+      "op": "SWAP2"
+    },
+    "761": {
+      "op": "POP"
+    },
+    "762": {
+      "op": "PUSH2",
+      "value": "0x305"
+    },
+    "765": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "767": {
+      "op": "DUP8"
+    },
+    "768": {
+      "op": "ADD"
+    },
+    "769": {
+      "op": "PUSH2",
+      "value": "0x29E"
+    },
+    "772": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "773": {
+      "op": "JUMPDEST"
+    },
+    "774": {
+      "op": "SWAP1"
+    },
+    "775": {
+      "op": "POP"
+    },
+    "776": {
+      "op": "SWAP3"
+    },
+    "777": {
+      "op": "SWAP6"
+    },
+    "778": {
+      "op": "POP"
+    },
+    "779": {
+      "op": "SWAP3"
+    },
+    "780": {
+      "op": "SWAP6"
+    },
+    "781": {
+      "op": "SWAP1"
+    },
+    "782": {
+      "op": "SWAP4"
+    },
+    "783": {
+      "op": "POP"
+    },
+    "784": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "785": {
+      "op": "JUMPDEST"
+    },
+    "786": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "788": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "790": {
+      "op": "DUP3"
+    },
+    "791": {
+      "op": "DUP5"
+    },
+    "792": {
+      "op": "SUB"
+    },
+    "793": {
+      "op": "SLT"
+    },
+    "794": {
+      "op": "ISZERO"
+    },
+    "795": {
+      "op": "PUSH2",
+      "value": "0x323"
+    },
+    "798": {
+      "op": "JUMPI"
+    },
+    "799": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "801": {
+      "op": "DUP1"
+    },
+    "802": {
+      "op": "REVERT"
+    },
+    "803": {
+      "op": "JUMPDEST"
+    },
+    "804": {
+      "op": "POP"
+    },
+    "805": {
+      "op": "MLOAD"
+    },
+    "806": {
+      "op": "SWAP2"
+    },
+    "807": {
+      "op": "SWAP1"
+    },
+    "808": {
+      "op": "POP"
+    },
+    "809": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "810": {
+      "op": "JUMPDEST"
+    },
+    "811": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "813": {
+      "op": "DUP3"
+    },
+    "814": {
+      "op": "NOT"
+    },
+    "815": {
+      "op": "DUP3"
+    },
+    "816": {
+      "op": "GT"
+    },
+    "817": {
+      "op": "ISZERO"
+    },
+    "818": {
+      "op": "PUSH2",
+      "value": "0x34B"
+    },
+    "821": {
+      "op": "JUMPI"
+    },
+    "822": {
+      "op": "PUSH4",
+      "value": "0x4E487B71"
+    },
+    "827": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "829": {
+      "op": "SHL"
+    },
+    "830": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "832": {
+      "op": "MSTORE"
+    },
+    "833": {
+      "op": "PUSH1",
+      "value": "0x11"
+    },
+    "835": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "837": {
+      "op": "MSTORE"
+    },
+    "838": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "840": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "842": {
+      "op": "REVERT"
+    },
+    "843": {
+      "op": "JUMPDEST"
+    },
+    "844": {
+      "op": "POP"
+    },
+    "845": {
+      "op": "ADD"
+    },
+    "846": {
+      "op": "SWAP1"
+    },
+    "847": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "848": {
+      "op": "JUMPDEST"
+    },
+    "849": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "851": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "853": {
+      "op": "DUP3"
+    },
+    "854": {
+      "op": "DUP5"
+    },
+    "855": {
+      "op": "SUB"
+    },
+    "856": {
+      "op": "SLT"
+    },
+    "857": {
+      "op": "ISZERO"
+    },
+    "858": {
+      "op": "PUSH2",
+      "value": "0x362"
+    },
+    "861": {
+      "op": "JUMPI"
+    },
+    "862": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "864": {
+      "op": "DUP1"
+    },
+    "865": {
+      "op": "REVERT"
+    },
+    "866": {
+      "op": "JUMPDEST"
+    },
+    "867": {
+      "op": "DUP2"
+    },
+    "868": {
+      "op": "MLOAD"
+    },
+    "869": {
+      "op": "DUP1"
+    },
+    "870": {
+      "op": "ISZERO"
+    },
+    "871": {
+      "op": "ISZERO"
+    },
+    "872": {
+      "op": "DUP2"
+    },
+    "873": {
+      "op": "EQ"
+    },
+    "874": {
+      "op": "PUSH2",
+      "value": "0x372"
+    },
+    "877": {
+      "op": "JUMPI"
+    },
+    "878": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "880": {
+      "op": "DUP1"
+    },
+    "881": {
+      "op": "REVERT"
+    },
+    "882": {
+      "op": "JUMPDEST"
+    },
+    "883": {
+      "op": "SWAP4"
+    },
+    "884": {
+      "op": "SWAP3"
+    },
+    "885": {
+      "op": "POP"
+    },
+    "886": {
+      "op": "POP"
+    },
+    "887": {
+      "op": "POP"
+    },
+    "888": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "d50e6afd6f6b17195f8648fe357b8c05c7782ddc",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"../../interfaces/curve/IBribeV2.sol\";\nimport \"../../interfaces/token/IERC20.sol\";\n\nlibrary BribesLogic {\n    /// @dev sends the token incentives to curve gauge votes for the next vote cycle/period\n    function sendBribe(address TOKEN, address GAUGE, uint TOKENS_PER_VOTE, uint lastPeriod, address CURVE_BRIBE) public returns (uint) {\n        uint balance = IERC20(TOKEN).balanceOf(address(this));\n        require(balance > 0, \"No tokens\");\n\n        if (TOKENS_PER_VOTE > balance) {\n            TOKENS_PER_VOTE = balance;\n        }\n\n        // this makes sure that the token incentives can be sent only once per vote \n        require (block.timestamp > lastPeriod + 604800, \"Bribe already sent\"); // 604800 seconds in 1 week\n\n        IBribeV2(CURVE_BRIBE).add_reward_amount(GAUGE, TOKEN, TOKENS_PER_VOTE);\n        return IBribeV2(CURVE_BRIBE).active_period(GAUGE, TOKEN);\n    }\n}",
+  "sourceMap": "148:795:2:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;148:795:2;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/library/BribesLogic.sol",
+  "type": "library"
+}

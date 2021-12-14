@@ -1,0 +1,2243 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "bribesManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "gauge",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokens_per_vote",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewManager",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "gauge",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokens_per_vote",
+          "type": "uint256"
+        }
+      ],
+      "name": "deployManager",
+      "outputs": [
+        {
+          "internalType": "contract BribesManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "0": "contracts/BribesFactory.sol",
+    "1": "contracts/BribesManager.sol",
+    "2": "contracts/library/BribesLogic.sol",
+    "3": "interfaces/curve/IBribeV2.sol",
+    "4": "interfaces/token/IERC20.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/BribesFactory.sol",
+    "exportedSymbols": {
+      "BribesFactory": [
+        49
+      ],
+      "BribesLogic": [
+        188
+      ],
+      "BribesManager": [
+        111
+      ],
+      "IBribeV2": [
+        296
+      ],
+      "IERC20": [
+        273
+      ]
+    },
+    "id": 50,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:0"
+      },
+      {
+        "absolutePath": "contracts/BribesManager.sol",
+        "file": "./BribesManager.sol",
+        "id": 2,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 50,
+        "sourceUnit": 112,
+        "src": "57:29:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "BribesFactory",
+        "contractDependencies": [
+          111
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 49,
+        "linearizedBaseContracts": [
+          49
+        ],
+        "name": "BribesFactory",
+        "nameLocation": "97:13:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "id": 12,
+            "name": "NewManager",
+            "nameLocation": "128:10:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "bribesManager",
+                  "nameLocation": "147:13:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12,
+                  "src": "139:21:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "139:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "170:5:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12,
+                  "src": "162:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "162:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "gauge",
+                  "nameLocation": "185:5:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12,
+                  "src": "177:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "177:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokens_per_vote",
+                  "nameLocation": "197:15:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12,
+                  "src": "192:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "192:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "138:75:0"
+            },
+            "src": "122:92:0"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "326:170:0",
+              "statements": [
+                {
+                  "assignments": [
+                    26
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 26,
+                      "mutability": "mutable",
+                      "name": "b",
+                      "nameLocation": "350:1:0",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 47,
+                      "src": "336:15:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BribesManager_$111",
+                        "typeString": "contract BribesManager"
+                      },
+                      "typeName": {
+                        "id": 25,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 24,
+                          "name": "BribesManager",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 111,
+                          "src": "336:13:0"
+                        },
+                        "referencedDeclaration": 111,
+                        "src": "336:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_BribesManager_$111",
+                          "typeString": "contract BribesManager"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 34,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 30,
+                        "name": "token",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "372:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 31,
+                        "name": "gauge",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16,
+                        "src": "379:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 32,
+                        "name": "tokens_per_vote",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 18,
+                        "src": "386:15:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 29,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "354:17:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_contract$_BribesManager_$111_$",
+                        "typeString": "function (address,address,uint256) returns (contract BribesManager)"
+                      },
+                      "typeName": {
+                        "id": 28,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 27,
+                          "name": "BribesManager",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 111,
+                          "src": "358:13:0"
+                        },
+                        "referencedDeclaration": 111,
+                        "src": "358:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_BribesManager_$111",
+                          "typeString": "contract BribesManager"
+                        }
+                      }
+                    },
+                    "id": 33,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "354:48:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BribesManager_$111",
+                      "typeString": "contract BribesManager"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "336:66:0"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 38,
+                            "name": "b",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 26,
+                            "src": "437:1:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_BribesManager_$111",
+                              "typeString": "contract BribesManager"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_BribesManager_$111",
+                              "typeString": "contract BribesManager"
+                            }
+                          ],
+                          "id": 37,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "429:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 36,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "429:7:0",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 39,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "429:10:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 40,
+                        "name": "token",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "441:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 41,
+                        "name": "gauge",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16,
+                        "src": "448:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 42,
+                        "name": "tokens_per_vote",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 18,
+                        "src": "455:15:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 35,
+                      "name": "NewManager",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "418:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,address,uint256)"
+                      }
+                    },
+                    "id": 43,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "418:53:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 44,
+                  "nodeType": "EmitStatement",
+                  "src": "413:58:0"
+                },
+                {
+                  "expression": {
+                    "id": 45,
+                    "name": "b",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 26,
+                    "src": "488:1:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BribesManager_$111",
+                      "typeString": "contract BribesManager"
+                    }
+                  },
+                  "functionReturnParameters": 23,
+                  "id": 46,
+                  "nodeType": "Return",
+                  "src": "481:8:0"
+                }
+              ]
+            },
+            "functionSelector": "1e3c8532",
+            "id": 48,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deployManager",
+            "nameLocation": "229:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 19,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "251:5:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "243:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "243:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16,
+                  "mutability": "mutable",
+                  "name": "gauge",
+                  "nameLocation": "266:5:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "258:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "258:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 18,
+                  "mutability": "mutable",
+                  "name": "tokens_per_vote",
+                  "nameLocation": "278:15:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "273:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 17,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "273:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "242:52:0"
+            },
+            "returnParameters": {
+              "id": 23,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 22,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "311:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_BribesManager_$111",
+                    "typeString": "contract BribesManager"
+                  },
+                  "typeName": {
+                    "id": 21,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 20,
+                      "name": "BribesManager",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 111,
+                      "src": "311:13:0"
+                    },
+                    "referencedDeclaration": 111,
+                    "src": "311:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BribesManager_$111",
+                      "typeString": "contract BribesManager"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "310:15:0"
+            },
+            "scope": 49,
+            "src": "220:276:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 50,
+        "src": "88:410:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:466:0"
+  },
+  "bytecode": "608060405234801561001057600080fd5b50610614806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80631e3c853214610030575b600080fd5b61004361003e366004610133565b61005f565b6040516001600160a01b03909116815260200160405180910390f35b6000808484846040516100719061010a565b6001600160a01b0393841681529290911660208301526040820152606001604051809103906000f0801580156100ab573d6000803e3d6000fd5b50604080516001600160a01b03838116825288811660208301528716818301526060810186905290519192507fccf071d7f4f2346e8a8c8c31363efc2a0f777a4a09853c55b28a798bc3df3fd1919081900360800190a1949350505050565b61046f8061017083390190565b80356001600160a01b038116811461012e57600080fd5b919050565b60008060006060848603121561014857600080fd5b61015184610117565b925061015f60208501610117565b915060408401359050925092509256fe60e060405234801561001057600080fd5b5060405161046f38038061046f83398101604081905261002f91610066565b6001600160a01b03928316608052911660a05260c0526100a2565b80516001600160a01b038116811461006157600080fd5b919050565b60008060006060848603121561007b57600080fd5b6100848461004a565b92506100926020850161004a565b9150604084015190509250925092565b60805160a05160c05161037e6100f160003960008181606101528181610138015261024c015260008181609b015261022501526000818160e40152818161015e01526101fd015261037e6000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063752a09201461005c5780637651b1e6146100965780637f2dced7146100d557806382bfefc8146100df578063d340ef8a14610106575b600080fd5b6100837f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008d565b6100dd61010f565b005b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b61008360005481565b60405163095ea7b360e01b8152737893bbb46613d7a4fbcc31dab4c9b823ffee102660048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101aa57600080fd5b505af11580156101be573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101e29190610306565b506000546040516313523a8760e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811660048301527f00000000000000000000000000000000000000000000000000000000000000001660248201527f000000000000000000000000000000000000000000000000000000000000000060448201526064810191909152737893bbb46613d7a4fbcc31dab4c9b823ffee1026608482015273__BribesLogic___________________________906313523a879060a40160206040518083038186803b1580156102c957600080fd5b505af41580156102dd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610301919061032f565b600055565b60006020828403121561031857600080fd5b8151801515811461032857600080fd5b9392505050565b60006020828403121561034157600080fd5b505191905056fea26469706673582212208da73f073cf09d37903b805e9133cc16ca0935f9388b2a927bd76f8331d75ce664736f6c63430008090033a26469706673582212207b010660a4edf3dcd4894c980560e45dc5bd1dbce6f35c0648afb46b8ae59eb764736f6c63430008090033",
+  "bytecodeSha1": "dbe8049524264d952d64826d39b23f1c35764af7",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.9+commit.e5eed63a"
+  },
+  "contractName": "BribesFactory",
+  "coverageMap": {
+    "branches": {
+      "0": {},
+      "1": {},
+      "2": {},
+      "3": {},
+      "4": {}
+    },
+    "statements": {
+      "0": {
+        "BribesFactory.deployManager": {
+          "0": [
+            413,
+            471
+          ],
+          "1": [
+            481,
+            489
+          ]
+        }
+      },
+      "1": {},
+      "2": {},
+      "3": {},
+      "4": {}
+    }
+  },
+  "dependencies": [
+    "BribesLogic",
+    "BribesManager",
+    "IBribeV2",
+    "IERC20"
+  ],
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061002b5760003560e01c80631e3c853214610030575b600080fd5b61004361003e366004610133565b61005f565b6040516001600160a01b03909116815260200160405180910390f35b6000808484846040516100719061010a565b6001600160a01b0393841681529290911660208301526040820152606001604051809103906000f0801580156100ab573d6000803e3d6000fd5b50604080516001600160a01b03838116825288811660208301528716818301526060810186905290519192507fccf071d7f4f2346e8a8c8c31363efc2a0f777a4a09853c55b28a798bc3df3fd1919081900360800190a1949350505050565b61046f8061017083390190565b80356001600160a01b038116811461012e57600080fd5b919050565b60008060006060848603121561014857600080fd5b61015184610117565b925061015f60208501610117565b915060408401359050925092509256fe60e060405234801561001057600080fd5b5060405161046f38038061046f83398101604081905261002f91610066565b6001600160a01b03928316608052911660a05260c0526100a2565b80516001600160a01b038116811461006157600080fd5b919050565b60008060006060848603121561007b57600080fd5b6100848461004a565b92506100926020850161004a565b9150604084015190509250925092565b60805160a05160c05161037e6100f160003960008181606101528181610138015261024c015260008181609b015261022501526000818160e40152818161015e01526101fd015261037e6000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063752a09201461005c5780637651b1e6146100965780637f2dced7146100d557806382bfefc8146100df578063d340ef8a14610106575b600080fd5b6100837f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008d565b6100dd61010f565b005b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b61008360005481565b60405163095ea7b360e01b8152737893bbb46613d7a4fbcc31dab4c9b823ffee102660048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101aa57600080fd5b505af11580156101be573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101e29190610306565b506000546040516313523a8760e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811660048301527f00000000000000000000000000000000000000000000000000000000000000001660248201527f000000000000000000000000000000000000000000000000000000000000000060448201526064810191909152737893bbb46613d7a4fbcc31dab4c9b823ffee1026608482015273__$8d3e982442eab610d721b37768c40888b9$__906313523a879060a40160206040518083038186803b1580156102c957600080fd5b505af41580156102dd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610301919061032f565b600055565b60006020828403121561031857600080fd5b8151801515811461032857600080fd5b9392505050565b60006020828403121561034157600080fd5b505191905056fea26469706673582212208da73f073cf09d37903b805e9133cc16ca0935f9388b2a927bd76f8331d75ce664736f6c63430008090033a26469706673582212207b010660a4edf3dcd4894c980560e45dc5bd1dbce6f35c0648afb46b8ae59eb764736f6c63430008090033",
+  "deployedSourceMap": "88:410:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;220:276;;;;;;:::i;:::-;;:::i;:::-;;;-1:-1:-1;;;;;710:32:5;;;692:51;;680:2;665:18;220:276:0;;;;;;;;311:13;336:15;372:5;379;386:15;354:48;;;;;:::i;:::-;-1:-1:-1;;;;;1012:15:5;;;994:34;;1064:15;;;;1059:2;1044:18;;1037:43;1111:2;1096:18;;1089:34;944:2;929:18;354:48:0;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;418:53:0;;;-1:-1:-1;;;;;1421:15:5;;;1403:34;;1473:15;;;1468:2;1453:18;;1446:43;1525:15;;1505:18;;;1498:43;1572:2;1557:18;;1550:34;;;418:53:0;;1421:15:5;;-1:-1:-1;418:53:0;;;;;;1352:3:5;418:53:0;;;488:1;220:276;-1:-1:-1;;;;220:276:0:o;-1:-1:-1:-;;;;;;;;:::o;14:173:5:-;82:20;;-1:-1:-1;;;;;131:31:5;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:328::-;269:6;277;285;338:2;326:9;317:7;313:23;309:32;306:52;;;354:1;351;344:12;306:52;377:29;396:9;377:29;:::i;:::-;367:39;;425:38;459:2;448:9;444:18;425:38;:::i;:::-;415:48;;510:2;499:9;495:18;482:32;472:42;;192:328;;;;;:::o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    88,
+    498
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x2B JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x1E3C8532 EQ PUSH2 0x30 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x43 PUSH2 0x3E CALLDATASIZE PUSH1 0x4 PUSH2 0x133 JUMP JUMPDEST PUSH2 0x5F JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x0 DUP1 DUP5 DUP5 DUP5 PUSH1 0x40 MLOAD PUSH2 0x71 SWAP1 PUSH2 0x10A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP4 DUP5 AND DUP2 MSTORE SWAP3 SWAP1 SWAP2 AND PUSH1 0x20 DUP4 ADD MSTORE PUSH1 0x40 DUP3 ADD MSTORE PUSH1 0x60 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 PUSH1 0x0 CREATE DUP1 ISZERO DUP1 ISZERO PUSH2 0xAB JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 DUP2 AND DUP3 MSTORE DUP9 DUP2 AND PUSH1 0x20 DUP4 ADD MSTORE DUP8 AND DUP2 DUP4 ADD MSTORE PUSH1 0x60 DUP2 ADD DUP7 SWAP1 MSTORE SWAP1 MLOAD SWAP2 SWAP3 POP PUSH32 0xCCF071D7F4F2346E8A8C8C31363EFC2A0F777A4A09853C55B28A798BC3DF3FD1 SWAP2 SWAP1 DUP2 SWAP1 SUB PUSH1 0x80 ADD SWAP1 LOG1 SWAP5 SWAP4 POP POP POP POP JUMP JUMPDEST PUSH2 0x46F DUP1 PUSH2 0x170 DUP4 CODECOPY ADD SWAP1 JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x12E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x148 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x151 DUP5 PUSH2 0x117 JUMP JUMPDEST SWAP3 POP PUSH2 0x15F PUSH1 0x20 DUP6 ADD PUSH2 0x117 JUMP JUMPDEST SWAP2 POP PUSH1 0x40 DUP5 ADD CALLDATALOAD SWAP1 POP SWAP3 POP SWAP3 POP SWAP3 JUMP INVALID PUSH1 0xE0 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x40 MLOAD PUSH2 0x46F CODESIZE SUB DUP1 PUSH2 0x46F DUP4 CODECOPY DUP2 ADD PUSH1 0x40 DUP2 SWAP1 MSTORE PUSH2 0x2F SWAP2 PUSH2 0x66 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP3 DUP4 AND PUSH1 0x80 MSTORE SWAP2 AND PUSH1 0xA0 MSTORE PUSH1 0xC0 MSTORE PUSH2 0xA2 JUMP JUMPDEST DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x61 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x7B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x84 DUP5 PUSH2 0x4A JUMP JUMPDEST SWAP3 POP PUSH2 0x92 PUSH1 0x20 DUP6 ADD PUSH2 0x4A JUMP JUMPDEST SWAP2 POP PUSH1 0x40 DUP5 ADD MLOAD SWAP1 POP SWAP3 POP SWAP3 POP SWAP3 JUMP JUMPDEST PUSH1 0x80 MLOAD PUSH1 0xA0 MLOAD PUSH1 0xC0 MLOAD PUSH2 0x37E PUSH2 0xF1 PUSH1 0x0 CODECOPY PUSH1 0x0 DUP2 DUP2 PUSH1 0x61 ADD MSTORE DUP2 DUP2 PUSH2 0x138 ADD MSTORE PUSH2 0x24C ADD MSTORE PUSH1 0x0 DUP2 DUP2 PUSH1 0x9B ADD MSTORE PUSH2 0x225 ADD MSTORE PUSH1 0x0 DUP2 DUP2 PUSH1 0xE4 ADD MSTORE DUP2 DUP2 PUSH2 0x15E ADD MSTORE PUSH2 0x1FD ADD MSTORE PUSH2 0x37E PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x752A0920 EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x7651B1E6 EQ PUSH2 0x96 JUMPI DUP1 PUSH4 0x7F2DCED7 EQ PUSH2 0xD5 JUMPI DUP1 PUSH4 0x82BFEFC8 EQ PUSH2 0xDF JUMPI DUP1 PUSH4 0xD340EF8A EQ PUSH2 0x106 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x83 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xBD PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x8D JUMP JUMPDEST PUSH2 0xDD PUSH2 0x10F JUMP JUMPDEST STOP JUMPDEST PUSH2 0xBD PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH2 0x83 PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH4 0x95EA7B3 PUSH1 0xE0 SHL DUP2 MSTORE PUSH20 0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026 PUSH1 0x4 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 PUSH4 0x95EA7B3 SWAP1 PUSH1 0x44 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1AA JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1BE JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x1E2 SWAP2 SWAP1 PUSH2 0x306 JUMP JUMPDEST POP PUSH1 0x0 SLOAD PUSH1 0x40 MLOAD PUSH4 0x13523A87 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB PUSH32 0x0 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE PUSH32 0x0 AND PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH20 0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026 PUSH1 0x84 DUP3 ADD MSTORE PUSH20 0x0 SWAP1 PUSH4 0x13523A87 SWAP1 PUSH1 0xA4 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x2C9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS DELEGATECALL ISZERO DUP1 ISZERO PUSH2 0x2DD JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x301 SWAP2 SWAP1 PUSH2 0x32F JUMP JUMPDEST PUSH1 0x0 SSTORE JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x318 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x328 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x341 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP MLOAD SWAP2 SWAP1 POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 DUP14 0xA7 EXTCODEHASH SMOD EXTCODECOPY CREATE SWAP14 CALLDATACOPY SWAP1 EXTCODESIZE DUP1 0x5E SWAP2 CALLER 0xCC AND 0xCA MULMOD CALLDATALOAD 0xF9 CODESIZE DUP12 0x2A SWAP3 PUSH28 0xD76F8331D75CE664736F6C63430008090033A2646970667358221220 PUSH28 0x10660A4EDF3DCD4894C980560E45DC5BD1DBCE6F35C0648AFB46B8A 0xE5 SWAP15 0xB7 PUSH5 0x736F6C6343 STOP ADDMOD MULMOD STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "CALLVALUE",
+      "path": "0"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x10"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "14": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "REVERT",
+      "path": "0"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "CALLDATASIZE",
+      "path": "0"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "LT",
+      "path": "0"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x2B"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "CALLDATALOAD",
+      "path": "0"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "SHR",
+      "path": "0"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH4",
+      "path": "0",
+      "value": "0x1E3C8532"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "EQ",
+      "path": "0"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x30"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "46": {
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "47": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        88,
+        498
+      ],
+      "op": "REVERT",
+      "path": "0"
+    },
+    "48": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "49": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x43"
+    },
+    "52": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x3E"
+    },
+    "55": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "CALLDATASIZE",
+      "path": "0"
+    },
+    "56": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x4"
+    },
+    "58": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x133"
+    },
+    "61": {
+      "fn": "BribesFactory.deployManager",
+      "jump": "i",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMP",
+      "path": "0"
+    },
+    "62": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "63": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x5F"
+    },
+    "66": {
+      "fn": "BribesFactory.deployManager",
+      "jump": "i",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMP",
+      "path": "0"
+    },
+    "67": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "68": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "70": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "71": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "73": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "75": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "77": {
+      "op": "SHL"
+    },
+    "78": {
+      "op": "SUB"
+    },
+    "79": {
+      "op": "SWAP1"
+    },
+    "80": {
+      "op": "SWAP2"
+    },
+    "81": {
+      "op": "AND"
+    },
+    "82": {
+      "op": "DUP2"
+    },
+    "83": {
+      "op": "MSTORE"
+    },
+    "84": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "86": {
+      "op": "ADD"
+    },
+    "87": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "89": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "90": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "91": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "SWAP2",
+      "path": "0"
+    },
+    "92": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "SUB",
+      "path": "0"
+    },
+    "93": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "94": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "RETURN",
+      "path": "0"
+    },
+    "95": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "96": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        311,
+        324
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "98": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        336,
+        351
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "99": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        372,
+        377
+      ],
+      "op": "DUP5",
+      "path": "0"
+    },
+    "100": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        379,
+        384
+      ],
+      "op": "DUP5",
+      "path": "0"
+    },
+    "101": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        386,
+        401
+      ],
+      "op": "DUP5",
+      "path": "0"
+    },
+    "102": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "104": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "105": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x71"
+    },
+    "108": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "109": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x10A"
+    },
+    "112": {
+      "fn": "BribesFactory.deployManager",
+      "jump": "i",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "JUMP",
+      "path": "0"
+    },
+    "113": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "114": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "116": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "118": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "120": {
+      "op": "SHL"
+    },
+    "121": {
+      "op": "SUB"
+    },
+    "122": {
+      "op": "SWAP4"
+    },
+    "123": {
+      "op": "DUP5"
+    },
+    "124": {
+      "op": "AND"
+    },
+    "125": {
+      "op": "DUP2"
+    },
+    "126": {
+      "op": "MSTORE"
+    },
+    "127": {
+      "op": "SWAP3"
+    },
+    "128": {
+      "op": "SWAP1"
+    },
+    "129": {
+      "op": "SWAP2"
+    },
+    "130": {
+      "op": "AND"
+    },
+    "131": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "133": {
+      "op": "DUP4"
+    },
+    "134": {
+      "op": "ADD"
+    },
+    "135": {
+      "op": "MSTORE"
+    },
+    "136": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "138": {
+      "op": "DUP3"
+    },
+    "139": {
+      "op": "ADD"
+    },
+    "140": {
+      "op": "MSTORE"
+    },
+    "141": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "143": {
+      "op": "ADD"
+    },
+    "144": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "146": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "147": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "148": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "SWAP2",
+      "path": "0"
+    },
+    "149": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "SUB",
+      "path": "0"
+    },
+    "150": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "151": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "153": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "CREATE",
+      "path": "0"
+    },
+    "154": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "155": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "156": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "157": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "158": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0xAB"
+    },
+    "161": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "162": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "0"
+    },
+    "163": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "165": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "166": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "0"
+    },
+    "167": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "0"
+    },
+    "168": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "170": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "REVERT",
+      "path": "0"
+    },
+    "171": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        402
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "172": {
+      "op": "POP"
+    },
+    "173": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 0,
+      "value": "0x40"
+    },
+    "175": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "176": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "177": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "179": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "181": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "183": {
+      "op": "SHL"
+    },
+    "184": {
+      "op": "SUB"
+    },
+    "185": {
+      "op": "DUP4"
+    },
+    "186": {
+      "op": "DUP2"
+    },
+    "187": {
+      "op": "AND"
+    },
+    "188": {
+      "op": "DUP3"
+    },
+    "189": {
+      "op": "MSTORE"
+    },
+    "190": {
+      "op": "DUP9"
+    },
+    "191": {
+      "op": "DUP2"
+    },
+    "192": {
+      "op": "AND"
+    },
+    "193": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "195": {
+      "op": "DUP4"
+    },
+    "196": {
+      "op": "ADD"
+    },
+    "197": {
+      "op": "MSTORE"
+    },
+    "198": {
+      "op": "DUP8"
+    },
+    "199": {
+      "op": "AND"
+    },
+    "200": {
+      "op": "DUP2"
+    },
+    "201": {
+      "op": "DUP4"
+    },
+    "202": {
+      "op": "ADD"
+    },
+    "203": {
+      "op": "MSTORE"
+    },
+    "204": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "206": {
+      "op": "DUP2"
+    },
+    "207": {
+      "op": "ADD"
+    },
+    "208": {
+      "op": "DUP7"
+    },
+    "209": {
+      "op": "SWAP1"
+    },
+    "210": {
+      "op": "MSTORE"
+    },
+    "211": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "212": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "213": {
+      "op": "SWAP2"
+    },
+    "214": {
+      "op": "SWAP3"
+    },
+    "215": {
+      "op": "POP"
+    },
+    "216": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "PUSH32",
+      "path": "0",
+      "value": "0xCCF071D7F4F2346E8A8C8C31363EFC2A0F777A4A09853C55B28A798BC3DF3FD1"
+    },
+    "249": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "SWAP2",
+      "path": "0"
+    },
+    "250": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "251": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "DUP2",
+      "path": "0"
+    },
+    "252": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "253": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "SUB",
+      "path": "0"
+    },
+    "254": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "256": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "ADD",
+      "path": "0"
+    },
+    "257": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "258": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        418,
+        471
+      ],
+      "op": "LOG1",
+      "path": "0"
+    },
+    "259": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        488,
+        489
+      ],
+      "op": "SWAP5",
+      "path": "0",
+      "statement": 1
+    },
+    "260": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "SWAP4",
+      "path": "0"
+    },
+    "261": {
+      "op": "POP"
+    },
+    "262": {
+      "op": "POP"
+    },
+    "263": {
+      "op": "POP"
+    },
+    "264": {
+      "op": "POP"
+    },
+    "265": {
+      "fn": "BribesFactory.deployManager",
+      "jump": "o",
+      "offset": [
+        220,
+        496
+      ],
+      "op": "JUMP",
+      "path": "0"
+    },
+    "266": {
+      "op": "JUMPDEST"
+    },
+    "267": {
+      "op": "PUSH2",
+      "value": "0x46F"
+    },
+    "270": {
+      "op": "DUP1"
+    },
+    "271": {
+      "op": "PUSH2",
+      "value": "0x170"
+    },
+    "274": {
+      "op": "DUP4"
+    },
+    "275": {
+      "op": "CODECOPY"
+    },
+    "276": {
+      "op": "ADD"
+    },
+    "277": {
+      "op": "SWAP1"
+    },
+    "278": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "279": {
+      "op": "JUMPDEST"
+    },
+    "280": {
+      "op": "DUP1"
+    },
+    "281": {
+      "op": "CALLDATALOAD"
+    },
+    "282": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "284": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "286": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "288": {
+      "op": "SHL"
+    },
+    "289": {
+      "op": "SUB"
+    },
+    "290": {
+      "op": "DUP2"
+    },
+    "291": {
+      "op": "AND"
+    },
+    "292": {
+      "op": "DUP2"
+    },
+    "293": {
+      "op": "EQ"
+    },
+    "294": {
+      "op": "PUSH2",
+      "value": "0x12E"
+    },
+    "297": {
+      "op": "JUMPI"
+    },
+    "298": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "300": {
+      "op": "DUP1"
+    },
+    "301": {
+      "op": "REVERT"
+    },
+    "302": {
+      "op": "JUMPDEST"
+    },
+    "303": {
+      "op": "SWAP2"
+    },
+    "304": {
+      "op": "SWAP1"
+    },
+    "305": {
+      "op": "POP"
+    },
+    "306": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "307": {
+      "op": "JUMPDEST"
+    },
+    "308": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "310": {
+      "op": "DUP1"
+    },
+    "311": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "313": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "315": {
+      "op": "DUP5"
+    },
+    "316": {
+      "op": "DUP7"
+    },
+    "317": {
+      "op": "SUB"
+    },
+    "318": {
+      "op": "SLT"
+    },
+    "319": {
+      "op": "ISZERO"
+    },
+    "320": {
+      "op": "PUSH2",
+      "value": "0x148"
+    },
+    "323": {
+      "op": "JUMPI"
+    },
+    "324": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "326": {
+      "op": "DUP1"
+    },
+    "327": {
+      "op": "REVERT"
+    },
+    "328": {
+      "op": "JUMPDEST"
+    },
+    "329": {
+      "op": "PUSH2",
+      "value": "0x151"
+    },
+    "332": {
+      "op": "DUP5"
+    },
+    "333": {
+      "op": "PUSH2",
+      "value": "0x117"
+    },
+    "336": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "337": {
+      "op": "JUMPDEST"
+    },
+    "338": {
+      "op": "SWAP3"
+    },
+    "339": {
+      "op": "POP"
+    },
+    "340": {
+      "op": "PUSH2",
+      "value": "0x15F"
+    },
+    "343": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "345": {
+      "op": "DUP6"
+    },
+    "346": {
+      "op": "ADD"
+    },
+    "347": {
+      "op": "PUSH2",
+      "value": "0x117"
+    },
+    "350": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "351": {
+      "op": "JUMPDEST"
+    },
+    "352": {
+      "op": "SWAP2"
+    },
+    "353": {
+      "op": "POP"
+    },
+    "354": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "356": {
+      "op": "DUP5"
+    },
+    "357": {
+      "op": "ADD"
+    },
+    "358": {
+      "op": "CALLDATALOAD"
+    },
+    "359": {
+      "op": "SWAP1"
+    },
+    "360": {
+      "op": "POP"
+    },
+    "361": {
+      "op": "SWAP3"
+    },
+    "362": {
+      "op": "POP"
+    },
+    "363": {
+      "op": "SWAP3"
+    },
+    "364": {
+      "op": "POP"
+    },
+    "365": {
+      "op": "SWAP3"
+    },
+    "366": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "2838a9e094b0f51ea1eaba4e5292d084bbb27ce8",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"./BribesManager.sol\";\n\ncontract BribesFactory {\n    \n    event NewManager(address bribesManager, address token, address gauge, uint tokens_per_vote);\n\n    function deployManager(address token, address gauge, uint tokens_per_vote) public returns (BribesManager) {\n        BribesManager b = new BribesManager(token, gauge, tokens_per_vote); \n        emit NewManager(address(b), token, gauge, tokens_per_vote);\n        return b;\n    }\n}",
+  "sourceMap": "88:410:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/BribesFactory.sol",
+  "type": "contract"
+}

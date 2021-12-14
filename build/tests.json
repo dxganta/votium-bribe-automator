@@ -1,0 +1,58 @@
+{
+  "contracts": {
+    "BribesFactory": "dbe8049524264d952d64826d39b23f1c35764af7",
+    "BribesLogic": "9506a6151b77cd7f5a13fca8fc4bab5833cdb61a",
+    "BribesManager": "7add12bde004ae89b12e0e346db710869ea952fd"
+  },
+  "tests": {
+    "tests/test_gas_costs.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "e8a6cf6f4aad00e0e9b96be778d97ae926bec529",
+      "txhash": []
+    },
+    "tests/test_main.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "d379a2b9f750f764e3868818f980bfd95bf1b17d",
+      "txhash": [
+        "0fdc03f1d348a68d6fe7b11c8142a9c55a6f0825",
+        "1834f472fc48f2235e3c0bdaa1cdf25f5214ff3e"
+      ]
+    }
+  },
+  "tx": {
+    "0fdc03f1d348a68d6fe7b11c8142a9c55a6f0825": {
+      "BribesLogic": {
+        "2": [
+          [
+            0
+          ],
+          [
+            5
+          ],
+          []
+        ]
+      }
+    },
+    "1834f472fc48f2235e3c0bdaa1cdf25f5214ff3e": {
+      "BribesLogic": {
+        "2": [
+          [
+            0,
+            2
+          ],
+          [
+            7
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      }
+    }
+  }
+}
