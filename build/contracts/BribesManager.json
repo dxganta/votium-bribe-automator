@@ -8,13 +8,13 @@
           "type": "address"
         },
         {
-          "internalType": "address",
-          "name": "gauge",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "gaugeIndex",
+          "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "tokens_per_vote",
+          "name": "tokensPerVote",
           "type": "uint256"
         }
       ],
@@ -23,12 +23,12 @@
     },
     {
       "inputs": [],
-      "name": "GAUGE",
+      "name": "GAUGE_INDEX",
       "outputs": [
         {
-          "internalType": "address",
+          "internalType": "uint256",
           "name": "",
-          "type": "address"
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -62,19 +62,25 @@
     },
     {
       "inputs": [],
-      "name": "lastPeriod",
+      "name": "lastProposal",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "bytes32",
           "name": "",
-          "type": "uint256"
+          "type": "bytes32"
         }
       ],
       "stateMutability": "view",
       "type": "function"
     },
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_proposal",
+          "type": "bytes32"
+        }
+      ],
       "name": "sendBribe",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -84,26 +90,26 @@
   "allSourcePaths": {
     "1": "contracts/BribesManager.sol",
     "2": "contracts/library/BribesLogic.sol",
-    "3": "interfaces/curve/IBribeV2.sol",
-    "4": "interfaces/token/IERC20.sol"
+    "3": "interfaces/token/IERC20.sol",
+    "4": "interfaces/votium/IVotiumBribe.sol"
   },
   "ast": {
     "absolutePath": "contracts/BribesManager.sol",
     "exportedSymbols": {
       "BribesLogic": [
-        188
+        213
       ],
       "BribesManager": [
-        111
-      ],
-      "IBribeV2": [
-        296
+        117
       ],
       "IERC20": [
-        273
+        298
+      ],
+      "IVotiumBribe": [
+        326
       ]
     },
-    "id": 112,
+    "id": 118,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -124,8 +130,8 @@
         "id": 52,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 112,
-        "sourceUnit": 274,
+        "scope": 118,
+        "sourceUnit": 299,
         "src": "57:40:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -136,8 +142,8 @@
         "id": 53,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 112,
-        "sourceUnit": 189,
+        "scope": 118,
+        "sourceUnit": 214,
         "src": "98:35:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -149,9 +155,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 111,
+        "id": 117,
         "linearizedBaseContracts": [
-          111
+          117
         ],
         "name": "BribesManager",
         "nameLocation": "144:13:1",
@@ -165,7 +171,7 @@
             "name": "TOKEN",
             "nameLocation": "189:5:1",
             "nodeType": "VariableDeclaration",
-            "scope": 111,
+            "scope": 117,
             "src": "164:30:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -188,29 +194,28 @@
           },
           {
             "constant": false,
-            "functionSelector": "7651b1e6",
+            "functionSelector": "cc4de8aa",
             "id": 57,
             "mutability": "immutable",
-            "name": "GAUGE",
-            "nameLocation": "225:5:1",
+            "name": "GAUGE_INDEX",
+            "nameLocation": "222:11:1",
             "nodeType": "VariableDeclaration",
-            "scope": 111,
-            "src": "200:30:1",
+            "scope": 117,
+            "src": "200:33:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_address",
-              "typeString": "address"
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
             },
             "typeName": {
               "id": 56,
-              "name": "address",
+              "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "200:7:1",
-              "stateMutability": "nonpayable",
+              "src": "200:4:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_address",
-                "typeString": "address"
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
               }
             },
             "visibility": "public"
@@ -221,10 +226,10 @@
             "id": 59,
             "mutability": "immutable",
             "name": "TOKENS_PER_VOTE",
-            "nameLocation": "258:15:1",
+            "nameLocation": "261:15:1",
             "nodeType": "VariableDeclaration",
-            "scope": 111,
-            "src": "236:37:1",
+            "scope": 117,
+            "src": "239:37:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -235,7 +240,7 @@
               "id": 58,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "236:4:1",
+              "src": "239:4:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -245,28 +250,28 @@
           },
           {
             "constant": false,
-            "functionSelector": "d340ef8a",
+            "functionSelector": "d6740cdb",
             "id": 61,
             "mutability": "mutable",
-            "name": "lastPeriod",
-            "nameLocation": "291:10:1",
+            "name": "lastProposal",
+            "nameLocation": "297:12:1",
             "nodeType": "VariableDeclaration",
-            "scope": 111,
-            "src": "279:22:1",
+            "scope": 117,
+            "src": "282:27:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_uint256",
-              "typeString": "uint256"
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
             },
             "typeName": {
               "id": 60,
-              "name": "uint",
+              "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "279:4:1",
+              "src": "282:7:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_uint256",
-                "typeString": "uint256"
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
               }
             },
             "visibility": "public"
@@ -275,11 +280,11 @@
             "constant": true,
             "id": 64,
             "mutability": "constant",
-            "name": "CURVE_BRIBE",
-            "nameLocation": "324:11:1",
+            "name": "VOTIUM_BRIBE",
+            "nameLocation": "332:12:1",
             "nodeType": "VariableDeclaration",
-            "scope": 111,
-            "src": "307:73:1",
+            "scope": 117,
+            "src": "315:74:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -290,7 +295,7 @@
               "id": 62,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "307:7:1",
+              "src": "315:7:1",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -298,7 +303,7 @@
               }
             },
             "value": {
-              "hexValue": "307837383933626262343636313364376134466263433331446162344339623832334666654531303236",
+              "hexValue": "307831394242433334363344643864303766353534333830313462303231466234353745424434353935",
               "id": 63,
               "isConstant": false,
               "isLValue": false,
@@ -306,12 +311,12 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "338:42:1",
+              "src": "347:42:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
               },
-              "value": "0x7893bbb46613d7a4FbcC31Dab4C9b823FfeE1026"
+              "value": "0x19BBC3463Dd8d07f55438014b021Fb457EBD4595"
             },
             "visibility": "internal"
           },
@@ -319,7 +324,7 @@
             "body": {
               "id": 86,
               "nodeType": "Block",
-              "src": "636:96:1",
+              "src": "671:105:1",
               "statements": [
                 {
                   "expression": {
@@ -334,7 +339,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 55,
-                      "src": "646:5:1",
+                      "src": "681:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -348,13 +353,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 67,
-                      "src": "654:5:1",
+                      "src": "689:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "646:13:1",
+                    "src": "681:13:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -362,7 +367,7 @@
                   },
                   "id": 77,
                   "nodeType": "ExpressionStatement",
-                  "src": "646:13:1"
+                  "src": "681:13:1"
                 },
                 {
                   "expression": {
@@ -373,39 +378,39 @@
                     "lValueRequested": false,
                     "leftHandSide": {
                       "id": 78,
-                      "name": "GAUGE",
+                      "name": "GAUGE_INDEX",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 57,
-                      "src": "669:5:1",
+                      "src": "704:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_address",
-                        "typeString": "address"
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
                       "id": 79,
-                      "name": "gauge",
+                      "name": "gaugeIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 69,
-                      "src": "677:5:1",
+                      "src": "718:10:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_address",
-                        "typeString": "address"
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
                       }
                     },
-                    "src": "669:13:1",
+                    "src": "704:24:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "id": 81,
                   "nodeType": "ExpressionStatement",
-                  "src": "669:13:1"
+                  "src": "704:24:1"
                 },
                 {
                   "expression": {
@@ -420,7 +425,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 59,
-                      "src": "692:15:1",
+                      "src": "738:15:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -430,17 +435,17 @@
                     "operator": "=",
                     "rightHandSide": {
                       "id": 83,
-                      "name": "tokens_per_vote",
+                      "name": "tokensPerVote",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 71,
-                      "src": "710:15:1",
+                      "src": "756:13:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "692:33:1",
+                    "src": "738:31:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -448,15 +453,15 @@
                   },
                   "id": 85,
                   "nodeType": "ExpressionStatement",
-                  "src": "692:33:1"
+                  "src": "738:31:1"
                 }
               ]
             },
             "documentation": {
               "id": 65,
               "nodeType": "StructuredDocumentation",
-              "src": "387:180:1",
-              "text": "@param token Address of the reward/incentive token\n @param gauge address of the curve gauge\n @param tokens_per_vote number of tokens to add as incentives per vote"
+              "src": "396:206:1",
+              "text": "@param token Address of the reward/incentive token\n @param gaugeIndex index of the gauge in the voting proposal choices\n @param tokensPerVote number of tokens to add as incentives per vote"
             },
             "id": 87,
             "implemented": true,
@@ -474,10 +479,10 @@
                   "id": 67,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "592:5:1",
+                  "nameLocation": "627:5:1",
                   "nodeType": "VariableDeclaration",
                   "scope": 87,
-                  "src": "584:13:1",
+                  "src": "619:13:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -488,7 +493,7 @@
                     "id": 66,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "584:7:1",
+                    "src": "619:7:1",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -501,26 +506,25 @@
                   "constant": false,
                   "id": 69,
                   "mutability": "mutable",
-                  "name": "gauge",
-                  "nameLocation": "607:5:1",
+                  "name": "gaugeIndex",
+                  "nameLocation": "639:10:1",
                   "nodeType": "VariableDeclaration",
                   "scope": 87,
-                  "src": "599:13:1",
+                  "src": "634:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
                     "id": 68,
-                    "name": "address",
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "599:7:1",
-                    "stateMutability": "nonpayable",
+                    "src": "634:4:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
@@ -529,11 +533,11 @@
                   "constant": false,
                   "id": 71,
                   "mutability": "mutable",
-                  "name": "tokens_per_vote",
-                  "nameLocation": "619:15:1",
+                  "name": "tokensPerVote",
+                  "nameLocation": "656:13:1",
                   "nodeType": "VariableDeclaration",
                   "scope": 87,
-                  "src": "614:20:1",
+                  "src": "651:18:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -544,7 +548,7 @@
                     "id": 70,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "614:4:1",
+                    "src": "651:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -553,48 +557,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "583:52:1"
+              "src": "618:52:1"
             },
             "returnParameters": {
               "id": 73,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "636:0:1"
+              "src": "671:0:1"
             },
-            "scope": 111,
-            "src": "572:160:1",
+            "scope": 117,
+            "src": "607:169:1",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 109,
+              "id": 115,
               "nodeType": "Block",
-              "src": "766:168:1",
+              "src": "827:210:1",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 94,
-                        "name": "CURVE_BRIBE",
+                        "id": 96,
+                        "name": "VOTIUM_BRIBE",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 64,
-                        "src": "798:11:1",
+                        "src": "859:12:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         }
                       },
                       {
-                        "id": 95,
+                        "id": 97,
                         "name": "TOKENS_PER_VOTE",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 59,
-                        "src": "811:15:1",
+                        "src": "873:15:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -615,12 +619,12 @@
                       "expression": {
                         "arguments": [
                           {
-                            "id": 91,
+                            "id": 93,
                             "name": "TOKEN",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 55,
-                            "src": "783:5:1",
+                            "src": "844:5:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -634,18 +638,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 90,
+                          "id": 92,
                           "name": "IERC20",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 273,
-                          "src": "776:6:1",
+                          "referencedDeclaration": 298,
+                          "src": "837:6:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_IERC20_$273_$",
+                            "typeIdentifier": "t_type$_t_contract$_IERC20_$298_$",
                             "typeString": "type(contract IERC20)"
                           }
                         },
-                        "id": 92,
+                        "id": 94,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -653,28 +657,28 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "776:13:1",
+                        "src": "837:13:1",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IERC20_$273",
+                          "typeIdentifier": "t_contract$_IERC20_$298",
                           "typeString": "contract IERC20"
                         }
                       },
-                      "id": 93,
+                      "id": 95,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 220,
-                      "src": "776:21:1",
+                      "referencedDeclaration": 245,
+                      "src": "837:21:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
                         "typeString": "function (address,uint256) external returns (bool)"
                       }
                     },
-                    "id": 96,
+                    "id": 98,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -682,213 +686,274 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "776:51:1",
+                    "src": "837:52:1",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 97,
+                  "id": 99,
                   "nodeType": "ExpressionStatement",
-                  "src": "776:51:1"
+                  "src": "837:52:1"
                 },
                 {
                   "expression": {
-                    "id": 107,
+                    "arguments": [
+                      {
+                        "id": 103,
+                        "name": "TOKEN",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 55,
+                        "src": "921:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 104,
+                        "name": "_proposal",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 89,
+                        "src": "928:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 105,
+                        "name": "TOKENS_PER_VOTE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 59,
+                        "src": "939:15:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 106,
+                        "name": "GAUGE_INDEX",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 57,
+                        "src": "956:11:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 107,
+                        "name": "lastProposal",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 61,
+                        "src": "969:12:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 108,
+                        "name": "VOTIUM_BRIBE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 64,
+                        "src": "983:12:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "id": 100,
+                        "name": "BribesLogic",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 213,
+                        "src": "899:11:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BribesLogic_$213_$",
+                          "typeString": "type(library BribesLogic)"
+                        }
+                      },
+                      "id": 102,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sendBribe",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 212,
+                      "src": "899:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_address_$_t_bytes32_$_t_uint256_$_t_uint256_$_t_bytes32_$_t_address_$returns$__$",
+                        "typeString": "function (address,bytes32,uint256,uint256,bytes32,address)"
+                      }
+                    },
+                    "id": 109,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "899:97:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 110,
+                  "nodeType": "ExpressionStatement",
+                  "src": "899:97:1"
+                },
+                {
+                  "expression": {
+                    "id": 113,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 98,
-                      "name": "lastPeriod",
+                      "id": 111,
+                      "name": "lastProposal",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 61,
-                      "src": "837:10:1",
+                      "src": "1006:12:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "arguments": [
-                        {
-                          "id": 101,
-                          "name": "TOKEN",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 55,
-                          "src": "872:5:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        {
-                          "id": 102,
-                          "name": "GAUGE",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 57,
-                          "src": "879:5:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        {
-                          "id": 103,
-                          "name": "TOKENS_PER_VOTE",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 59,
-                          "src": "886:15:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        },
-                        {
-                          "id": 104,
-                          "name": "lastPeriod",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 61,
-                          "src": "903:10:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        },
-                        {
-                          "id": 105,
-                          "name": "CURVE_BRIBE",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 64,
-                          "src": "915:11:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        }
-                      ],
-                      "expression": {
-                        "argumentTypes": [
-                          {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          },
-                          {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          },
-                          {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          },
-                          {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          },
-                          {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        ],
-                        "expression": {
-                          "id": 99,
-                          "name": "BribesLogic",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 188,
-                          "src": "850:11:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_BribesLogic_$188_$",
-                            "typeString": "type(library BribesLogic)"
-                          }
-                        },
-                        "id": 100,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sendBribe",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 187,
-                        "src": "850:21:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_function_delegatecall_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_address_$returns$_t_uint256_$",
-                          "typeString": "function (address,address,uint256,uint256,address) returns (uint256)"
-                        }
-                      },
-                      "id": 106,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "kind": "functionCall",
-                      "lValueRequested": false,
-                      "names": [],
-                      "nodeType": "FunctionCall",
-                      "src": "850:77:1",
-                      "tryCall": false,
+                      "id": 112,
+                      "name": "_proposal",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 89,
+                      "src": "1021:9:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
                       }
                     },
-                    "src": "837:90:1",
+                    "src": "1006:24:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
                     }
                   },
-                  "id": 108,
+                  "id": 114,
                   "nodeType": "ExpressionStatement",
-                  "src": "837:90:1"
+                  "src": "1006:24:1"
                 }
               ]
             },
-            "functionSelector": "7f2dced7",
-            "id": 110,
+            "functionSelector": "16fab16e",
+            "id": 116,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "sendBribe",
-            "nameLocation": "747:9:1",
+            "nameLocation": "791:9:1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 88,
+              "id": 90,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "756:2:1"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 89,
+                  "mutability": "mutable",
+                  "name": "_proposal",
+                  "nameLocation": "809:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 116,
+                  "src": "801:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 88,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "800:19:1"
             },
             "returnParameters": {
-              "id": 89,
+              "id": 91,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "766:0:1"
+              "src": "827:0:1"
             },
-            "scope": 111,
-            "src": "738:196:1",
+            "scope": 117,
+            "src": "782:255:1",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 112,
-        "src": "135:801:1",
+        "scope": 118,
+        "src": "135:904:1",
         "usedErrors": []
       }
     ],
-    "src": "32:904:1"
+    "src": "32:1007:1"
   },
-  "bytecode": "60e060405234801561001057600080fd5b5060405161046f38038061046f83398101604081905261002f91610066565b6001600160a01b03928316608052911660a05260c0526100a2565b80516001600160a01b038116811461006157600080fd5b919050565b60008060006060848603121561007b57600080fd5b6100848461004a565b92506100926020850161004a565b9150604084015190509250925092565b60805160a05160c05161037e6100f160003960008181606101528181610138015261024c015260008181609b015261022501526000818160e40152818161015e01526101fd015261037e6000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063752a09201461005c5780637651b1e6146100965780637f2dced7146100d557806382bfefc8146100df578063d340ef8a14610106575b600080fd5b6100837f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008d565b6100dd61010f565b005b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b61008360005481565b60405163095ea7b360e01b8152737893bbb46613d7a4fbcc31dab4c9b823ffee102660048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101aa57600080fd5b505af11580156101be573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101e29190610306565b506000546040516313523a8760e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811660048301527f00000000000000000000000000000000000000000000000000000000000000001660248201527f000000000000000000000000000000000000000000000000000000000000000060448201526064810191909152737893bbb46613d7a4fbcc31dab4c9b823ffee1026608482015273__BribesLogic___________________________906313523a879060a40160206040518083038186803b1580156102c957600080fd5b505af41580156102dd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610301919061032f565b600055565b60006020828403121561031857600080fd5b8151801515811461032857600080fd5b9392505050565b60006020828403121561034157600080fd5b505191905056fea26469706673582212208da73f073cf09d37903b805e9133cc16ca0935f9388b2a927bd76f8331d75ce664736f6c63430008090033",
-  "bytecodeSha1": "7add12bde004ae89b12e0e346db710869ea952fd",
+  "bytecode": "60e060405234801561001057600080fd5b5060405161044b38038061044b83398101604081905261002f91610048565b6001600160a01b0390921660805260a05260c05261008b565b60008060006060848603121561005d57600080fd5b83516001600160a01b038116811461007457600080fd5b602085015160409095015190969495509392505050565b60805160a05160c0516103716100da60003960008181607601528181610143015261023601526000818160ef015261025c01526000818160b001528181610169015261020801526103716000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806316fab16e1461005c578063752a09201461007157806382bfefc8146100ab578063cc4de8aa146100ea578063d6740cdb14610111575b600080fd5b61006f61006a3660046102f9565b61011a565b005b6100987f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100d27f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100a2565b6100987f000000000000000000000000000000000000000000000000000000000000000081565b61009860005481565b60405163095ea7b360e01b81527319bbc3463dd8d07f55438014b021fb457ebd459560048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101b557600080fd5b505af11580156101c9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101ed9190610312565b5060005460405163dbf15fc560e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000166004820152602481018390527f000000000000000000000000000000000000000000000000000000000000000060448201527f0000000000000000000000000000000000000000000000000000000000000000606482015260848101919091527319bbc3463dd8d07f55438014b021fb457ebd459560a482015273__BribesLogic___________________________9063dbf15fc59060c40160006040518083038186803b1580156102d957600080fd5b505af41580156102ed573d6000803e3d6000fd5b50505060009190915550565b60006020828403121561030b57600080fd5b5035919050565b60006020828403121561032457600080fd5b8151801515811461033457600080fd5b939250505056fea2646970667358221220b6facae888ace3a9d7992525979732c4a00bb6bbc865975f30bd332f29a1b22064736f6c63430008090033",
+  "bytecodeSha1": "7b48ee82898823a1aa5af55dd55f5032b5d5b4a6",
   "compiler": {
     "evm_version": "istanbul",
     "optimizer": {
@@ -909,12 +974,16 @@
       "1": {
         "BribesManager.sendBribe": {
           "0": [
-            776,
-            827
+            837,
+            889
           ],
           "1": [
-            837,
-            927
+            899,
+            996
+          ],
+          "2": [
+            1006,
+            1030
           ]
         }
       },
@@ -925,20 +994,20 @@
   },
   "dependencies": [
     "BribesLogic",
-    "IBribeV2",
-    "IERC20"
+    "IERC20",
+    "IVotiumBribe"
   ],
-  "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c8063752a09201461005c5780637651b1e6146100965780637f2dced7146100d557806382bfefc8146100df578063d340ef8a14610106575b600080fd5b6100837f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008d565b6100dd61010f565b005b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b61008360005481565b60405163095ea7b360e01b8152737893bbb46613d7a4fbcc31dab4c9b823ffee102660048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101aa57600080fd5b505af11580156101be573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101e29190610306565b506000546040516313523a8760e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811660048301527f00000000000000000000000000000000000000000000000000000000000000001660248201527f000000000000000000000000000000000000000000000000000000000000000060448201526064810191909152737893bbb46613d7a4fbcc31dab4c9b823ffee1026608482015273__$8d3e982442eab610d721b37768c40888b9$__906313523a879060a40160206040518083038186803b1580156102c957600080fd5b505af41580156102dd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610301919061032f565b600055565b60006020828403121561031857600080fd5b8151801515811461032857600080fd5b9392505050565b60006020828403121561034157600080fd5b505191905056fea26469706673582212208da73f073cf09d37903b805e9133cc16ca0935f9388b2a927bd76f8331d75ce664736f6c63430008090033",
-  "deployedSourceMap": "135:801:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;236:37;;;;;;;;160:25:5;;;148:2;133:18;236:37:1;;;;;;;;200:30;;;;;;;;-1:-1:-1;;;;;360:32:5;;;342:51;;330:2;315:18;200:30:1;196:203:5;738:196:1;;;:::i;:::-;;164:30;;;;;279:22;;;;;;738:196;776:51;;-1:-1:-1;;;776:51:1;;338:42;776:51;;;578::5;811:15:1;645:18:5;;;638:34;783:5:1;-1:-1:-1;;;;;776:21:1;;;;551:18:5;;776:51:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;903:10:1;;850:77;;-1:-1:-1;;;850:77:1;;-1:-1:-1;;;;;872:5:1;1288:15:5;;850:77:1;;;1270:34:5;879:5:1;1340:15:5;1320:18;;;1313:43;886:15:1;1372:18:5;;;1365:34;1415:18;;;1408:34;;;;338:42:1;1458:19:5;;;1451:44;850:11:1;;:21;;1204:19:5;;850:77:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;837:10;:90;738:196::o;683:277:5:-;750:6;803:2;791:9;782:7;778:23;774:32;771:52;;;819:1;816;809:12;771:52;851:9;845:16;904:5;897:13;890:21;883:5;880:32;870:60;;926:1;923;916:12;870:60;949:5;683:277;-1:-1:-1;;;683:277:5:o;1506:184::-;1576:6;1629:2;1617:9;1608:7;1604:23;1600:32;1597:52;;;1645:1;1642;1635:12;1597:52;-1:-1:-1;1668:16:5;;1506:184;-1:-1:-1;1506:184:5:o",
+  "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c806316fab16e1461005c578063752a09201461007157806382bfefc8146100ab578063cc4de8aa146100ea578063d6740cdb14610111575b600080fd5b61006f61006a3660046102f9565b61011a565b005b6100987f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100d27f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100a2565b6100987f000000000000000000000000000000000000000000000000000000000000000081565b61009860005481565b60405163095ea7b360e01b81527319bbc3463dd8d07f55438014b021fb457ebd459560048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101b557600080fd5b505af11580156101c9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101ed9190610312565b5060005460405163dbf15fc560e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000166004820152602481018390527f000000000000000000000000000000000000000000000000000000000000000060448201527f0000000000000000000000000000000000000000000000000000000000000000606482015260848101919091527319bbc3463dd8d07f55438014b021fb457ebd459560a482015273__$8d3e982442eab610d721b37768c40888b9$__9063dbf15fc59060c40160006040518083038186803b1580156102d957600080fd5b505af41580156102ed573d6000803e3d6000fd5b50505060009190915550565b60006020828403121561030b57600080fd5b5035919050565b60006020828403121561032457600080fd5b8151801515811461033457600080fd5b939250505056fea2646970667358221220b6facae888ace3a9d7992525979732c4a00bb6bbc865975f30bd332f29a1b22064736f6c63430008090033",
+  "deployedSourceMap": "135:904:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;782:255;;;;;;:::i;:::-;;:::i;:::-;;239:37;;;;;;;;345:25:5;;;333:2;318:18;239:37:1;;;;;;;;164:30;;;;;;;;-1:-1:-1;;;;;545:32:5;;;527:51;;515:2;500:18;164:30:1;381:203:5;200:33:1;;;;;282:27;;;;;;782:255;837:52;;-1:-1:-1;;;837:52:1;;347:42;837:52;;;945:51:5;873:15:1;1012:18:5;;;1005:34;844:5:1;-1:-1:-1;;;;;837:21:1;;;;918:18:5;;837:52:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;969:12:1;;899:97;;-1:-1:-1;;;899:97:1;;-1:-1:-1;;;;;921:5:1;1683:15:5;899:97:1;;;1665:34:5;1715:18;;;1708:34;;;939:15:1;1758:18:5;;;1751:34;956:11:1;1801:18:5;;;1794:34;1844:19;;;1837:35;;;;347:42:1;1888:19:5;;;1881:44;899:11:1;;:21;;1599:19:5;;899:97:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;1006:12:1;:24;;;;-1:-1:-1;782:255:1:o;14:180:5:-;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;-1:-1:-1;165:23:5;;14:180;-1:-1:-1;14:180:5:o;1050:277::-;1117:6;1170:2;1158:9;1149:7;1145:23;1141:32;1138:52;;;1186:1;1183;1176:12;1138:52;1218:9;1212:16;1271:5;1264:13;1257:21;1250:5;1247:32;1237:60;;1293:1;1290;1283:12;1237:60;1316:5;1050:277;-1:-1:-1;;;1050:277:5:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
     "methods": {
       "constructor": {
         "params": {
-          "gauge": "address of the curve gauge",
+          "gaugeIndex": "index of the gauge in the voting proposal choices",
           "token": "Address of the reward/incentive token",
-          "tokens_per_vote": "number of tokens to add as incentives per vote"
+          "tokensPerVote": "number of tokens to add as incentives per vote"
         }
       }
     },
@@ -946,14 +1015,14 @@
   },
   "offset": [
     135,
-    936
+    1039
   ],
-  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x752A0920 EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x7651B1E6 EQ PUSH2 0x96 JUMPI DUP1 PUSH4 0x7F2DCED7 EQ PUSH2 0xD5 JUMPI DUP1 PUSH4 0x82BFEFC8 EQ PUSH2 0xDF JUMPI DUP1 PUSH4 0xD340EF8A EQ PUSH2 0x106 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x83 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xBD PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x8D JUMP JUMPDEST PUSH2 0xDD PUSH2 0x10F JUMP JUMPDEST STOP JUMPDEST PUSH2 0xBD PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH2 0x83 PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH4 0x95EA7B3 PUSH1 0xE0 SHL DUP2 MSTORE PUSH20 0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026 PUSH1 0x4 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 PUSH4 0x95EA7B3 SWAP1 PUSH1 0x44 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1AA JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1BE JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x1E2 SWAP2 SWAP1 PUSH2 0x306 JUMP JUMPDEST POP PUSH1 0x0 SLOAD PUSH1 0x40 MLOAD PUSH4 0x13523A87 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB PUSH32 0x0 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE PUSH32 0x0 AND PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH20 0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026 PUSH1 0x84 DUP3 ADD MSTORE PUSH20 0x0 SWAP1 PUSH4 0x13523A87 SWAP1 PUSH1 0xA4 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x2C9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS DELEGATECALL ISZERO DUP1 ISZERO PUSH2 0x2DD JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x301 SWAP2 SWAP1 PUSH2 0x32F JUMP JUMPDEST PUSH1 0x0 SSTORE JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x318 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x328 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x341 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP MLOAD SWAP2 SWAP1 POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 DUP14 0xA7 EXTCODEHASH SMOD EXTCODECOPY CREATE SWAP14 CALLDATACOPY SWAP1 EXTCODESIZE DUP1 0x5E SWAP2 CALLER 0xCC AND 0xCA MULMOD CALLDATALOAD 0xF9 CODESIZE DUP12 0x2A SWAP3 PUSH28 0xD76F8331D75CE664736F6C6343000809003300000000000000000000 ",
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x16FAB16E EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x752A0920 EQ PUSH2 0x71 JUMPI DUP1 PUSH4 0x82BFEFC8 EQ PUSH2 0xAB JUMPI DUP1 PUSH4 0xCC4DE8AA EQ PUSH2 0xEA JUMPI DUP1 PUSH4 0xD6740CDB EQ PUSH2 0x111 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x6F PUSH2 0x6A CALLDATASIZE PUSH1 0x4 PUSH2 0x2F9 JUMP JUMPDEST PUSH2 0x11A JUMP JUMPDEST STOP JUMPDEST PUSH2 0x98 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xD2 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0xA2 JUMP JUMPDEST PUSH2 0x98 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH2 0x98 PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH4 0x95EA7B3 PUSH1 0xE0 SHL DUP2 MSTORE PUSH20 0x19BBC3463DD8D07F55438014B021FB457EBD4595 PUSH1 0x4 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 PUSH4 0x95EA7B3 SWAP1 PUSH1 0x44 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1B5 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1C9 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x1ED SWAP2 SWAP1 PUSH2 0x312 JUMP JUMPDEST POP PUSH1 0x0 SLOAD PUSH1 0x40 MLOAD PUSH4 0xDBF15FC5 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB PUSH32 0x0 AND PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x24 DUP2 ADD DUP4 SWAP1 MSTORE PUSH32 0x0 PUSH1 0x44 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x64 DUP3 ADD MSTORE PUSH1 0x84 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH20 0x19BBC3463DD8D07F55438014B021FB457EBD4595 PUSH1 0xA4 DUP3 ADD MSTORE PUSH20 0x0 SWAP1 PUSH4 0xDBF15FC5 SWAP1 PUSH1 0xC4 ADD PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x2D9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS DELEGATECALL ISZERO DUP1 ISZERO PUSH2 0x2ED JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP PUSH1 0x0 SWAP2 SWAP1 SWAP2 SSTORE POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x30B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x324 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x334 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xB6 STATICCALL 0xCA 0xE8 DUP9 0xAC 0xE3 0xA9 0xD7 SWAP10 0x25 0x25 SWAP8 SWAP8 ORIGIN 0xC4 LOG0 SIGNEXTEND 0xB6 0xBB 0xC8 PUSH6 0x975F30BD332F 0x29 LOG1 0xB2 KECCAK256 PUSH5 0x736F6C6343 STOP ADDMOD MULMOD STOP CALLER ",
   "pcMap": {
     "0": {
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -963,7 +1032,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -973,7 +1042,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "MSTORE",
       "path": "1"
@@ -982,7 +1051,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "CALLVALUE",
       "path": "1"
@@ -991,7 +1060,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1000,7 +1069,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "ISZERO",
       "path": "1"
@@ -1009,7 +1078,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
@@ -1019,7 +1088,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1028,7 +1097,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -1038,7 +1107,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1048,7 +1117,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "REVERT",
       "path": "1"
@@ -1057,7 +1126,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPDEST",
       "path": "1"
@@ -1066,7 +1135,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "POP",
       "path": "1"
@@ -1075,7 +1144,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -1085,7 +1154,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "CALLDATASIZE",
       "path": "1"
@@ -1094,7 +1163,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "LT",
       "path": "1"
@@ -1103,7 +1172,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
@@ -1113,7 +1182,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1122,7 +1191,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -1132,7 +1201,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "CALLDATALOAD",
       "path": "1"
@@ -1141,7 +1210,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -1151,7 +1220,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "SHR",
       "path": "1"
@@ -1160,7 +1229,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1169,17 +1238,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH4",
       "path": "1",
-      "value": "0x752A0920"
+      "value": "0x16FAB16E"
     },
     "38": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "EQ",
       "path": "1"
@@ -1188,7 +1257,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
@@ -1198,7 +1267,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1207,7 +1276,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1216,17 +1285,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH4",
       "path": "1",
-      "value": "0x7651B1E6"
+      "value": "0x752A0920"
     },
     "49": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "EQ",
       "path": "1"
@@ -1235,17 +1304,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0x96"
+      "value": "0x71"
     },
     "53": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1254,7 +1323,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1263,17 +1332,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH4",
       "path": "1",
-      "value": "0x7F2DCED7"
+      "value": "0x82BFEFC8"
     },
     "60": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "EQ",
       "path": "1"
@@ -1282,17 +1351,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0xD5"
+      "value": "0xAB"
     },
     "64": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1301,7 +1370,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1310,17 +1379,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH4",
       "path": "1",
-      "value": "0x82BFEFC8"
+      "value": "0xCC4DE8AA"
     },
     "71": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "EQ",
       "path": "1"
@@ -1329,17 +1398,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0xDF"
+      "value": "0xEA"
     },
     "75": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1348,7 +1417,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1357,17 +1426,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH4",
       "path": "1",
-      "value": "0xD340EF8A"
+      "value": "0xD6740CDB"
     },
     "82": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "EQ",
       "path": "1"
@@ -1376,17 +1445,17 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0x106"
+      "value": "0x111"
     },
     "86": {
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPI",
       "path": "1"
@@ -1395,7 +1464,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "JUMPDEST",
       "path": "1"
@@ -1404,7 +1473,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "PUSH1",
       "path": "1",
@@ -1414,7 +1483,7 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "DUP1",
       "path": "1"
@@ -1424,357 +1493,289 @@
       "fn": null,
       "offset": [
         135,
-        936
+        1039
       ],
       "op": "REVERT",
       "path": "1"
     },
     "92": {
+      "fn": "BribesManager.sendBribe",
       "offset": [
-        236,
-        273
+        782,
+        1037
       ],
       "op": "JUMPDEST",
       "path": "1"
     },
     "93": {
-      "fn": null,
+      "fn": "BribesManager.sendBribe",
       "offset": [
-        236,
-        273
+        782,
+        1037
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0x83"
+      "value": "0x6F"
     },
     "96": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "PUSH32",
-      "path": "1",
-      "value": "0x0"
-    },
-    "129": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "DUP2",
-      "path": "1"
-    },
-    "130": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "JUMP",
-      "path": "1"
-    },
-    "131": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "JUMPDEST",
-      "path": "1"
-    },
-    "132": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x40"
-    },
-    "134": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "MLOAD",
-      "path": "1"
-    },
-    "135": {
-      "op": "SWAP1"
-    },
-    "136": {
-      "op": "DUP2"
-    },
-    "137": {
-      "op": "MSTORE"
-    },
-    "138": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "140": {
-      "op": "ADD"
-    },
-    "141": {
-      "offset": [
-        236,
-        273
-      ],
-      "op": "JUMPDEST",
-      "path": "1"
-    },
-    "142": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x40"
-    },
-    "144": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "MLOAD",
-      "path": "1"
-    },
-    "145": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "146": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "SWAP2",
-      "path": "1"
-    },
-    "147": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "SUB",
-      "path": "1"
-    },
-    "148": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "SWAP1",
-      "path": "1"
-    },
-    "149": {
-      "fn": null,
-      "offset": [
-        236,
-        273
-      ],
-      "op": "RETURN",
-      "path": "1"
-    },
-    "150": {
-      "offset": [
-        200,
-        230
-      ],
-      "op": "JUMPDEST",
-      "path": "1"
-    },
-    "151": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0xBD"
-    },
-    "154": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "PUSH32",
-      "path": "1",
-      "value": "0x0"
-    },
-    "187": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "DUP2",
-      "path": "1"
-    },
-    "188": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "JUMP",
-      "path": "1"
-    },
-    "189": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "JUMPDEST",
-      "path": "1"
-    },
-    "190": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x40"
-    },
-    "192": {
-      "fn": null,
-      "offset": [
-        200,
-        230
-      ],
-      "op": "MLOAD",
-      "path": "1"
-    },
-    "193": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "195": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "197": {
-      "op": "PUSH1",
-      "value": "0xA0"
-    },
-    "199": {
-      "op": "SHL"
-    },
-    "200": {
-      "op": "SUB"
-    },
-    "201": {
-      "op": "SWAP1"
-    },
-    "202": {
-      "op": "SWAP2"
-    },
-    "203": {
-      "op": "AND"
-    },
-    "204": {
-      "op": "DUP2"
-    },
-    "205": {
-      "op": "MSTORE"
-    },
-    "206": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "208": {
-      "op": "ADD"
-    },
-    "209": {
-      "offset": [
-        200,
-        230
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x8D"
-    },
-    "212": {
-      "op": "JUMP"
-    },
-    "213": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        738,
-        934
+        782,
+        1037
       ],
-      "op": "JUMPDEST",
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x6A"
+    },
+    "99": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        782,
+        1037
+      ],
+      "op": "CALLDATASIZE",
       "path": "1"
     },
-    "214": {
+    "100": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        738,
-        934
+        782,
+        1037
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "102": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        782,
+        1037
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0xDD"
+      "value": "0x2F9"
     },
-    "217": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        738,
-        934
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x10F"
-    },
-    "220": {
+    "105": {
       "fn": "BribesManager.sendBribe",
       "jump": "i",
       "offset": [
-        738,
-        934
+        782,
+        1037
       ],
       "op": "JUMP",
       "path": "1"
     },
-    "221": {
+    "106": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        738,
-        934
+        782,
+        1037
       ],
       "op": "JUMPDEST",
       "path": "1"
     },
-    "222": {
+    "107": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        738,
-        934
+        782,
+        1037
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x11A"
+    },
+    "110": {
+      "fn": "BribesManager.sendBribe",
+      "jump": "i",
+      "offset": [
+        782,
+        1037
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "111": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        782,
+        1037
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "112": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        782,
+        1037
       ],
       "op": "STOP",
       "path": "1"
     },
-    "223": {
+    "113": {
+      "offset": [
+        239,
+        276
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "114": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x98"
+    },
+    "117": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "PUSH32",
+      "path": "1",
+      "value": "0x0"
+    },
+    "150": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "151": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "152": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "153": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "155": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "156": {
+      "op": "SWAP1"
+    },
+    "157": {
+      "op": "DUP2"
+    },
+    "158": {
+      "op": "MSTORE"
+    },
+    "159": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "161": {
+      "op": "ADD"
+    },
+    "162": {
+      "offset": [
+        239,
+        276
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "163": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "165": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "166": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "167": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "168": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "SUB",
+      "path": "1"
+    },
+    "169": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "170": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        239,
+        276
+      ],
+      "op": "RETURN",
+      "path": "1"
+    },
+    "171": {
       "offset": [
         164,
         194
@@ -1782,7 +1783,7 @@
       "op": "JUMPDEST",
       "path": "1"
     },
-    "224": {
+    "172": {
       "fn": "BribesManager.sendBribe",
       "offset": [
         164,
@@ -1790,9 +1791,9 @@
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0xBD"
+      "value": "0xD2"
     },
-    "227": {
+    "175": {
       "fn": "BribesManager.sendBribe",
       "offset": [
         164,
@@ -1802,7 +1803,7 @@
       "path": "1",
       "value": "0x0"
     },
-    "260": {
+    "208": {
       "fn": "BribesManager.sendBribe",
       "offset": [
         164,
@@ -1811,7 +1812,7 @@
       "op": "DUP2",
       "path": "1"
     },
-    "261": {
+    "209": {
       "fn": "BribesManager.sendBribe",
       "offset": [
         164,
@@ -1820,417 +1821,469 @@
       "op": "JUMP",
       "path": "1"
     },
-    "262": {
+    "210": {
+      "fn": "BribesManager.sendBribe",
       "offset": [
-        279,
-        301
+        164,
+        194
       ],
       "op": "JUMPDEST",
       "path": "1"
     },
-    "263": {
+    "211": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        279,
-        301
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x83"
-    },
-    "266": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        279,
-        301
+        164,
+        194
       ],
       "op": "PUSH1",
       "path": "1",
+      "value": "0x40"
+    },
+    "213": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        164,
+        194
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "214": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "216": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "218": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "220": {
+      "op": "SHL"
+    },
+    "221": {
+      "op": "SUB"
+    },
+    "222": {
+      "op": "SWAP1"
+    },
+    "223": {
+      "op": "SWAP2"
+    },
+    "224": {
+      "op": "AND"
+    },
+    "225": {
+      "op": "DUP2"
+    },
+    "226": {
+      "op": "MSTORE"
+    },
+    "227": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "229": {
+      "op": "ADD"
+    },
+    "230": {
+      "offset": [
+        164,
+        194
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xA2"
+    },
+    "233": {
+      "op": "JUMP"
+    },
+    "234": {
+      "offset": [
+        200,
+        233
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "235": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        200,
+        233
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x98"
+    },
+    "238": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        200,
+        233
+      ],
+      "op": "PUSH32",
+      "path": "1",
       "value": "0x0"
-    },
-    "268": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        279,
-        301
-      ],
-      "op": "SLOAD",
-      "path": "1"
-    },
-    "269": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        279,
-        301
-      ],
-      "op": "DUP2",
-      "path": "1"
-    },
-    "270": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        279,
-        301
-      ],
-      "op": "JUMP",
-      "path": "1"
     },
     "271": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        738,
-        934
+        200,
+        233
       ],
-      "op": "JUMPDEST",
+      "op": "DUP2",
       "path": "1"
     },
     "272": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        200,
+        233
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "273": {
+      "offset": [
+        282,
+        309
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "274": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        282,
+        309
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x98"
+    },
+    "277": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        282,
+        309
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "279": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        282,
+        309
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "280": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        282,
+        309
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "281": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        282,
+        309
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "282": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        782,
+        1037
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "283": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
       "statement": 0,
       "value": "0x40"
     },
-    "274": {
+    "285": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "MLOAD",
       "path": "1"
     },
-    "275": {
+    "286": {
       "op": "PUSH4",
       "value": "0x95EA7B3"
     },
-    "280": {
+    "291": {
       "op": "PUSH1",
       "value": "0xE0"
     },
-    "282": {
+    "293": {
       "op": "SHL"
     },
-    "283": {
+    "294": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "DUP2",
       "path": "1"
     },
-    "284": {
+    "295": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "MSTORE",
       "path": "1"
     },
-    "285": {
+    "296": {
       "offset": [
-        338,
-        380
+        347,
+        389
       ],
       "op": "PUSH20",
       "path": "1",
-      "value": "0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026"
+      "value": "0x19BBC3463DD8D07F55438014B021FB457EBD4595"
     },
-    "306": {
+    "317": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x4"
     },
-    "308": {
+    "319": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "DUP3",
       "path": "1"
     },
-    "309": {
+    "320": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "ADD",
       "path": "1"
     },
-    "310": {
+    "321": {
       "op": "MSTORE"
     },
-    "311": {
+    "322": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        811,
-        826
+        873,
+        888
       ],
       "op": "PUSH32",
       "path": "1",
       "value": "0x0"
     },
-    "344": {
+    "355": {
       "op": "PUSH1",
       "value": "0x24"
     },
-    "346": {
+    "357": {
       "op": "DUP3"
     },
-    "347": {
+    "358": {
       "op": "ADD"
     },
-    "348": {
+    "359": {
       "op": "MSTORE"
     },
-    "349": {
+    "360": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        783,
-        788
+        844,
+        849
       ],
       "op": "PUSH32",
       "path": "1",
       "value": "0x0"
     },
-    "382": {
+    "393": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "384": {
+    "395": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "386": {
+    "397": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "388": {
+    "399": {
       "op": "SHL"
     },
-    "389": {
+    "400": {
       "op": "SUB"
     },
-    "390": {
+    "401": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        797
+        837,
+        858
       ],
       "op": "AND",
       "path": "1"
     },
-    "391": {
+    "402": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        797
+        837,
+        858
       ],
       "op": "SWAP1",
       "path": "1"
     },
-    "392": {
+    "403": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        797
+        837,
+        858
       ],
       "op": "PUSH4",
       "path": "1",
       "value": "0x95EA7B3"
     },
-    "397": {
+    "408": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        797
+        837,
+        858
       ],
       "op": "SWAP1",
       "path": "1"
     },
-    "398": {
+    "409": {
       "op": "PUSH1",
       "value": "0x44"
     },
-    "400": {
+    "411": {
       "op": "ADD"
     },
-    "401": {
+    "412": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x20"
     },
-    "403": {
+    "414": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x40"
     },
-    "405": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "MLOAD",
-      "path": "1"
-    },
-    "406": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "407": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP4",
-      "path": "1"
-    },
-    "408": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "SUB",
-      "path": "1"
-    },
-    "409": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP2",
-      "path": "1"
-    },
-    "410": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x0"
-    },
-    "412": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP8",
-      "path": "1"
-    },
-    "413": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "414": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "EXTCODESIZE",
-      "path": "1"
-    },
-    "415": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "ISZERO",
-      "path": "1"
-    },
     "416": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "DUP1",
+      "op": "MLOAD",
       "path": "1"
     },
     "417": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "ISZERO",
+      "op": "DUP1",
       "path": "1"
     },
     "418": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x1AA"
+      "op": "DUP4",
+      "path": "1"
+    },
+    "419": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "SUB",
+      "path": "1"
+    },
+    "420": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "DUP2",
+      "path": "1"
     },
     "421": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
-      ],
-      "op": "JUMPI",
-      "path": "1"
-    },
-    "422": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x0"
     },
+    "423": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "DUP8",
+      "path": "1"
+    },
     "424": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "DUP1",
       "path": "1"
@@ -2238,854 +2291,822 @@
     "425": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "REVERT",
+      "op": "EXTCODESIZE",
       "path": "1"
     },
     "426": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "JUMPDEST",
+      "op": "ISZERO",
       "path": "1"
     },
     "427": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "POP",
+      "op": "DUP1",
       "path": "1"
     },
     "428": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "GAS",
+      "op": "ISZERO",
       "path": "1"
     },
     "429": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "CALL",
-      "path": "1"
-    },
-    "430": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "ISZERO",
-      "path": "1"
-    },
-    "431": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP1",
-      "path": "1"
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x1B5"
     },
     "432": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "ISZERO",
+      "op": "JUMPI",
       "path": "1"
     },
     "433": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH2",
+      "op": "PUSH1",
       "path": "1",
-      "value": "0x1BE"
+      "value": "0x0"
+    },
+    "435": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "DUP1",
+      "path": "1"
     },
     "436": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "JUMPI",
+      "op": "REVERT",
       "path": "1"
     },
     "437": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "RETURNDATASIZE",
+      "op": "JUMPDEST",
       "path": "1"
     },
     "438": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x0"
+      "op": "POP",
+      "path": "1"
+    },
+    "439": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "GAS",
+      "path": "1"
     },
     "440": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "DUP1",
+      "op": "CALL",
       "path": "1"
     },
     "441": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "RETURNDATACOPY",
+      "op": "ISZERO",
       "path": "1"
     },
     "442": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "RETURNDATASIZE",
+      "op": "DUP1",
       "path": "1"
     },
     "443": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH1",
+      "op": "ISZERO",
+      "path": "1"
+    },
+    "444": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "PUSH2",
       "path": "1",
-      "value": "0x0"
-    },
-    "445": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "REVERT",
-      "path": "1"
-    },
-    "446": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "JUMPDEST",
-      "path": "1"
+      "value": "0x1C9"
     },
     "447": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "POP",
+      "op": "JUMPI",
       "path": "1"
     },
     "448": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "POP",
+      "op": "RETURNDATASIZE",
       "path": "1"
     },
     "449": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "POP",
-      "path": "1"
-    },
-    "450": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "POP",
-      "path": "1"
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
     },
     "451": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x40"
+      "op": "DUP1",
+      "path": "1"
+    },
+    "452": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "1"
     },
     "453": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "MLOAD",
+      "op": "RETURNDATASIZE",
       "path": "1"
     },
     "454": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
-      ],
-      "op": "RETURNDATASIZE",
-      "path": "1"
-    },
-    "455": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
-      "value": "0x1F"
+      "value": "0x0"
+    },
+    "456": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "REVERT",
+      "path": "1"
     },
     "457": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "NOT",
+      "op": "JUMPDEST",
       "path": "1"
     },
     "458": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x1F"
+      "op": "POP",
+      "path": "1"
+    },
+    "459": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "POP",
+      "path": "1"
     },
     "460": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "DUP3",
+      "op": "POP",
       "path": "1"
     },
     "461": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "ADD",
+      "op": "POP",
       "path": "1"
     },
     "462": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
-      ],
-      "op": "AND",
-      "path": "1"
-    },
-    "463": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP3",
-      "path": "1"
-    },
-    "464": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "ADD",
-      "path": "1"
-    },
-    "465": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "466": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
+        837,
+        889
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x40"
     },
+    "464": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "465": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "1"
+    },
+    "466": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1F"
+    },
     "468": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "MSTORE",
+      "op": "NOT",
       "path": "1"
     },
     "469": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "POP",
-      "path": "1"
-    },
-    "470": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        776,
-        827
-      ],
-      "op": "DUP2",
-      "path": "1"
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1F"
     },
     "471": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "ADD",
+      "op": "DUP3",
       "path": "1"
     },
     "472": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "SWAP1",
+      "op": "ADD",
       "path": "1"
     },
     "473": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x1E2"
+      "op": "AND",
+      "path": "1"
+    },
+    "474": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "DUP3",
+      "path": "1"
+    },
+    "475": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "ADD",
+      "path": "1"
     },
     "476": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "SWAP2",
+      "op": "DUP1",
       "path": "1"
     },
     "477": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "SWAP1",
-      "path": "1"
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
     },
-    "478": {
+    "479": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x306"
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "480": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "POP",
+      "path": "1"
     },
     "481": {
       "fn": "BribesManager.sendBribe",
-      "jump": "i",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "JUMP",
+      "op": "DUP2",
       "path": "1"
     },
     "482": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        776,
-        827
+        837,
+        889
       ],
-      "op": "JUMPDEST",
+      "op": "ADD",
       "path": "1"
     },
     "483": {
-      "op": "POP"
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "SWAP1",
+      "path": "1"
     },
     "484": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        903,
-        913
+        837,
+        889
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x1ED"
+    },
+    "487": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "488": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "489": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x312"
+    },
+    "492": {
+      "fn": "BribesManager.sendBribe",
+      "jump": "i",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "493": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        837,
+        889
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "494": {
+      "op": "POP"
+    },
+    "495": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        969,
+        981
       ],
       "op": "PUSH1",
       "path": "1",
       "statement": 1,
       "value": "0x0"
     },
-    "486": {
+    "497": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        903,
-        913
+        969,
+        981
       ],
       "op": "SLOAD",
       "path": "1"
     },
-    "487": {
+    "498": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x40"
     },
-    "489": {
+    "500": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "MLOAD",
       "path": "1"
     },
-    "490": {
+    "501": {
       "op": "PUSH4",
-      "value": "0x13523A87"
+      "value": "0xDBF15FC5"
     },
-    "495": {
+    "506": {
       "op": "PUSH1",
       "value": "0xE0"
     },
-    "497": {
+    "508": {
       "op": "SHL"
     },
-    "498": {
+    "509": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "DUP2",
       "path": "1"
     },
-    "499": {
+    "510": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "MSTORE",
       "path": "1"
     },
-    "500": {
+    "511": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "502": {
+    "513": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "504": {
+    "515": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "506": {
+    "517": {
       "op": "SHL"
     },
-    "507": {
+    "518": {
       "op": "SUB"
     },
-    "508": {
+    "519": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        872,
-        877
+        921,
+        926
       ],
       "op": "PUSH32",
       "path": "1",
       "value": "0x0"
     },
-    "541": {
-      "op": "DUP2"
-    },
-    "542": {
+    "552": {
       "op": "AND"
     },
-    "543": {
+    "553": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x4"
     },
-    "545": {
+    "555": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "DUP4",
+      "op": "DUP3",
       "path": "1"
     },
-    "546": {
+    "556": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "ADD",
       "path": "1"
     },
-    "547": {
+    "557": {
       "op": "MSTORE"
     },
-    "548": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        879,
-        884
-      ],
-      "op": "PUSH32",
-      "path": "1",
-      "value": "0x0"
-    },
-    "581": {
-      "op": "AND"
-    },
-    "582": {
+    "558": {
       "op": "PUSH1",
       "value": "0x24"
     },
-    "584": {
-      "op": "DUP3"
+    "560": {
+      "op": "DUP2"
     },
-    "585": {
+    "561": {
       "op": "ADD"
     },
-    "586": {
+    "562": {
+      "op": "DUP4"
+    },
+    "563": {
+      "op": "SWAP1"
+    },
+    "564": {
       "op": "MSTORE"
     },
-    "587": {
+    "565": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        886,
-        901
+        939,
+        954
       ],
       "op": "PUSH32",
       "path": "1",
       "value": "0x0"
     },
-    "620": {
+    "598": {
       "op": "PUSH1",
       "value": "0x44"
     },
-    "622": {
+    "600": {
       "op": "DUP3"
     },
-    "623": {
+    "601": {
       "op": "ADD"
     },
-    "624": {
+    "602": {
       "op": "MSTORE"
     },
-    "625": {
+    "603": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        956,
+        967
+      ],
+      "op": "PUSH32",
+      "path": "1",
+      "value": "0x0"
+    },
+    "636": {
       "op": "PUSH1",
       "value": "0x64"
     },
-    "627": {
-      "op": "DUP2"
+    "638": {
+      "op": "DUP3"
     },
-    "628": {
+    "639": {
       "op": "ADD"
     },
-    "629": {
-      "op": "SWAP2"
-    },
-    "630": {
-      "op": "SWAP1"
-    },
-    "631": {
-      "op": "SWAP2"
-    },
-    "632": {
+    "640": {
       "op": "MSTORE"
     },
-    "633": {
-      "offset": [
-        338,
-        380
-      ],
-      "op": "PUSH20",
-      "path": "1",
-      "value": "0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026"
-    },
-    "654": {
+    "641": {
       "op": "PUSH1",
       "value": "0x84"
     },
-    "656": {
-      "op": "DUP3"
+    "643": {
+      "op": "DUP2"
     },
-    "657": {
+    "644": {
       "op": "ADD"
     },
-    "658": {
+    "645": {
+      "op": "SWAP2"
+    },
+    "646": {
+      "op": "SWAP1"
+    },
+    "647": {
+      "op": "SWAP2"
+    },
+    "648": {
       "op": "MSTORE"
     },
-    "659": {
+    "649": {
+      "offset": [
+        347,
+        389
+      ],
+      "op": "PUSH20",
+      "path": "1",
+      "value": "0x19BBC3463DD8D07F55438014B021FB457EBD4595"
+    },
+    "670": {
+      "op": "PUSH1",
+      "value": "0xA4"
+    },
+    "672": {
+      "op": "DUP3"
+    },
+    "673": {
+      "op": "ADD"
+    },
+    "674": {
+      "op": "MSTORE"
+    },
+    "675": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        861
+        899,
+        910
       ],
       "op": "PUSH20",
       "path": "1",
       "value": "0x0"
-    },
-    "680": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        861
-      ],
-      "op": "SWAP1",
-      "path": "1"
-    },
-    "681": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        871
-      ],
-      "op": "PUSH4",
-      "path": "1",
-      "value": "0x13523A87"
-    },
-    "686": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        871
-      ],
-      "op": "SWAP1",
-      "path": "1"
-    },
-    "687": {
-      "op": "PUSH1",
-      "value": "0xA4"
-    },
-    "689": {
-      "op": "ADD"
-    },
-    "690": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x20"
-    },
-    "692": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x40"
-    },
-    "694": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "MLOAD",
-      "path": "1"
-    },
-    "695": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP1",
-      "path": "1"
     },
     "696": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        910
       ],
-      "op": "DUP4",
+      "op": "SWAP1",
       "path": "1"
     },
     "697": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        920
       ],
-      "op": "SUB",
-      "path": "1"
-    },
-    "698": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP2",
-      "path": "1"
-    },
-    "699": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP7",
-      "path": "1"
-    },
-    "700": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "701": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "EXTCODESIZE",
-      "path": "1"
+      "op": "PUSH4",
+      "path": "1",
+      "value": "0xDBF15FC5"
     },
     "702": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        920
       ],
-      "op": "ISZERO",
+      "op": "SWAP1",
       "path": "1"
     },
     "703": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "704": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "ISZERO",
-      "path": "1"
+      "op": "PUSH1",
+      "value": "0xC4"
     },
     "705": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x2C9"
+      "op": "ADD"
     },
-    "708": {
+    "706": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
-      ],
-      "op": "JUMPI",
-      "path": "1"
-    },
-    "709": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x0"
     },
+    "708": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "710": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
     "711": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "DUP1",
       "path": "1"
@@ -3093,108 +3114,108 @@
     "712": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "REVERT",
+      "op": "DUP4",
       "path": "1"
     },
     "713": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "JUMPDEST",
+      "op": "SUB",
       "path": "1"
     },
     "714": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "POP",
+      "op": "DUP2",
       "path": "1"
     },
     "715": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "GAS",
+      "op": "DUP7",
       "path": "1"
     },
     "716": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "DELEGATECALL",
+      "op": "DUP1",
       "path": "1"
     },
     "717": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "ISZERO",
+      "op": "EXTCODESIZE",
       "path": "1"
     },
     "718": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "DUP1",
+      "op": "ISZERO",
       "path": "1"
     },
     "719": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "ISZERO",
+      "op": "DUP1",
       "path": "1"
     },
     "720": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
+      ],
+      "op": "ISZERO",
+      "path": "1"
+    },
+    "721": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
       ],
       "op": "PUSH2",
       "path": "1",
-      "value": "0x2DD"
-    },
-    "723": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "JUMPI",
-      "path": "1"
+      "value": "0x2D9"
     },
     "724": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "RETURNDATASIZE",
+      "op": "JUMPI",
       "path": "1"
     },
     "725": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "PUSH1",
       "path": "1",
@@ -3203,8 +3224,8 @@
     "727": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
       "op": "DUP1",
       "path": "1"
@@ -3212,512 +3233,412 @@
     "728": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "RETURNDATACOPY",
+      "op": "REVERT",
       "path": "1"
     },
     "729": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "RETURNDATASIZE",
+      "op": "JUMPDEST",
       "path": "1"
     },
     "730": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x0"
+      "op": "POP",
+      "path": "1"
+    },
+    "731": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "GAS",
+      "path": "1"
     },
     "732": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "REVERT",
+      "op": "DELEGATECALL",
       "path": "1"
     },
     "733": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "JUMPDEST",
+      "op": "ISZERO",
       "path": "1"
     },
     "734": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "POP",
+      "op": "DUP1",
       "path": "1"
     },
     "735": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "POP",
+      "op": "ISZERO",
       "path": "1"
     },
     "736": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "POP",
-      "path": "1"
-    },
-    "737": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "POP",
-      "path": "1"
-    },
-    "738": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH1",
+      "op": "PUSH2",
       "path": "1",
-      "value": "0x40"
+      "value": "0x2ED"
+    },
+    "739": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "JUMPI",
+      "path": "1"
     },
     "740": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
+        899,
+        996
       ],
-      "op": "MLOAD",
+      "op": "RETURNDATASIZE",
       "path": "1"
     },
     "741": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        850,
-        927
-      ],
-      "op": "RETURNDATASIZE",
-      "path": "1"
-    },
-    "742": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x1F"
-    },
-    "744": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "NOT",
-      "path": "1"
-    },
-    "745": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x1F"
-    },
-    "747": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP3",
-      "path": "1"
-    },
-    "748": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "ADD",
-      "path": "1"
-    },
-    "749": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "AND",
-      "path": "1"
-    },
-    "750": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP3",
-      "path": "1"
-    },
-    "751": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "ADD",
-      "path": "1"
-    },
-    "752": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP1",
-      "path": "1"
-    },
-    "753": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH1",
-      "path": "1",
-      "value": "0x40"
-    },
-    "755": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "MSTORE",
-      "path": "1"
-    },
-    "756": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "POP",
-      "path": "1"
-    },
-    "757": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "DUP2",
-      "path": "1"
-    },
-    "758": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "ADD",
-      "path": "1"
-    },
-    "759": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "SWAP1",
-      "path": "1"
-    },
-    "760": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x301"
-    },
-    "763": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "SWAP2",
-      "path": "1"
-    },
-    "764": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "SWAP1",
-      "path": "1"
-    },
-    "765": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "PUSH2",
-      "path": "1",
-      "value": "0x32F"
-    },
-    "768": {
-      "fn": "BribesManager.sendBribe",
-      "jump": "i",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "JUMP",
-      "path": "1"
-    },
-    "769": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        850,
-        927
-      ],
-      "op": "JUMPDEST",
-      "path": "1"
-    },
-    "770": {
-      "fn": "BribesManager.sendBribe",
-      "offset": [
-        837,
-        847
+        899,
+        996
       ],
       "op": "PUSH1",
       "path": "1",
       "value": "0x0"
     },
-    "772": {
+    "743": {
       "fn": "BribesManager.sendBribe",
       "offset": [
-        837,
-        927
+        899,
+        996
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "744": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "1"
+    },
+    "745": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "1"
+    },
+    "746": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "748": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "REVERT",
+      "path": "1"
+    },
+    "749": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        899,
+        996
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "750": {
+      "op": "POP"
+    },
+    "751": {
+      "op": "POP"
+    },
+    "752": {
+      "op": "POP"
+    },
+    "753": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        1006,
+        1018
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "statement": 2,
+      "value": "0x0"
+    },
+    "755": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        1006,
+        1030
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "756": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        1006,
+        1030
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "757": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        1006,
+        1030
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "758": {
+      "fn": "BribesManager.sendBribe",
+      "offset": [
+        1006,
+        1030
       ],
       "op": "SSTORE",
       "path": "1"
     },
-    "773": {
+    "759": {
+      "op": "POP"
+    },
+    "760": {
       "fn": "BribesManager.sendBribe",
       "jump": "o",
       "offset": [
-        738,
-        934
+        782,
+        1037
       ],
       "op": "JUMP",
       "path": "1"
     },
-    "774": {
+    "761": {
       "op": "JUMPDEST"
+    },
+    "762": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "764": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "766": {
+      "op": "DUP3"
+    },
+    "767": {
+      "op": "DUP5"
+    },
+    "768": {
+      "op": "SUB"
+    },
+    "769": {
+      "op": "SLT"
+    },
+    "770": {
+      "op": "ISZERO"
+    },
+    "771": {
+      "op": "PUSH2",
+      "value": "0x30B"
+    },
+    "774": {
+      "op": "JUMPI"
     },
     "775": {
       "op": "PUSH1",
       "value": "0x0"
     },
     "777": {
-      "op": "PUSH1",
-      "value": "0x20"
+      "op": "DUP1"
+    },
+    "778": {
+      "op": "REVERT"
     },
     "779": {
-      "op": "DUP3"
+      "op": "JUMPDEST"
     },
     "780": {
-      "op": "DUP5"
+      "op": "POP"
     },
     "781": {
-      "op": "SUB"
+      "op": "CALLDATALOAD"
     },
     "782": {
-      "op": "SLT"
+      "op": "SWAP2"
     },
     "783": {
-      "op": "ISZERO"
+      "op": "SWAP1"
     },
     "784": {
-      "op": "PUSH2",
-      "value": "0x318"
-    },
-    "787": {
-      "op": "JUMPI"
-    },
-    "788": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "790": {
-      "op": "DUP1"
-    },
-    "791": {
-      "op": "REVERT"
-    },
-    "792": {
-      "op": "JUMPDEST"
-    },
-    "793": {
-      "op": "DUP2"
-    },
-    "794": {
-      "op": "MLOAD"
-    },
-    "795": {
-      "op": "DUP1"
-    },
-    "796": {
-      "op": "ISZERO"
-    },
-    "797": {
-      "op": "ISZERO"
-    },
-    "798": {
-      "op": "DUP2"
-    },
-    "799": {
-      "op": "EQ"
-    },
-    "800": {
-      "op": "PUSH2",
-      "value": "0x328"
-    },
-    "803": {
-      "op": "JUMPI"
-    },
-    "804": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "806": {
-      "op": "DUP1"
-    },
-    "807": {
-      "op": "REVERT"
-    },
-    "808": {
-      "op": "JUMPDEST"
-    },
-    "809": {
-      "op": "SWAP4"
-    },
-    "810": {
-      "op": "SWAP3"
-    },
-    "811": {
       "op": "POP"
     },
-    "812": {
-      "op": "POP"
-    },
-    "813": {
-      "op": "POP"
-    },
-    "814": {
+    "785": {
       "jump": "o",
       "op": "JUMP"
     },
-    "815": {
+    "786": {
       "op": "JUMPDEST"
+    },
+    "787": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "789": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "791": {
+      "op": "DUP3"
+    },
+    "792": {
+      "op": "DUP5"
+    },
+    "793": {
+      "op": "SUB"
+    },
+    "794": {
+      "op": "SLT"
+    },
+    "795": {
+      "op": "ISZERO"
+    },
+    "796": {
+      "op": "PUSH2",
+      "value": "0x324"
+    },
+    "799": {
+      "op": "JUMPI"
+    },
+    "800": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "802": {
+      "op": "DUP1"
+    },
+    "803": {
+      "op": "REVERT"
+    },
+    "804": {
+      "op": "JUMPDEST"
+    },
+    "805": {
+      "op": "DUP2"
+    },
+    "806": {
+      "op": "MLOAD"
+    },
+    "807": {
+      "op": "DUP1"
+    },
+    "808": {
+      "op": "ISZERO"
+    },
+    "809": {
+      "op": "ISZERO"
+    },
+    "810": {
+      "op": "DUP2"
+    },
+    "811": {
+      "op": "EQ"
+    },
+    "812": {
+      "op": "PUSH2",
+      "value": "0x334"
+    },
+    "815": {
+      "op": "JUMPI"
     },
     "816": {
       "op": "PUSH1",
       "value": "0x0"
     },
     "818": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "820": {
-      "op": "DUP3"
-    },
-    "821": {
-      "op": "DUP5"
-    },
-    "822": {
-      "op": "SUB"
-    },
-    "823": {
-      "op": "SLT"
-    },
-    "824": {
-      "op": "ISZERO"
-    },
-    "825": {
-      "op": "PUSH2",
-      "value": "0x341"
-    },
-    "828": {
-      "op": "JUMPI"
-    },
-    "829": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "831": {
       "op": "DUP1"
     },
-    "832": {
+    "819": {
       "op": "REVERT"
     },
-    "833": {
+    "820": {
       "op": "JUMPDEST"
     },
-    "834": {
+    "821": {
+      "op": "SWAP4"
+    },
+    "822": {
+      "op": "SWAP3"
+    },
+    "823": {
       "op": "POP"
     },
-    "835": {
-      "op": "MLOAD"
-    },
-    "836": {
-      "op": "SWAP2"
-    },
-    "837": {
-      "op": "SWAP1"
-    },
-    "838": {
+    "824": {
       "op": "POP"
     },
-    "839": {
+    "825": {
+      "op": "POP"
+    },
+    "826": {
       "jump": "o",
       "op": "JUMP"
     }
   },
-  "sha1": "6da006e95b9c45ff8d9927a845a694048406452e",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"../interfaces/token/IERC20.sol\";\nimport \"./library/BribesLogic.sol\";\n\ncontract BribesManager {\n    address public immutable TOKEN;\n    address public immutable GAUGE;\n    uint public immutable TOKENS_PER_VOTE;\n    uint public lastPeriod;\n    address constant CURVE_BRIBE = 0x7893bbb46613d7a4FbcC31Dab4C9b823FfeE1026;\n\n    /// @param token Address of the reward/incentive token\n    /// @param gauge address of the curve gauge\n    /// @param tokens_per_vote number of tokens to add as incentives per vote\n    constructor(address token, address gauge, uint tokens_per_vote) {\n        TOKEN = token;\n        GAUGE = gauge;\n        TOKENS_PER_VOTE = tokens_per_vote;\n    }\n\n    function sendBribe() public {\n        IERC20(TOKEN).approve(CURVE_BRIBE, TOKENS_PER_VOTE);\n        lastPeriod = BribesLogic.sendBribe(TOKEN, GAUGE, TOKENS_PER_VOTE, lastPeriod, CURVE_BRIBE);\n    }\n}",
-  "sourceMap": "135:801:1:-:0;;;572:160;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;646:13:1;;;;;669;;;;692:33;;135:801;;14:177:5;93:13;;-1:-1:-1;;;;;135:31:5;;125:42;;115:70;;181:1;178;171:12;115:70;14:177;;;:::o;196:354::-;284:6;292;300;353:2;341:9;332:7;328:23;324:32;321:52;;;369:1;366;359:12;321:52;392:40;422:9;392:40;:::i;:::-;382:50;;451:49;496:2;485:9;481:18;451:49;:::i;:::-;441:59;;540:2;529:9;525:18;519:25;509:35;;196:354;;;;;:::o;:::-;135:801:1;;;;;;;;;;;;;;;;;;",
+  "sha1": "b2fd14dbc3b59c75f6c154fc68ea8022b1aab171",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"../interfaces/token/IERC20.sol\";\nimport \"./library/BribesLogic.sol\";\n\ncontract BribesManager {\n    address public immutable TOKEN;\n    uint public immutable GAUGE_INDEX;\n    uint public immutable TOKENS_PER_VOTE;\n    bytes32 public lastProposal;\n    address constant VOTIUM_BRIBE = 0x19BBC3463Dd8d07f55438014b021Fb457EBD4595;\n\n    /// @param token Address of the reward/incentive token\n    /// @param gaugeIndex index of the gauge in the voting proposal choices\n    /// @param tokensPerVote number of tokens to add as incentives per vote\n    constructor(address token, uint gaugeIndex, uint tokensPerVote) {\n        TOKEN = token;\n        GAUGE_INDEX = gaugeIndex;\n        TOKENS_PER_VOTE = tokensPerVote;\n    }\n\n    function sendBribe(bytes32 _proposal) public {\n        IERC20(TOKEN).approve(VOTIUM_BRIBE, TOKENS_PER_VOTE);\n        BribesLogic.sendBribe(TOKEN, _proposal, TOKENS_PER_VOTE, GAUGE_INDEX, lastProposal, VOTIUM_BRIBE);\n        lastProposal = _proposal;\n    }\n}",
+  "sourceMap": "135:904:1:-:0;;;607:169;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;681:13:1;;;;;704:24;;738:31;;135:904;;14:412:5;102:6;110;118;171:2;159:9;150:7;146:23;142:32;139:52;;;187:1;184;177:12;139:52;213:16;;-1:-1:-1;;;;;258:31:5;;248:42;;238:70;;304:1;301;294:12;238:70;372:2;357:18;;351:25;416:2;401:18;;;395:25;327:5;;351:25;;-1:-1:-1;395:25:5;14:412;-1:-1:-1;;;14:412:5:o;:::-;135:904:1;;;;;;;;;;;;;;;;;;",
   "sourcePath": "contracts/BribesManager.sol",
   "type": "contract"
 }

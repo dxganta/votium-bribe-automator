@@ -17,14 +17,14 @@
         },
         {
           "indexed": false,
-          "internalType": "address",
-          "name": "gauge",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "gaugeIndex",
+          "type": "uint256"
         },
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "tokens_per_vote",
+          "name": "tokensPerVote",
           "type": "uint256"
         }
       ],
@@ -39,13 +39,13 @@
           "type": "address"
         },
         {
-          "internalType": "address",
-          "name": "gauge",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "gaugeIndex",
+          "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "tokens_per_vote",
+          "name": "tokensPerVote",
           "type": "uint256"
         }
       ],
@@ -65,8 +65,8 @@
     "0": "contracts/BribesFactory.sol",
     "1": "contracts/BribesManager.sol",
     "2": "contracts/library/BribesLogic.sol",
-    "3": "interfaces/curve/IBribeV2.sol",
-    "4": "interfaces/token/IERC20.sol"
+    "3": "interfaces/token/IERC20.sol",
+    "4": "interfaces/votium/IVotiumBribe.sol"
   },
   "ast": {
     "absolutePath": "contracts/BribesFactory.sol",
@@ -75,16 +75,16 @@
         49
       ],
       "BribesLogic": [
-        188
+        213
       ],
       "BribesManager": [
-        111
-      ],
-      "IBribeV2": [
-        296
+        117
       ],
       "IERC20": [
-        273
+        298
+      ],
+      "IVotiumBribe": [
+        326
       ]
     },
     "id": 50,
@@ -109,7 +109,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 50,
-        "sourceUnit": 112,
+        "sourceUnit": 118,
         "src": "57:29:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -119,7 +119,7 @@
         "baseContracts": [],
         "canonicalName": "BribesFactory",
         "contractDependencies": [
-          111
+          117
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
@@ -204,26 +204,25 @@
                   "id": 8,
                   "indexed": false,
                   "mutability": "mutable",
-                  "name": "gauge",
-                  "nameLocation": "185:5:0",
+                  "name": "gaugeIndex",
+                  "nameLocation": "182:10:0",
                   "nodeType": "VariableDeclaration",
                   "scope": 12,
-                  "src": "177:13:0",
+                  "src": "177:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
                     "id": 7,
-                    "name": "address",
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "177:7:0",
-                    "stateMutability": "nonpayable",
+                    "src": "177:4:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
@@ -233,11 +232,11 @@
                   "id": 10,
                   "indexed": false,
                   "mutability": "mutable",
-                  "name": "tokens_per_vote",
-                  "nameLocation": "197:15:0",
+                  "name": "tokensPerVote",
+                  "nameLocation": "199:13:0",
                   "nodeType": "VariableDeclaration",
                   "scope": 12,
-                  "src": "192:20:0",
+                  "src": "194:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -248,7 +247,7 @@
                     "id": 9,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "192:4:0",
+                    "src": "194:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -265,7 +264,7 @@
             "body": {
               "id": 47,
               "nodeType": "Block",
-              "src": "326:170:0",
+              "src": "326:176:0",
               "statements": [
                 {
                   "assignments": [
@@ -284,7 +283,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_BribesManager_$111",
+                        "typeIdentifier": "t_contract$_BribesManager_$117",
                         "typeString": "contract BribesManager"
                       },
                       "typeName": {
@@ -294,13 +293,13 @@
                           "id": 24,
                           "name": "BribesManager",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 111,
+                          "referencedDeclaration": 117,
                           "src": "336:13:0"
                         },
-                        "referencedDeclaration": 111,
+                        "referencedDeclaration": 117,
                         "src": "336:13:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_BribesManager_$111",
+                          "typeIdentifier": "t_contract$_BribesManager_$117",
                           "typeString": "contract BribesManager"
                         }
                       },
@@ -324,23 +323,23 @@
                       },
                       {
                         "id": 31,
-                        "name": "gauge",
+                        "name": "gaugeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 16,
-                        "src": "379:5:0",
+                        "src": "379:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       },
                       {
                         "id": 32,
-                        "name": "tokens_per_vote",
+                        "name": "tokensPerVote",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 18,
-                        "src": "386:15:0",
+                        "src": "391:13:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -354,8 +353,8 @@
                           "typeString": "address"
                         },
                         {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         },
                         {
                           "typeIdentifier": "t_uint256",
@@ -370,8 +369,8 @@
                       "nodeType": "NewExpression",
                       "src": "354:17:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_contract$_BribesManager_$111_$",
-                        "typeString": "function (address,address,uint256) returns (contract BribesManager)"
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$_t_contract$_BribesManager_$117_$",
+                        "typeString": "function (address,uint256,uint256) returns (contract BribesManager)"
                       },
                       "typeName": {
                         "id": 28,
@@ -380,13 +379,13 @@
                           "id": 27,
                           "name": "BribesManager",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 111,
+                          "referencedDeclaration": 117,
                           "src": "358:13:0"
                         },
-                        "referencedDeclaration": 111,
+                        "referencedDeclaration": 117,
                         "src": "358:13:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_BribesManager_$111",
+                          "typeIdentifier": "t_contract$_BribesManager_$117",
                           "typeString": "contract BribesManager"
                         }
                       }
@@ -399,15 +398,15 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "354:48:0",
+                    "src": "354:51:0",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_BribesManager_$111",
+                      "typeIdentifier": "t_contract$_BribesManager_$117",
                       "typeString": "contract BribesManager"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "336:66:0"
+                  "src": "336:69:0"
                 },
                 {
                   "eventCall": {
@@ -420,9 +419,9 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 26,
-                            "src": "437:1:0",
+                            "src": "440:1:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_BribesManager_$111",
+                              "typeIdentifier": "t_contract$_BribesManager_$117",
                               "typeString": "contract BribesManager"
                             }
                           }
@@ -430,7 +429,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_BribesManager_$111",
+                              "typeIdentifier": "t_contract$_BribesManager_$117",
                               "typeString": "contract BribesManager"
                             }
                           ],
@@ -440,7 +439,7 @@
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "429:7:0",
+                          "src": "432:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
@@ -449,7 +448,7 @@
                             "id": 36,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
-                            "src": "429:7:0",
+                            "src": "432:7:0",
                             "typeDescriptions": {}
                           }
                         },
@@ -461,7 +460,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "429:10:0",
+                        "src": "432:10:0",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -474,7 +473,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 14,
-                        "src": "441:5:0",
+                        "src": "444:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -482,23 +481,23 @@
                       },
                       {
                         "id": 41,
-                        "name": "gauge",
+                        "name": "gaugeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 16,
-                        "src": "448:5:0",
+                        "src": "451:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       },
                       {
                         "id": 42,
-                        "name": "tokens_per_vote",
+                        "name": "tokensPerVote",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 18,
-                        "src": "455:15:0",
+                        "src": "463:13:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -516,8 +515,8 @@
                           "typeString": "address"
                         },
                         {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         },
                         {
                           "typeIdentifier": "t_uint256",
@@ -529,10 +528,10 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 12,
-                      "src": "418:10:0",
+                      "src": "421:10:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$",
-                        "typeString": "function (address,address,address,uint256)"
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,uint256,uint256)"
                       }
                     },
                     "id": 43,
@@ -543,7 +542,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "418:53:0",
+                    "src": "421:56:0",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
@@ -552,7 +551,7 @@
                   },
                   "id": 44,
                   "nodeType": "EmitStatement",
-                  "src": "413:58:0"
+                  "src": "416:61:0"
                 },
                 {
                   "expression": {
@@ -561,20 +560,20 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 26,
-                    "src": "488:1:0",
+                    "src": "494:1:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_BribesManager_$111",
+                      "typeIdentifier": "t_contract$_BribesManager_$117",
                       "typeString": "contract BribesManager"
                     }
                   },
                   "functionReturnParameters": 23,
                   "id": 46,
                   "nodeType": "Return",
-                  "src": "481:8:0"
+                  "src": "487:8:0"
                 }
               ]
             },
-            "functionSelector": "1e3c8532",
+            "functionSelector": "380d4266",
             "id": 48,
             "implemented": true,
             "kind": "function",
@@ -618,26 +617,25 @@
                   "constant": false,
                   "id": 16,
                   "mutability": "mutable",
-                  "name": "gauge",
-                  "nameLocation": "266:5:0",
+                  "name": "gaugeIndex",
+                  "nameLocation": "263:10:0",
                   "nodeType": "VariableDeclaration",
                   "scope": 48,
-                  "src": "258:13:0",
+                  "src": "258:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
                     "id": 15,
-                    "name": "address",
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "258:7:0",
-                    "stateMutability": "nonpayable",
+                    "src": "258:4:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
@@ -646,11 +644,11 @@
                   "constant": false,
                   "id": 18,
                   "mutability": "mutable",
-                  "name": "tokens_per_vote",
-                  "nameLocation": "278:15:0",
+                  "name": "tokensPerVote",
+                  "nameLocation": "280:13:0",
                   "nodeType": "VariableDeclaration",
                   "scope": 48,
-                  "src": "273:20:0",
+                  "src": "275:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -661,7 +659,7 @@
                     "id": 17,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "273:4:0",
+                    "src": "275:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -688,7 +686,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_BribesManager_$111",
+                    "typeIdentifier": "t_contract$_BribesManager_$117",
                     "typeString": "contract BribesManager"
                   },
                   "typeName": {
@@ -698,13 +696,13 @@
                       "id": 20,
                       "name": "BribesManager",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 111,
+                      "referencedDeclaration": 117,
                       "src": "311:13:0"
                     },
-                    "referencedDeclaration": 111,
+                    "referencedDeclaration": 117,
                     "src": "311:13:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_BribesManager_$111",
+                      "typeIdentifier": "t_contract$_BribesManager_$117",
                       "typeString": "contract BribesManager"
                     }
                   },
@@ -714,21 +712,21 @@
               "src": "310:15:0"
             },
             "scope": 49,
-            "src": "220:276:0",
+            "src": "220:282:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 50,
-        "src": "88:410:0",
+        "src": "88:416:0",
         "usedErrors": []
       }
     ],
-    "src": "32:466:0"
+    "src": "32:472:0"
   },
-  "bytecode": "608060405234801561001057600080fd5b50610614806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80631e3c853214610030575b600080fd5b61004361003e366004610133565b61005f565b6040516001600160a01b03909116815260200160405180910390f35b6000808484846040516100719061010a565b6001600160a01b0393841681529290911660208301526040820152606001604051809103906000f0801580156100ab573d6000803e3d6000fd5b50604080516001600160a01b03838116825288811660208301528716818301526060810186905290519192507fccf071d7f4f2346e8a8c8c31363efc2a0f777a4a09853c55b28a798bc3df3fd1919081900360800190a1949350505050565b61046f8061017083390190565b80356001600160a01b038116811461012e57600080fd5b919050565b60008060006060848603121561014857600080fd5b61015184610117565b925061015f60208501610117565b915060408401359050925092509256fe60e060405234801561001057600080fd5b5060405161046f38038061046f83398101604081905261002f91610066565b6001600160a01b03928316608052911660a05260c0526100a2565b80516001600160a01b038116811461006157600080fd5b919050565b60008060006060848603121561007b57600080fd5b6100848461004a565b92506100926020850161004a565b9150604084015190509250925092565b60805160a05160c05161037e6100f160003960008181606101528181610138015261024c015260008181609b015261022501526000818160e40152818161015e01526101fd015261037e6000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063752a09201461005c5780637651b1e6146100965780637f2dced7146100d557806382bfefc8146100df578063d340ef8a14610106575b600080fd5b6100837f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008d565b6100dd61010f565b005b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b61008360005481565b60405163095ea7b360e01b8152737893bbb46613d7a4fbcc31dab4c9b823ffee102660048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101aa57600080fd5b505af11580156101be573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101e29190610306565b506000546040516313523a8760e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811660048301527f00000000000000000000000000000000000000000000000000000000000000001660248201527f000000000000000000000000000000000000000000000000000000000000000060448201526064810191909152737893bbb46613d7a4fbcc31dab4c9b823ffee1026608482015273__BribesLogic___________________________906313523a879060a40160206040518083038186803b1580156102c957600080fd5b505af41580156102dd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610301919061032f565b600055565b60006020828403121561031857600080fd5b8151801515811461032857600080fd5b9392505050565b60006020828403121561034157600080fd5b505191905056fea26469706673582212208da73f073cf09d37903b805e9133cc16ca0935f9388b2a927bd76f8331d75ce664736f6c63430008090033a26469706673582212207b010660a4edf3dcd4894c980560e45dc5bd1dbce6f35c0648afb46b8ae59eb764736f6c63430008090033",
-  "bytecodeSha1": "dbe8049524264d952d64826d39b23f1c35764af7",
+  "bytecode": "608060405234801561001057600080fd5b506105d7806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063380d426614610030575b600080fd5b61004361003e366004610115565b61005f565b6040516001600160a01b03909116815260200160405180910390f35b60008084848460405161007190610108565b6001600160a01b03909316835260208301919091526040820152606001604051809103906000f0801580156100aa573d6000803e3d6000fd5b50604080516001600160a01b03808416825288166020820152908101869052606081018590529091507ff769a832e0d12ada7ed2d75c2136586aac621b53358f38adf2a1190d32fc10939060800160405180910390a1949350505050565b61044b8061015783390190565b60008060006060848603121561012a57600080fd5b83356001600160a01b038116811461014157600080fd5b9560208501359550604090940135939250505056fe60e060405234801561001057600080fd5b5060405161044b38038061044b83398101604081905261002f91610048565b6001600160a01b0390921660805260a05260c05261008b565b60008060006060848603121561005d57600080fd5b83516001600160a01b038116811461007457600080fd5b602085015160409095015190969495509392505050565b60805160a05160c0516103716100da60003960008181607601528181610143015261023601526000818160ef015261025c01526000818160b001528181610169015261020801526103716000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806316fab16e1461005c578063752a09201461007157806382bfefc8146100ab578063cc4de8aa146100ea578063d6740cdb14610111575b600080fd5b61006f61006a3660046102f9565b61011a565b005b6100987f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100d27f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100a2565b6100987f000000000000000000000000000000000000000000000000000000000000000081565b61009860005481565b60405163095ea7b360e01b81527319bbc3463dd8d07f55438014b021fb457ebd459560048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101b557600080fd5b505af11580156101c9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101ed9190610312565b5060005460405163dbf15fc560e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000166004820152602481018390527f000000000000000000000000000000000000000000000000000000000000000060448201527f0000000000000000000000000000000000000000000000000000000000000000606482015260848101919091527319bbc3463dd8d07f55438014b021fb457ebd459560a482015273__BribesLogic___________________________9063dbf15fc59060c40160006040518083038186803b1580156102d957600080fd5b505af41580156102ed573d6000803e3d6000fd5b50505060009190915550565b60006020828403121561030b57600080fd5b5035919050565b60006020828403121561032457600080fd5b8151801515811461033457600080fd5b939250505056fea2646970667358221220b6facae888ace3a9d7992525979732c4a00bb6bbc865975f30bd332f29a1b22064736f6c63430008090033a26469706673582212205ff749a68163e2c393d6f7c07d952325eba9d5975b8125d714692025e0d8f35364736f6c63430008090033",
+  "bytecodeSha1": "855d6738a2e85fee52710c5f9ca107cdffe4beee",
   "compiler": {
     "evm_version": "istanbul",
     "optimizer": {
@@ -750,12 +748,12 @@
       "0": {
         "BribesFactory.deployManager": {
           "0": [
-            413,
-            471
+            416,
+            477
           ],
           "1": [
-            481,
-            489
+            487,
+            495
           ]
         }
       },
@@ -768,11 +766,11 @@
   "dependencies": [
     "BribesLogic",
     "BribesManager",
-    "IBribeV2",
-    "IERC20"
+    "IERC20",
+    "IVotiumBribe"
   ],
-  "deployedBytecode": "608060405234801561001057600080fd5b506004361061002b5760003560e01c80631e3c853214610030575b600080fd5b61004361003e366004610133565b61005f565b6040516001600160a01b03909116815260200160405180910390f35b6000808484846040516100719061010a565b6001600160a01b0393841681529290911660208301526040820152606001604051809103906000f0801580156100ab573d6000803e3d6000fd5b50604080516001600160a01b03838116825288811660208301528716818301526060810186905290519192507fccf071d7f4f2346e8a8c8c31363efc2a0f777a4a09853c55b28a798bc3df3fd1919081900360800190a1949350505050565b61046f8061017083390190565b80356001600160a01b038116811461012e57600080fd5b919050565b60008060006060848603121561014857600080fd5b61015184610117565b925061015f60208501610117565b915060408401359050925092509256fe60e060405234801561001057600080fd5b5060405161046f38038061046f83398101604081905261002f91610066565b6001600160a01b03928316608052911660a05260c0526100a2565b80516001600160a01b038116811461006157600080fd5b919050565b60008060006060848603121561007b57600080fd5b6100848461004a565b92506100926020850161004a565b9150604084015190509250925092565b60805160a05160c05161037e6100f160003960008181606101528181610138015261024c015260008181609b015261022501526000818160e40152818161015e01526101fd015261037e6000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063752a09201461005c5780637651b1e6146100965780637f2dced7146100d557806382bfefc8146100df578063d340ef8a14610106575b600080fd5b6100837f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161008d565b6100dd61010f565b005b6100bd7f000000000000000000000000000000000000000000000000000000000000000081565b61008360005481565b60405163095ea7b360e01b8152737893bbb46613d7a4fbcc31dab4c9b823ffee102660048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101aa57600080fd5b505af11580156101be573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101e29190610306565b506000546040516313523a8760e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811660048301527f00000000000000000000000000000000000000000000000000000000000000001660248201527f000000000000000000000000000000000000000000000000000000000000000060448201526064810191909152737893bbb46613d7a4fbcc31dab4c9b823ffee1026608482015273__$8d3e982442eab610d721b37768c40888b9$__906313523a879060a40160206040518083038186803b1580156102c957600080fd5b505af41580156102dd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610301919061032f565b600055565b60006020828403121561031857600080fd5b8151801515811461032857600080fd5b9392505050565b60006020828403121561034157600080fd5b505191905056fea26469706673582212208da73f073cf09d37903b805e9133cc16ca0935f9388b2a927bd76f8331d75ce664736f6c63430008090033a26469706673582212207b010660a4edf3dcd4894c980560e45dc5bd1dbce6f35c0648afb46b8ae59eb764736f6c63430008090033",
-  "deployedSourceMap": "88:410:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;220:276;;;;;;:::i;:::-;;:::i;:::-;;;-1:-1:-1;;;;;710:32:5;;;692:51;;680:2;665:18;220:276:0;;;;;;;;311:13;336:15;372:5;379;386:15;354:48;;;;;:::i;:::-;-1:-1:-1;;;;;1012:15:5;;;994:34;;1064:15;;;;1059:2;1044:18;;1037:43;1111:2;1096:18;;1089:34;944:2;929:18;354:48:0;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;418:53:0;;;-1:-1:-1;;;;;1421:15:5;;;1403:34;;1473:15;;;1468:2;1453:18;;1446:43;1525:15;;1505:18;;;1498:43;1572:2;1557:18;;1550:34;;;418:53:0;;1421:15:5;;-1:-1:-1;418:53:0;;;;;;1352:3:5;418:53:0;;;488:1;220:276;-1:-1:-1;;;;220:276:0:o;-1:-1:-1:-;;;;;;;;:::o;14:173:5:-;82:20;;-1:-1:-1;;;;;131:31:5;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:328::-;269:6;277;285;338:2;326:9;317:7;313:23;309:32;306:52;;;354:1;351;344:12;306:52;377:29;396:9;377:29;:::i;:::-;367:39;;425:38;459:2;448:9;444:18;425:38;:::i;:::-;415:48;;510:2;499:9;495:18;482:32;472:42;;192:328;;;;;:::o",
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061002b5760003560e01c8063380d426614610030575b600080fd5b61004361003e366004610115565b61005f565b6040516001600160a01b03909116815260200160405180910390f35b60008084848460405161007190610108565b6001600160a01b03909316835260208301919091526040820152606001604051809103906000f0801580156100aa573d6000803e3d6000fd5b50604080516001600160a01b03808416825288166020820152908101869052606081018590529091507ff769a832e0d12ada7ed2d75c2136586aac621b53358f38adf2a1190d32fc10939060800160405180910390a1949350505050565b61044b8061015783390190565b60008060006060848603121561012a57600080fd5b83356001600160a01b038116811461014157600080fd5b9560208501359550604090940135939250505056fe60e060405234801561001057600080fd5b5060405161044b38038061044b83398101604081905261002f91610048565b6001600160a01b0390921660805260a05260c05261008b565b60008060006060848603121561005d57600080fd5b83516001600160a01b038116811461007457600080fd5b602085015160409095015190969495509392505050565b60805160a05160c0516103716100da60003960008181607601528181610143015261023601526000818160ef015261025c01526000818160b001528181610169015261020801526103716000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806316fab16e1461005c578063752a09201461007157806382bfefc8146100ab578063cc4de8aa146100ea578063d6740cdb14610111575b600080fd5b61006f61006a3660046102f9565b61011a565b005b6100987f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100d27f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100a2565b6100987f000000000000000000000000000000000000000000000000000000000000000081565b61009860005481565b60405163095ea7b360e01b81527319bbc3463dd8d07f55438014b021fb457ebd459560048201527f000000000000000000000000000000000000000000000000000000000000000060248201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063095ea7b390604401602060405180830381600087803b1580156101b557600080fd5b505af11580156101c9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101ed9190610312565b5060005460405163dbf15fc560e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000166004820152602481018390527f000000000000000000000000000000000000000000000000000000000000000060448201527f0000000000000000000000000000000000000000000000000000000000000000606482015260848101919091527319bbc3463dd8d07f55438014b021fb457ebd459560a482015273__$8d3e982442eab610d721b37768c40888b9$__9063dbf15fc59060c40160006040518083038186803b1580156102d957600080fd5b505af41580156102ed573d6000803e3d6000fd5b50505060009190915550565b60006020828403121561030b57600080fd5b5035919050565b60006020828403121561032457600080fd5b8151801515811461033457600080fd5b939250505056fea2646970667358221220b6facae888ace3a9d7992525979732c4a00bb6bbc865975f30bd332f29a1b22064736f6c63430008090033a26469706673582212205ff749a68163e2c393d6f7c07d952325eba9d5975b8125d714692025e0d8f35364736f6c63430008090033",
+  "deployedSourceMap": "88:416:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;220:282;;;;;;:::i;:::-;;:::i;:::-;;;-1:-1:-1;;;;;626:32:5;;;608:51;;596:2;581:18;220:282:0;;;;;;;;311:13;336:15;372:5;379:10;391:13;354:51;;;;;:::i;:::-;-1:-1:-1;;;;;890:32:5;;;872:51;;954:2;939:18;;932:34;;;;997:2;982:18;;975:34;860:2;845:18;354:51:0;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;421:56:0;;;-1:-1:-1;;;;;1307:15:5;;;1289:34;;1359:15;;1354:2;1339:18;;1332:43;1391:18;;;1384:34;;;1449:2;1434:18;;1427:34;;;336:69:0;;-1:-1:-1;421:56:0;;1238:3:5;1223:19;421:56:0;;;;;;;494:1;220:282;-1:-1:-1;;;;220:282:0:o;-1:-1:-1:-;;;;;;;;:::o;14:422:5:-;91:6;99;107;160:2;148:9;139:7;135:23;131:32;128:52;;;176:1;173;166:12;128:52;202:23;;-1:-1:-1;;;;;254:31:5;;244:42;;234:70;;300:1;297;290:12;234:70;323:5;375:2;360:18;;347:32;;-1:-1:-1;426:2:5;411:18;;;398:32;;14:422;-1:-1:-1;;;14:422:5:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
@@ -781,14 +779,14 @@
   },
   "offset": [
     88,
-    498
+    504
   ],
-  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x2B JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x1E3C8532 EQ PUSH2 0x30 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x43 PUSH2 0x3E CALLDATASIZE PUSH1 0x4 PUSH2 0x133 JUMP JUMPDEST PUSH2 0x5F JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x0 DUP1 DUP5 DUP5 DUP5 PUSH1 0x40 MLOAD PUSH2 0x71 SWAP1 PUSH2 0x10A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP4 DUP5 AND DUP2 MSTORE SWAP3 SWAP1 SWAP2 AND PUSH1 0x20 DUP4 ADD MSTORE PUSH1 0x40 DUP3 ADD MSTORE PUSH1 0x60 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 PUSH1 0x0 CREATE DUP1 ISZERO DUP1 ISZERO PUSH2 0xAB JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 DUP2 AND DUP3 MSTORE DUP9 DUP2 AND PUSH1 0x20 DUP4 ADD MSTORE DUP8 AND DUP2 DUP4 ADD MSTORE PUSH1 0x60 DUP2 ADD DUP7 SWAP1 MSTORE SWAP1 MLOAD SWAP2 SWAP3 POP PUSH32 0xCCF071D7F4F2346E8A8C8C31363EFC2A0F777A4A09853C55B28A798BC3DF3FD1 SWAP2 SWAP1 DUP2 SWAP1 SUB PUSH1 0x80 ADD SWAP1 LOG1 SWAP5 SWAP4 POP POP POP POP JUMP JUMPDEST PUSH2 0x46F DUP1 PUSH2 0x170 DUP4 CODECOPY ADD SWAP1 JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x12E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x148 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x151 DUP5 PUSH2 0x117 JUMP JUMPDEST SWAP3 POP PUSH2 0x15F PUSH1 0x20 DUP6 ADD PUSH2 0x117 JUMP JUMPDEST SWAP2 POP PUSH1 0x40 DUP5 ADD CALLDATALOAD SWAP1 POP SWAP3 POP SWAP3 POP SWAP3 JUMP INVALID PUSH1 0xE0 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x40 MLOAD PUSH2 0x46F CODESIZE SUB DUP1 PUSH2 0x46F DUP4 CODECOPY DUP2 ADD PUSH1 0x40 DUP2 SWAP1 MSTORE PUSH2 0x2F SWAP2 PUSH2 0x66 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP3 DUP4 AND PUSH1 0x80 MSTORE SWAP2 AND PUSH1 0xA0 MSTORE PUSH1 0xC0 MSTORE PUSH2 0xA2 JUMP JUMPDEST DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x61 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x7B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x84 DUP5 PUSH2 0x4A JUMP JUMPDEST SWAP3 POP PUSH2 0x92 PUSH1 0x20 DUP6 ADD PUSH2 0x4A JUMP JUMPDEST SWAP2 POP PUSH1 0x40 DUP5 ADD MLOAD SWAP1 POP SWAP3 POP SWAP3 POP SWAP3 JUMP JUMPDEST PUSH1 0x80 MLOAD PUSH1 0xA0 MLOAD PUSH1 0xC0 MLOAD PUSH2 0x37E PUSH2 0xF1 PUSH1 0x0 CODECOPY PUSH1 0x0 DUP2 DUP2 PUSH1 0x61 ADD MSTORE DUP2 DUP2 PUSH2 0x138 ADD MSTORE PUSH2 0x24C ADD MSTORE PUSH1 0x0 DUP2 DUP2 PUSH1 0x9B ADD MSTORE PUSH2 0x225 ADD MSTORE PUSH1 0x0 DUP2 DUP2 PUSH1 0xE4 ADD MSTORE DUP2 DUP2 PUSH2 0x15E ADD MSTORE PUSH2 0x1FD ADD MSTORE PUSH2 0x37E PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x752A0920 EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x7651B1E6 EQ PUSH2 0x96 JUMPI DUP1 PUSH4 0x7F2DCED7 EQ PUSH2 0xD5 JUMPI DUP1 PUSH4 0x82BFEFC8 EQ PUSH2 0xDF JUMPI DUP1 PUSH4 0xD340EF8A EQ PUSH2 0x106 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x83 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xBD PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x8D JUMP JUMPDEST PUSH2 0xDD PUSH2 0x10F JUMP JUMPDEST STOP JUMPDEST PUSH2 0xBD PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH2 0x83 PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH4 0x95EA7B3 PUSH1 0xE0 SHL DUP2 MSTORE PUSH20 0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026 PUSH1 0x4 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 PUSH4 0x95EA7B3 SWAP1 PUSH1 0x44 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1AA JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1BE JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x1E2 SWAP2 SWAP1 PUSH2 0x306 JUMP JUMPDEST POP PUSH1 0x0 SLOAD PUSH1 0x40 MLOAD PUSH4 0x13523A87 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB PUSH32 0x0 DUP2 AND PUSH1 0x4 DUP4 ADD MSTORE PUSH32 0x0 AND PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH20 0x7893BBB46613D7A4FBCC31DAB4C9B823FFEE1026 PUSH1 0x84 DUP3 ADD MSTORE PUSH20 0x0 SWAP1 PUSH4 0x13523A87 SWAP1 PUSH1 0xA4 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x2C9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS DELEGATECALL ISZERO DUP1 ISZERO PUSH2 0x2DD JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x301 SWAP2 SWAP1 PUSH2 0x32F JUMP JUMPDEST PUSH1 0x0 SSTORE JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x318 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x328 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x341 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP MLOAD SWAP2 SWAP1 POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 DUP14 0xA7 EXTCODEHASH SMOD EXTCODECOPY CREATE SWAP14 CALLDATACOPY SWAP1 EXTCODESIZE DUP1 0x5E SWAP2 CALLER 0xCC AND 0xCA MULMOD CALLDATALOAD 0xF9 CODESIZE DUP12 0x2A SWAP3 PUSH28 0xD76F8331D75CE664736F6C63430008090033A2646970667358221220 PUSH28 0x10660A4EDF3DCD4894C980560E45DC5BD1DBCE6F35C0648AFB46B8A 0xE5 SWAP15 0xB7 PUSH5 0x736F6C6343 STOP ADDMOD MULMOD STOP CALLER ",
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x2B JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x380D4266 EQ PUSH2 0x30 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x43 PUSH2 0x3E CALLDATASIZE PUSH1 0x4 PUSH2 0x115 JUMP JUMPDEST PUSH2 0x5F JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x0 DUP1 DUP5 DUP5 DUP5 PUSH1 0x40 MLOAD PUSH2 0x71 SWAP1 PUSH2 0x108 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP4 AND DUP4 MSTORE PUSH1 0x20 DUP4 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH1 0x40 DUP3 ADD MSTORE PUSH1 0x60 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 PUSH1 0x0 CREATE DUP1 ISZERO DUP1 ISZERO PUSH2 0xAA JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP1 DUP5 AND DUP3 MSTORE DUP9 AND PUSH1 0x20 DUP3 ADD MSTORE SWAP1 DUP2 ADD DUP7 SWAP1 MSTORE PUSH1 0x60 DUP2 ADD DUP6 SWAP1 MSTORE SWAP1 SWAP2 POP PUSH32 0xF769A832E0D12ADA7ED2D75C2136586AAC621B53358F38ADF2A1190D32FC1093 SWAP1 PUSH1 0x80 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG1 SWAP5 SWAP4 POP POP POP POP JUMP JUMPDEST PUSH2 0x44B DUP1 PUSH2 0x157 DUP4 CODECOPY ADD SWAP1 JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x12A JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP4 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x141 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP6 PUSH1 0x20 DUP6 ADD CALLDATALOAD SWAP6 POP PUSH1 0x40 SWAP1 SWAP5 ADD CALLDATALOAD SWAP4 SWAP3 POP POP POP JUMP INVALID PUSH1 0xE0 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x40 MLOAD PUSH2 0x44B CODESIZE SUB DUP1 PUSH2 0x44B DUP4 CODECOPY DUP2 ADD PUSH1 0x40 DUP2 SWAP1 MSTORE PUSH2 0x2F SWAP2 PUSH2 0x48 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP3 AND PUSH1 0x80 MSTORE PUSH1 0xA0 MSTORE PUSH1 0xC0 MSTORE PUSH2 0x8B JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0x60 DUP5 DUP7 SUB SLT ISZERO PUSH2 0x5D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP4 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x74 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x20 DUP6 ADD MLOAD PUSH1 0x40 SWAP1 SWAP6 ADD MLOAD SWAP1 SWAP7 SWAP5 SWAP6 POP SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x80 MLOAD PUSH1 0xA0 MLOAD PUSH1 0xC0 MLOAD PUSH2 0x371 PUSH2 0xDA PUSH1 0x0 CODECOPY PUSH1 0x0 DUP2 DUP2 PUSH1 0x76 ADD MSTORE DUP2 DUP2 PUSH2 0x143 ADD MSTORE PUSH2 0x236 ADD MSTORE PUSH1 0x0 DUP2 DUP2 PUSH1 0xEF ADD MSTORE PUSH2 0x25C ADD MSTORE PUSH1 0x0 DUP2 DUP2 PUSH1 0xB0 ADD MSTORE DUP2 DUP2 PUSH2 0x169 ADD MSTORE PUSH2 0x208 ADD MSTORE PUSH2 0x371 PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x16FAB16E EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x752A0920 EQ PUSH2 0x71 JUMPI DUP1 PUSH4 0x82BFEFC8 EQ PUSH2 0xAB JUMPI DUP1 PUSH4 0xCC4DE8AA EQ PUSH2 0xEA JUMPI DUP1 PUSH4 0xD6740CDB EQ PUSH2 0x111 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x6F PUSH2 0x6A CALLDATASIZE PUSH1 0x4 PUSH2 0x2F9 JUMP JUMPDEST PUSH2 0x11A JUMP JUMPDEST STOP JUMPDEST PUSH2 0x98 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xD2 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0xA2 JUMP JUMPDEST PUSH2 0x98 PUSH32 0x0 DUP2 JUMP JUMPDEST PUSH2 0x98 PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH4 0x95EA7B3 PUSH1 0xE0 SHL DUP2 MSTORE PUSH20 0x19BBC3463DD8D07F55438014B021FB457EBD4595 PUSH1 0x4 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 PUSH4 0x95EA7B3 SWAP1 PUSH1 0x44 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1B5 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1C9 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x1ED SWAP2 SWAP1 PUSH2 0x312 JUMP JUMPDEST POP PUSH1 0x0 SLOAD PUSH1 0x40 MLOAD PUSH4 0xDBF15FC5 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB PUSH32 0x0 AND PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x24 DUP2 ADD DUP4 SWAP1 MSTORE PUSH32 0x0 PUSH1 0x44 DUP3 ADD MSTORE PUSH32 0x0 PUSH1 0x64 DUP3 ADD MSTORE PUSH1 0x84 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH20 0x19BBC3463DD8D07F55438014B021FB457EBD4595 PUSH1 0xA4 DUP3 ADD MSTORE PUSH20 0x0 SWAP1 PUSH4 0xDBF15FC5 SWAP1 PUSH1 0xC4 ADD PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x2D9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS DELEGATECALL ISZERO DUP1 ISZERO PUSH2 0x2ED JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP PUSH1 0x0 SWAP2 SWAP1 SWAP2 SSTORE POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x30B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x324 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x334 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xB6 STATICCALL 0xCA 0xE8 DUP9 0xAC 0xE3 0xA9 0xD7 SWAP10 0x25 0x25 SWAP8 SWAP8 ORIGIN 0xC4 LOG0 SIGNEXTEND 0xB6 0xBB 0xC8 PUSH6 0x975F30BD332F 0x29 LOG1 0xB2 KECCAK256 PUSH5 0x736F6C6343 STOP ADDMOD MULMOD STOP CALLER LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x5F 0xF7 0x49 0xA6 DUP2 PUSH4 0xE2C393D6 0xF7 0xC0 PUSH30 0x952325EBA9D5975B8125D714692025E0D8F35364736F6C63430008090033 ",
   "pcMap": {
     "0": {
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -798,7 +796,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -808,7 +806,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "MSTORE",
       "path": "0"
@@ -817,7 +815,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "CALLVALUE",
       "path": "0"
@@ -826,7 +824,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "DUP1",
       "path": "0"
@@ -835,7 +833,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "ISZERO",
       "path": "0"
@@ -844,7 +842,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH2",
       "path": "0",
@@ -854,7 +852,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "JUMPI",
       "path": "0"
@@ -863,7 +861,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -873,7 +871,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "DUP1",
       "path": "0"
@@ -883,7 +881,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "REVERT",
       "path": "0"
@@ -892,7 +890,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -901,7 +899,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "POP",
       "path": "0"
@@ -910,7 +908,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -920,7 +918,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "CALLDATASIZE",
       "path": "0"
@@ -929,7 +927,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "LT",
       "path": "0"
@@ -938,7 +936,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH2",
       "path": "0",
@@ -948,7 +946,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "JUMPI",
       "path": "0"
@@ -957,7 +955,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -967,7 +965,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "CALLDATALOAD",
       "path": "0"
@@ -976,7 +974,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -986,7 +984,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "SHR",
       "path": "0"
@@ -995,7 +993,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "DUP1",
       "path": "0"
@@ -1004,17 +1002,17 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH4",
       "path": "0",
-      "value": "0x1E3C8532"
+      "value": "0x380D4266"
     },
     "38": {
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "EQ",
       "path": "0"
@@ -1023,7 +1021,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH2",
       "path": "0",
@@ -1033,7 +1031,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "JUMPI",
       "path": "0"
@@ -1042,7 +1040,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -1051,7 +1049,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1061,7 +1059,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "DUP1",
       "path": "0"
@@ -1071,7 +1069,7 @@
       "fn": null,
       "offset": [
         88,
-        498
+        504
       ],
       "op": "REVERT",
       "path": "0"
@@ -1080,7 +1078,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -1089,7 +1087,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH2",
       "path": "0",
@@ -1099,7 +1097,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH2",
       "path": "0",
@@ -1109,7 +1107,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "CALLDATASIZE",
       "path": "0"
@@ -1118,7 +1116,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1128,18 +1126,18 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH2",
       "path": "0",
-      "value": "0x133"
+      "value": "0x115"
     },
     "61": {
       "fn": "BribesFactory.deployManager",
       "jump": "i",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMP",
       "path": "0"
@@ -1148,7 +1146,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -1157,7 +1155,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH2",
       "path": "0",
@@ -1168,7 +1166,7 @@
       "jump": "i",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMP",
       "path": "0"
@@ -1177,7 +1175,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -1186,7 +1184,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1196,7 +1194,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "MLOAD",
       "path": "0"
@@ -1245,7 +1243,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1255,7 +1253,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "MLOAD",
       "path": "0"
@@ -1264,7 +1262,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "DUP1",
       "path": "0"
@@ -1273,7 +1271,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "SWAP2",
       "path": "0"
@@ -1282,7 +1280,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "SUB",
       "path": "0"
@@ -1291,7 +1289,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "SWAP1",
       "path": "0"
@@ -1300,7 +1298,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "RETURN",
       "path": "0"
@@ -1309,7 +1307,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -1346,7 +1344,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         379,
-        384
+        389
       ],
       "op": "DUP5",
       "path": "0"
@@ -1354,8 +1352,8 @@
     "101": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        386,
-        401
+        391,
+        404
       ],
       "op": "DUP5",
       "path": "0"
@@ -1364,7 +1362,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1374,7 +1372,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "MLOAD",
       "path": "0"
@@ -1383,7 +1381,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "PUSH2",
       "path": "0",
@@ -1393,7 +1391,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "SWAP1",
       "path": "0"
@@ -1402,18 +1400,18 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "PUSH2",
       "path": "0",
-      "value": "0x10A"
+      "value": "0x108"
     },
     "112": {
       "fn": "BribesFactory.deployManager",
       "jump": "i",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "JUMP",
       "path": "0"
@@ -1422,7 +1420,7 @@
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -1446,523 +1444,521 @@
       "op": "SUB"
     },
     "122": {
-      "op": "SWAP4"
+      "op": "SWAP1"
     },
     "123": {
-      "op": "DUP5"
+      "op": "SWAP4"
     },
     "124": {
       "op": "AND"
     },
     "125": {
-      "op": "DUP2"
+      "op": "DUP4"
     },
     "126": {
       "op": "MSTORE"
     },
     "127": {
-      "op": "SWAP3"
-    },
-    "128": {
-      "op": "SWAP1"
-    },
-    "129": {
-      "op": "SWAP2"
-    },
-    "130": {
-      "op": "AND"
-    },
-    "131": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "133": {
+    "129": {
       "op": "DUP4"
     },
-    "134": {
+    "130": {
       "op": "ADD"
     },
-    "135": {
+    "131": {
+      "op": "SWAP2"
+    },
+    "132": {
+      "op": "SWAP1"
+    },
+    "133": {
+      "op": "SWAP2"
+    },
+    "134": {
       "op": "MSTORE"
     },
-    "136": {
+    "135": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "138": {
+    "137": {
       "op": "DUP3"
     },
-    "139": {
+    "138": {
       "op": "ADD"
     },
-    "140": {
+    "139": {
       "op": "MSTORE"
     },
-    "141": {
+    "140": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "143": {
+    "142": {
       "op": "ADD"
     },
-    "144": {
+    "143": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "PUSH1",
       "path": "0",
       "value": "0x40"
     },
+    "145": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        405
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
     "146": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "MLOAD",
+      "op": "DUP1",
       "path": "0"
     },
     "147": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "DUP1",
+      "op": "SWAP2",
       "path": "0"
     },
     "148": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "SWAP2",
+      "op": "SUB",
       "path": "0"
     },
     "149": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "SUB",
+      "op": "SWAP1",
       "path": "0"
     },
     "150": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
-      ],
-      "op": "SWAP1",
-      "path": "0"
-    },
-    "151": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        354,
-        402
+        405
       ],
       "op": "PUSH1",
       "path": "0",
       "value": "0x0"
     },
+    "152": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        405
+      ],
+      "op": "CREATE",
+      "path": "0"
+    },
     "153": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "CREATE",
+      "op": "DUP1",
       "path": "0"
     },
     "154": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "DUP1",
+      "op": "ISZERO",
       "path": "0"
     },
     "155": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "ISZERO",
+      "op": "DUP1",
       "path": "0"
     },
     "156": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "DUP1",
+      "op": "ISZERO",
       "path": "0"
     },
     "157": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
-      ],
-      "op": "ISZERO",
-      "path": "0"
-    },
-    "158": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        354,
-        402
+        405
       ],
       "op": "PUSH2",
       "path": "0",
-      "value": "0xAB"
+      "value": "0xAA"
+    },
+    "160": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        405
+      ],
+      "op": "JUMPI",
+      "path": "0"
     },
     "161": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "JUMPI",
+      "op": "RETURNDATASIZE",
       "path": "0"
     },
     "162": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
-      ],
-      "op": "RETURNDATASIZE",
-      "path": "0"
-    },
-    "163": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        354,
-        402
+        405
       ],
       "op": "PUSH1",
       "path": "0",
       "value": "0x0"
     },
+    "164": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        354,
+        405
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
     "165": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "DUP1",
+      "op": "RETURNDATACOPY",
       "path": "0"
     },
     "166": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
-      "op": "RETURNDATACOPY",
+      "op": "RETURNDATASIZE",
       "path": "0"
     },
     "167": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
-      ],
-      "op": "RETURNDATASIZE",
-      "path": "0"
-    },
-    "168": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        354,
-        402
+        405
       ],
       "op": "PUSH1",
       "path": "0",
       "value": "0x0"
     },
-    "170": {
+    "169": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "REVERT",
       "path": "0"
     },
-    "171": {
+    "170": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         354,
-        402
+        405
       ],
       "op": "JUMPDEST",
       "path": "0"
     },
-    "172": {
+    "171": {
       "op": "POP"
     },
-    "173": {
+    "172": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
       ],
       "op": "PUSH1",
       "path": "0",
       "statement": 0,
       "value": "0x40"
     },
-    "175": {
+    "174": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
       ],
       "op": "DUP1",
       "path": "0"
     },
-    "176": {
+    "175": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
       ],
       "op": "MLOAD",
       "path": "0"
     },
-    "177": {
+    "176": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "179": {
+    "178": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "181": {
+    "180": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "183": {
+    "182": {
       "op": "SHL"
     },
-    "184": {
+    "183": {
       "op": "SUB"
     },
+    "184": {
+      "op": "DUP1"
+    },
     "185": {
-      "op": "DUP4"
+      "op": "DUP5"
     },
     "186": {
-      "op": "DUP2"
+      "op": "AND"
     },
     "187": {
-      "op": "AND"
-    },
-    "188": {
       "op": "DUP3"
     },
-    "189": {
+    "188": {
       "op": "MSTORE"
     },
-    "190": {
+    "189": {
       "op": "DUP9"
     },
-    "191": {
-      "op": "DUP2"
-    },
-    "192": {
+    "190": {
       "op": "AND"
     },
-    "193": {
+    "191": {
       "op": "PUSH1",
       "value": "0x20"
     },
+    "193": {
+      "op": "DUP3"
+    },
+    "194": {
+      "op": "ADD"
+    },
     "195": {
-      "op": "DUP4"
+      "op": "MSTORE"
     },
     "196": {
-      "op": "ADD"
+      "op": "SWAP1"
     },
     "197": {
-      "op": "MSTORE"
-    },
-    "198": {
-      "op": "DUP8"
-    },
-    "199": {
-      "op": "AND"
-    },
-    "200": {
       "op": "DUP2"
     },
-    "201": {
-      "op": "DUP4"
-    },
-    "202": {
+    "198": {
       "op": "ADD"
     },
-    "203": {
+    "199": {
+      "op": "DUP7"
+    },
+    "200": {
+      "op": "SWAP1"
+    },
+    "201": {
       "op": "MSTORE"
     },
-    "204": {
+    "202": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "206": {
+    "204": {
       "op": "DUP2"
     },
-    "207": {
+    "205": {
       "op": "ADD"
     },
-    "208": {
-      "op": "DUP7"
+    "206": {
+      "op": "DUP6"
     },
-    "209": {
+    "207": {
       "op": "SWAP1"
     },
-    "210": {
+    "208": {
       "op": "MSTORE"
     },
-    "211": {
+    "209": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        336,
+        405
       ],
       "op": "SWAP1",
       "path": "0"
     },
-    "212": {
+    "210": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
-      ],
-      "op": "MLOAD",
-      "path": "0"
-    },
-    "213": {
-      "op": "SWAP2"
-    },
-    "214": {
-      "op": "SWAP3"
-    },
-    "215": {
-      "op": "POP"
-    },
-    "216": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        418,
-        471
-      ],
-      "op": "PUSH32",
-      "path": "0",
-      "value": "0xCCF071D7F4F2346E8A8C8C31363EFC2A0F777A4A09853C55B28A798BC3DF3FD1"
-    },
-    "249": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        418,
-        471
+        336,
+        405
       ],
       "op": "SWAP2",
       "path": "0"
     },
-    "250": {
+    "211": {
+      "op": "POP"
+    },
+    "212": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
+      ],
+      "op": "PUSH32",
+      "path": "0",
+      "value": "0xF769A832E0D12ADA7ED2D75C2136586AAC621B53358F38ADF2A1190D32FC1093"
+    },
+    "245": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        421,
+        477
       ],
       "op": "SWAP1",
       "path": "0"
     },
+    "246": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "248": {
+      "op": "ADD"
+    },
+    "249": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        421,
+        477
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
     "251": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
       ],
-      "op": "DUP2",
+      "op": "MLOAD",
       "path": "0"
     },
     "252": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
       ],
-      "op": "SWAP1",
+      "op": "DUP1",
       "path": "0"
     },
     "253": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
+      ],
+      "op": "SWAP2",
+      "path": "0"
+    },
+    "254": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        421,
+        477
       ],
       "op": "SUB",
       "path": "0"
     },
-    "254": {
-      "op": "PUSH1",
-      "value": "0x80"
+    "255": {
+      "fn": "BribesFactory.deployManager",
+      "offset": [
+        421,
+        477
+      ],
+      "op": "SWAP1",
+      "path": "0"
     },
     "256": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
+        421,
+        477
       ],
-      "op": "ADD",
+      "op": "LOG1",
       "path": "0"
     },
     "257": {
       "fn": "BribesFactory.deployManager",
       "offset": [
-        418,
-        471
-      ],
-      "op": "SWAP1",
-      "path": "0"
-    },
-    "258": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        418,
-        471
-      ],
-      "op": "LOG1",
-      "path": "0"
-    },
-    "259": {
-      "fn": "BribesFactory.deployManager",
-      "offset": [
-        488,
-        489
+        494,
+        495
       ],
       "op": "SWAP5",
       "path": "0",
       "statement": 1
     },
-    "260": {
+    "258": {
       "fn": "BribesFactory.deployManager",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "SWAP4",
       "path": "0"
+    },
+    "259": {
+      "op": "POP"
+    },
+    "260": {
+      "op": "POP"
     },
     "261": {
       "op": "POP"
@@ -1971,273 +1967,215 @@
       "op": "POP"
     },
     "263": {
-      "op": "POP"
-    },
-    "264": {
-      "op": "POP"
-    },
-    "265": {
       "fn": "BribesFactory.deployManager",
       "jump": "o",
       "offset": [
         220,
-        496
+        502
       ],
       "op": "JUMP",
       "path": "0"
     },
-    "266": {
+    "264": {
       "op": "JUMPDEST"
     },
-    "267": {
+    "265": {
       "op": "PUSH2",
-      "value": "0x46F"
+      "value": "0x44B"
     },
-    "270": {
+    "268": {
       "op": "DUP1"
     },
-    "271": {
+    "269": {
       "op": "PUSH2",
-      "value": "0x170"
+      "value": "0x157"
     },
-    "274": {
+    "272": {
       "op": "DUP4"
     },
-    "275": {
+    "273": {
       "op": "CODECOPY"
     },
-    "276": {
+    "274": {
       "op": "ADD"
     },
-    "277": {
+    "275": {
       "op": "SWAP1"
     },
-    "278": {
+    "276": {
       "jump": "o",
       "op": "JUMP"
     },
-    "279": {
+    "277": {
       "op": "JUMPDEST"
+    },
+    "278": {
+      "op": "PUSH1",
+      "value": "0x0"
     },
     "280": {
       "op": "DUP1"
     },
     "281": {
-      "op": "CALLDATALOAD"
-    },
-    "282": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "284": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "286": {
-      "op": "PUSH1",
-      "value": "0xA0"
-    },
-    "288": {
-      "op": "SHL"
-    },
-    "289": {
-      "op": "SUB"
-    },
-    "290": {
-      "op": "DUP2"
-    },
-    "291": {
-      "op": "AND"
-    },
-    "292": {
-      "op": "DUP2"
-    },
-    "293": {
-      "op": "EQ"
-    },
-    "294": {
-      "op": "PUSH2",
-      "value": "0x12E"
-    },
-    "297": {
-      "op": "JUMPI"
-    },
-    "298": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "300": {
-      "op": "DUP1"
-    },
-    "301": {
-      "op": "REVERT"
-    },
-    "302": {
-      "op": "JUMPDEST"
-    },
-    "303": {
-      "op": "SWAP2"
-    },
-    "304": {
-      "op": "SWAP1"
-    },
-    "305": {
-      "op": "POP"
-    },
-    "306": {
-      "jump": "o",
-      "op": "JUMP"
-    },
-    "307": {
-      "op": "JUMPDEST"
-    },
-    "308": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "310": {
-      "op": "DUP1"
-    },
-    "311": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "313": {
+    "283": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "315": {
+    "285": {
       "op": "DUP5"
     },
-    "316": {
+    "286": {
       "op": "DUP7"
     },
-    "317": {
+    "287": {
       "op": "SUB"
     },
-    "318": {
+    "288": {
       "op": "SLT"
     },
-    "319": {
+    "289": {
       "op": "ISZERO"
     },
-    "320": {
+    "290": {
       "op": "PUSH2",
-      "value": "0x148"
+      "value": "0x12A"
     },
-    "323": {
+    "293": {
       "op": "JUMPI"
     },
-    "324": {
+    "294": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "326": {
+    "296": {
       "op": "DUP1"
     },
-    "327": {
+    "297": {
       "op": "REVERT"
     },
-    "328": {
+    "298": {
       "op": "JUMPDEST"
+    },
+    "299": {
+      "op": "DUP4"
+    },
+    "300": {
+      "op": "CALLDATALOAD"
+    },
+    "301": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "303": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "305": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "307": {
+      "op": "SHL"
+    },
+    "308": {
+      "op": "SUB"
+    },
+    "309": {
+      "op": "DUP2"
+    },
+    "310": {
+      "op": "AND"
+    },
+    "311": {
+      "op": "DUP2"
+    },
+    "312": {
+      "op": "EQ"
+    },
+    "313": {
+      "op": "PUSH2",
+      "value": "0x141"
+    },
+    "316": {
+      "op": "JUMPI"
+    },
+    "317": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "319": {
+      "op": "DUP1"
+    },
+    "320": {
+      "op": "REVERT"
+    },
+    "321": {
+      "op": "JUMPDEST"
+    },
+    "322": {
+      "op": "SWAP6"
+    },
+    "323": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "325": {
+      "op": "DUP6"
+    },
+    "326": {
+      "op": "ADD"
+    },
+    "327": {
+      "op": "CALLDATALOAD"
+    },
+    "328": {
+      "op": "SWAP6"
     },
     "329": {
-      "op": "PUSH2",
-      "value": "0x151"
+      "op": "POP"
+    },
+    "330": {
+      "op": "PUSH1",
+      "value": "0x40"
     },
     "332": {
-      "op": "DUP5"
+      "op": "SWAP1"
     },
     "333": {
-      "op": "PUSH2",
-      "value": "0x117"
+      "op": "SWAP5"
+    },
+    "334": {
+      "op": "ADD"
+    },
+    "335": {
+      "op": "CALLDATALOAD"
     },
     "336": {
-      "jump": "i",
-      "op": "JUMP"
+      "op": "SWAP4"
     },
     "337": {
-      "op": "JUMPDEST"
+      "op": "SWAP3"
     },
     "338": {
-      "op": "SWAP3"
+      "op": "POP"
     },
     "339": {
       "op": "POP"
     },
     "340": {
-      "op": "PUSH2",
-      "value": "0x15F"
-    },
-    "343": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "345": {
-      "op": "DUP6"
-    },
-    "346": {
-      "op": "ADD"
-    },
-    "347": {
-      "op": "PUSH2",
-      "value": "0x117"
-    },
-    "350": {
-      "jump": "i",
-      "op": "JUMP"
-    },
-    "351": {
-      "op": "JUMPDEST"
-    },
-    "352": {
-      "op": "SWAP2"
-    },
-    "353": {
       "op": "POP"
     },
-    "354": {
-      "op": "PUSH1",
-      "value": "0x40"
-    },
-    "356": {
-      "op": "DUP5"
-    },
-    "357": {
-      "op": "ADD"
-    },
-    "358": {
-      "op": "CALLDATALOAD"
-    },
-    "359": {
-      "op": "SWAP1"
-    },
-    "360": {
-      "op": "POP"
-    },
-    "361": {
-      "op": "SWAP3"
-    },
-    "362": {
-      "op": "POP"
-    },
-    "363": {
-      "op": "SWAP3"
-    },
-    "364": {
-      "op": "POP"
-    },
-    "365": {
-      "op": "SWAP3"
-    },
-    "366": {
+    "341": {
       "jump": "o",
       "op": "JUMP"
     }
   },
-  "sha1": "2838a9e094b0f51ea1eaba4e5292d084bbb27ce8",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"./BribesManager.sol\";\n\ncontract BribesFactory {\n    \n    event NewManager(address bribesManager, address token, address gauge, uint tokens_per_vote);\n\n    function deployManager(address token, address gauge, uint tokens_per_vote) public returns (BribesManager) {\n        BribesManager b = new BribesManager(token, gauge, tokens_per_vote); \n        emit NewManager(address(b), token, gauge, tokens_per_vote);\n        return b;\n    }\n}",
-  "sourceMap": "88:410:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "sha1": "fcbe6ce10394cceb540a02892be792ba50cbe242",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"./BribesManager.sol\";\n\ncontract BribesFactory {\n    \n    event NewManager(address bribesManager, address token, uint gaugeIndex, uint tokensPerVote);\n\n    function deployManager(address token, uint gaugeIndex, uint tokensPerVote) public returns (BribesManager) {\n        BribesManager b = new BribesManager(token, gaugeIndex, tokensPerVote); \n        emit NewManager(address(b), token, gaugeIndex, tokensPerVote);\n        return b;\n    }\n}",
+  "sourceMap": "88:416:0:-:0;;;;;;;;;;;;;;;;;;;",
   "sourcePath": "contracts/BribesFactory.sol",
   "type": "contract"
 }

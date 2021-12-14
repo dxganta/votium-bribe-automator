@@ -1,0 +1,416 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_proposal",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_choiceIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "depositBribe",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_proposal",
+          "type": "bytes32"
+        }
+      ],
+      "name": "proposalInfo",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxIndex",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IVotiumBribe.Proposal",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "interfaces/votium/IVotiumBribe.sol",
+    "exportedSymbols": {
+      "IVotiumBribe": [
+        27
+      ]
+    },
+    "id": 28,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IVotiumBribe",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 27,
+        "linearizedBaseContracts": [
+          27
+        ],
+        "name": "IVotiumBribe",
+        "nameLocation": "67:12:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IVotiumBribe.Proposal",
+            "id": 6,
+            "members": [
+              {
+                "constant": false,
+                "id": 3,
+                "mutability": "mutable",
+                "name": "deadline",
+                "nameLocation": "118:8:0",
+                "nodeType": "VariableDeclaration",
+                "scope": 6,
+                "src": "110:16:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "110:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5,
+                "mutability": "mutable",
+                "name": "maxIndex",
+                "nameLocation": "142:8:0",
+                "nodeType": "VariableDeclaration",
+                "scope": 6,
+                "src": "134:16:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "134:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Proposal",
+            "nameLocation": "93:8:0",
+            "nodeType": "StructDefinition",
+            "scope": 27,
+            "src": "86:71:0",
+            "visibility": "public"
+          },
+          {
+            "documentation": {
+              "id": 7,
+              "nodeType": "StructuredDocumentation",
+              "src": "163:76:0",
+              "text": "@param _proposal = bytes32 of snapshot IPFS hash id for a given proposal"
+            },
+            "functionSelector": "53da67f6",
+            "id": 15,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "proposalInfo",
+            "nameLocation": "253:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9,
+                  "mutability": "mutable",
+                  "name": "_proposal",
+                  "nameLocation": "274:9:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15,
+                  "src": "266:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 8,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "266:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "265:19:0"
+            },
+            "returnParameters": {
+              "id": 14,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15,
+                  "src": "308:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Proposal_$6_memory_ptr",
+                    "typeString": "struct IVotiumBribe.Proposal"
+                  },
+                  "typeName": {
+                    "id": 12,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 11,
+                      "name": "Proposal",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6,
+                      "src": "308:8:0"
+                    },
+                    "referencedDeclaration": 6,
+                    "src": "308:8:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Proposal_$6_storage_ptr",
+                      "typeString": "struct IVotiumBribe.Proposal"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:17:0"
+            },
+            "scope": 27,
+            "src": "244:85:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f7b5d4a0",
+            "id": 26,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "depositBribe",
+            "nameLocation": "344:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 24,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17,
+                  "mutability": "mutable",
+                  "name": "_token",
+                  "nameLocation": "365:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26,
+                  "src": "357:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 16,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "357:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 19,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "381:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26,
+                  "src": "373:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 18,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "373:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21,
+                  "mutability": "mutable",
+                  "name": "_proposal",
+                  "nameLocation": "398:9:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26,
+                  "src": "390:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 20,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "390:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23,
+                  "mutability": "mutable",
+                  "name": "_choiceIndex",
+                  "nameLocation": "417:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26,
+                  "src": "409:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 22,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "409:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "356:74:0"
+            },
+            "returnParameters": {
+              "id": 25,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "439:0:0"
+            },
+            "scope": 27,
+            "src": "335:105:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 28,
+        "src": "57:385:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:410:0"
+  },
+  "contractName": "IVotiumBribe",
+  "dependencies": [],
+  "offset": [
+    57,
+    442
+  ],
+  "sha1": "1fdcc74a577b8cfbf5f21bfea0dfc1c3742cd841",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\ninterface IVotiumBribe {\n    struct Proposal {\n      uint256 deadline;\n      uint256 maxIndex;\n    }\n\n    /// @param _proposal = bytes32 of snapshot IPFS hash id for a given proposal\n    function proposalInfo(bytes32 _proposal) external view returns (Proposal memory)    ;\n\n    function depositBribe(address _token, uint256 _amount, bytes32 _proposal, uint256 _choiceIndex) external;\n}",
+  "type": "interface"
+}

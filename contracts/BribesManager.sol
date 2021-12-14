@@ -6,22 +6,23 @@ import "./library/BribesLogic.sol";
 
 contract BribesManager {
     address public immutable TOKEN;
-    address public immutable GAUGE;
+    uint public immutable GAUGE_INDEX;
     uint public immutable TOKENS_PER_VOTE;
-    uint public lastPeriod;
-    address constant CURVE_BRIBE = 0x7893bbb46613d7a4FbcC31Dab4C9b823FfeE1026;
+    bytes32 public lastProposal;
+    address constant VOTIUM_BRIBE = 0x19BBC3463Dd8d07f55438014b021Fb457EBD4595;
 
     /// @param token Address of the reward/incentive token
-    /// @param gauge address of the curve gauge
-    /// @param tokens_per_vote number of tokens to add as incentives per vote
-    constructor(address token, address gauge, uint tokens_per_vote) {
+    /// @param gaugeIndex index of the gauge in the voting proposal choices
+    /// @param tokensPerVote number of tokens to add as incentives per vote
+    constructor(address token, uint gaugeIndex, uint tokensPerVote) {
         TOKEN = token;
-        GAUGE = gauge;
-        TOKENS_PER_VOTE = tokens_per_vote;
+        GAUGE_INDEX = gaugeIndex;
+        TOKENS_PER_VOTE = tokensPerVote;
     }
 
-    function sendBribe() public {
-        IERC20(TOKEN).approve(CURVE_BRIBE, TOKENS_PER_VOTE);
-        lastPeriod = BribesLogic.sendBribe(TOKEN, GAUGE, TOKENS_PER_VOTE, lastPeriod, CURVE_BRIBE);
+    function sendBribe(bytes32 _proposal) public {
+        IERC20(TOKEN).approve(VOTIUM_BRIBE, TOKENS_PER_VOTE);
+        BribesLogic.sendBribe(TOKEN, _proposal, TOKENS_PER_VOTE, GAUGE_INDEX, lastProposal, VOTIUM_BRIBE);
+        lastProposal = _proposal;
     }
 }
