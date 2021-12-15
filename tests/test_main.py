@@ -13,15 +13,19 @@ from config import (
     TOKENS_PER_VOTE
 )
 
+
 # constants
 PROPOSAL = "0xc26deaa05f45f3f6ad088cb6603d77cb2e826ff98b69e9a122706a37c8694681"
 
 
 def test_main():
+    '''
+        There is currently no on-going proposal. 
+        So we are testing on the Gauge Weight Vote Proposal for the week of 9th Dec, 2021
+        on a forked Ethereum mainnet from block #13767837
+    '''
     rand_user = accounts[5]
     token = interface.IERC20(TOKEN)
-    votiumBribe = interface.IVotiumBribe(
-        "0x19BBC3463Dd8d07f55438014b021Fb457EBD4595")
     token_whale = accounts.at(
         "0x63278bf9acdfc9fa65cfa2940b89a34adfbcb4a1", force=True)
     # deploy library
