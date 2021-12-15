@@ -20,6 +20,7 @@ contract BribesManager {
         TOKENS_PER_VOTE = tokensPerVote;
     }
 
+    /// @param _proposal bytes32 of snapshot IPFS hash id for a given proposal
     function sendBribe(bytes32 _proposal) public {
         IERC20(TOKEN).approve(VOTIUM_BRIBE, TOKENS_PER_VOTE);
         BribesLogic.sendBribe(TOKEN, _proposal, TOKENS_PER_VOTE, GAUGE_INDEX, lastProposal, VOTIUM_BRIBE);

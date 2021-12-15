@@ -8,20 +8,22 @@ from brownie import (
     BribesLogic
 )
 from config import (
-    GAUGE,
+    GAUGE_INDEX,
     TOKEN,
     TOKENS_PER_VOTE
 )
 
+# constants
+PROPOSAL = "0xc26deaa05f45f3f6ad088cb6603d77cb2e826ff98b69e9a122706a37c8694681"
+
 
 def test_main():
     rand_user = accounts[5]
-    dust = TOKENS_PER_VOTE * 0.4
     token = interface.IERC20(TOKEN)
-    bribeV2 = Contract.from_explorer(
-        "0x7893bbb46613d7a4FbcC31Dab4C9b823FfeE1026")
+    votiumBribe = interface.IVotiumBribe(
+        "0x19BBC3463Dd8d07f55438014b021Fb457EBD4595")
     token_whale = accounts.at(
-        "0x627dcd9b5518ace082eafa1f40842b9b45fbbd9c", force=True)
+        "0x63278bf9acdfc9fa65cfa2940b89a34adfbcb4a1", force=True)
     # deploy library
     BribesLogic.deploy({"from": token_whale})
 
@@ -29,65 +31,37 @@ def test_main():
     factory = BribesFactory.deploy({'from': token_whale})
 
     manager_address = factory.deployManager(
-        TOKEN, GAUGE, TOKENS_PER_VOTE,  {"from": token_whale}).return_value
+        TOKEN, GAUGE_INDEX, TOKENS_PER_VOTE,  {"from": token_whale}).return_value
 
     manager = interface.IBribesManager(manager_address)
 
-    # assert that their are no token rewards before sending bribe
-    rewards = bribeV2.reward_per_token(GAUGE, TOKEN)
-    assert rewards == 0
-
-    # send tokens for bribing
-    token.transfer(manager, TOKENS_PER_VOTE * 2 + dust, {'from': token_whale})
-
-    # bribe
-    manager.sendBribe({'from': token_whale})
-
-    rewards = bribeV2.reward_per_token(GAUGE, TOKEN)
-    assert rewards > 0
-
-    # test that bribes cannot be sent again for the same voting cycle
-    with brownie.reverts("Bribe already sent"):
-        manager.sendBribe({'from': token_whale})
-
-    # fast-forward 1 week
-    chain.sleep(86400 * 7)
-    chain.mine()
-
-    # test that now bribing can be done since this is a new week
-    # also that sendBribe can be called by any user
-    manager.sendBribe({"from": rand_user})
-
-    rewards = bribeV2.reward_per_token(GAUGE, TOKEN)
-    assert rewards > 0
-
-    # now after sending bribes 2 times. A token amount greater than 0 but less than TOKENS_PER_VOTE will be left
-    # since we initially filled the contract with TOKENS_PER_VOTE*2 + dust tokens
-    # so calling the sendBribe() function must send whatever tokens is left to the bribe contract
-    chain.sleep(86400 * 7)
-    chain.mine()
-
-    balance = token.balanceOf(manager)
-    assert balance > 0 and balance < TOKENS_PER_VOTE
-
-    manager.sendBribe({'from': rand_user})
-
-    assert token.balanceOf(manager) == 0
-
-    # now the contract has zero tokens
-    # assert that the sendBribe() function reverts when the contract has zero tokens
-    chain.sleep(86400 * 7)
-    chain.mine()
-
+    # test that the sendBribe function fails when the manager contract has zero tokens
     with brownie.reverts("No tokens"):
-        manager.sendBribe({'from': token_whale})
+        manager.sendBribe(PROPOSAL, {'from': token_whale})
 
-    # now lets top up the contract  and test that bribe sending works again
-    token.transfer(manager, TOKENS_PER_VOTE * 10, {'from': token_whale})
+    # fill the manager contract with tokens for bribing
+    token.transfer(manager, TOKENS_PER_VOTE * 5, {'from': token_whale})
 
-    # also test the votesLeft function
-    # assert manager.votesLeft() == 10
+    # assert that bribes cannot be sent for a random or old proposal
+    # the contract must sent the bribe only for the current ongoing proposal
+    with brownie.reverts("Proposal Expired"):
+        old_proposal = "0x0c0550515f038293f31eb10dc002881d1f7f5c170bca3e9a23eec7900d499bf7"
+        manager.sendBribe(old_proposal, {'from': token_whale})
 
-    manager.sendBribe({'from': rand_user})
-    rewards = bribeV2.reward_per_token(GAUGE, TOKEN)
-    assert rewards > 0
+    # send bribes for the current ongoing proposal
+    # also sending the transaction from a random user to test that anybody can call the sendBribe function
+    tx = manager.sendBribe(PROPOSAL, {'from': rand_user})
+
+    # the Bribed Event is emitted by the Votium Bribe contract
+    event = tx.events['Bribed'][0][0]
+
+    # assert that the votiumBribe contract received the bribes successfully
+    assert event['_token'] == TOKEN
+    assert event['_choiceIndex'] == GAUGE_INDEX
+    assert event['_proposal'] == PROPOSAL
+    # The votium bribe contract keeps 4% of the bribe sent as fees so actual amount will be (tokens_per_vote - 4%)
+    assert event['_amount'] == TOKENS_PER_VOTE - (0.04 * TOKENS_PER_VOTE)
+
+    # test that bribes cannot be sent again for the same voting proposal
+    with brownie.reverts("Bribe already sent"):
+        manager.sendBribe(PROPOSAL, {'from': token_whale})

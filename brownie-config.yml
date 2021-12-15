@@ -3,6 +3,8 @@
 networks:
   default: mainnet-fork
   mainnet-fork:
+    chainId: 1
+    explorer: https://api.etherscan.io/api
     cmd_settings:
       fork: https://eth-mainnet.alchemyapi.io/v2/$ALCHEMY_KEY@13767837
 
