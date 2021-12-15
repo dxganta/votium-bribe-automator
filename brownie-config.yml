@@ -2,6 +2,9 @@
 # NOTE: You don't *have* to do this, but it is often helpful for testing
 networks:
   default: mainnet-fork
+  mainnet-fork:
+    cmd_settings:
+      fork: https://eth-mainnet.alchemyapi.io/v2/$ALCHEMY_KEY@13767837
 
 # automatically fetch contract sources from Etherscan
 autofetch_sources: True
