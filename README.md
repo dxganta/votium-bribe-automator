@@ -43,13 +43,18 @@ pip install -r requirements.txt
 ## Tests
  Tests for all the mentioned specifications for the contract are included in the [tests/test_main.py](https://github.com/realdiganta/crv-bribe-automator/blob/main/tests/test_main.py) file. We are running the tests in a forked Ethereum Mainnet starting at block 13767837, to test on the Gauge Weight Vote Proposal for the week of 9th Dec, 2021. To run the tests run the following command
 ```
-brownie test
+brownie test tests/test_main.py
 ```
 <img src="https://user-images.githubusercontent.com/47485188/146224068-8c27bb71-ce1c-4eff-9458-8ef8be34d8cf.png"> </img>
 
 ## Gas Costs
 At first, I created a single BribesManager contract with all the code in it. But the deployment cost was very high. So I changed it to a library-contract architecture where the <strong>[BribesLogic](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/library/BribesLogic.sol)</strong> library contains all the logic and the <strong>[BribesManager](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesManager.sol)</strong> stores the state variables. This reduced the cost of deploying the BribesManager to 199252 gas.
 I further added another <strong>[BribesFactory]((https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesFactory.sol)) </strong>contract which can be used to deploy new BribesManager using the deployManager() method. This further reduces the gas cost of deploying a BribesManager contract to <strong>190566 gas</strong>.
+
+To check the gas costs for yourself run the following command
+```
+brownie run test/tests_gas_costs.py -s --gas
+```
 <img src="https://user-images.githubusercontent.com/47485188/146815191-e265f02e-4846-4483-9e97-77c11007b10a.png"> </img>
 
 ## Deployed Addresses (Ropsten Testnet)

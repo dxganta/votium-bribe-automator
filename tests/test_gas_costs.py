@@ -7,16 +7,17 @@ from brownie import (
 )
 from config import (
     GAUGE_INDEX,
-    TOKEN,
     TOKENS_PER_VOTE
 )
+
+TOKEN = "0x4e15361fd6b4bb609fa63c81a2be19d873717870"
 
 PROPOSAL = "0xc26deaa05f45f3f6ad088cb6603d77cb2e826ff98b69e9a122706a37c8694681"
 
 
 def test_gas_costs():
     token_whale = accounts.at(
-        "0x63278bf9acdfc9fa65cfa2940b89a34adfbcb4a1", force=True)
+        "0x57900b3dc6206994d3b2d593db8f6c6bfdbb61a9", force=True)
     token = interface.IERC20(TOKEN)
 
     # deply the BribesLogic library first
