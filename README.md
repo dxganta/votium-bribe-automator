@@ -48,9 +48,9 @@ brownie test
 <img src="https://user-images.githubusercontent.com/47485188/146224068-8c27bb71-ce1c-4eff-9458-8ef8be34d8cf.png"> </img>
 
 ## Gas Costs
-At first, I created a single BribesManager contract with all the code in it. But the deployment cost was very high. So I changed it to a library-contract architecture where the <strong>[BribesLogic](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/library/BribesLogic.sol)</strong> library contains all the logic and the <strong>[BribesManager](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesManager.sol)</strong> stores the state variables. This reduced the cost of deploying the BribesManager to 244444 gas.
-I further added another <strong>[BribesFactory]((https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesFactory.sol)) </strong>contract which can be used to deploy new BribesManager using the deployManager() method. This further reduces the gas cost of deploying a BribesManager contract to <strong>233297 gas</strong>.
-<img src="https://user-images.githubusercontent.com/47485188/146225621-3b8141fe-26e8-47fc-90de-a390ad56b94b.png"> </img>
+At first, I created a single BribesManager contract with all the code in it. But the deployment cost was very high. So I changed it to a library-contract architecture where the <strong>[BribesLogic](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/library/BribesLogic.sol)</strong> library contains all the logic and the <strong>[BribesManager](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesManager.sol)</strong> stores the state variables. This reduced the cost of deploying the BribesManager to 199252 gas.
+I further added another <strong>[BribesFactory]((https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesFactory.sol)) </strong>contract which can be used to deploy new BribesManager using the deployManager() method. This further reduces the gas cost of deploying a BribesManager contract to <strong>190566 gas</strong>.
+<img src="https://user-images.githubusercontent.com/47485188/146815191-e265f02e-4846-4483-9e97-77c11007b10a.png"> </img>
 
 ## Deployed Addresses (Ropsten Testnet)
 1. BribesLogic Library : [0xBE2B68865D63893929a70ddaD63D1596F4F02518](https://ropsten.etherscan.io/address/0xBE2B68865D63893929a70ddaD63D1596F4F02518)
@@ -59,3 +59,6 @@ I further added another <strong>[BribesFactory]((https://github.com/realdiganta/
 
 ## Notes
 Importance has been given here on reducing gas costs as compared to accessiblity. For example, in the BribesManager contract you may see that I have made the storage variables private (TOKEN, GAUGE_INDEX, TOKENS_PER_VOTE). This was done to reduce gas costs. One might ask that when sending bribes a user might want to know about the token address, gauge_index, tokens per vote etc. of the BribesManager contract. But as you can see on contract deployment of the BribesManager using the deployManager() method in the BribesFactory contract, an NewManager() event is emitted. So for the UI we can easily get the details of any BribesManager contract by querying that event.
+
+
+For any queries please ping me on discord diganta.eth#0692 or mail at digantakalita.ai@gmail.com
