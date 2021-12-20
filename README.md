@@ -1,8 +1,4 @@
 # Automatic Gauge Votes Incentives On Votium
-
-## TODO:
-1. Final gas check before submitting the project to gitcoin
-2. Delete the test_gas_costs.py file
 ## Summary
 ### [BribesManager.sol](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesManager.sol)
 The main contract is the BribesManager.sol contract. It has no admin controls.
