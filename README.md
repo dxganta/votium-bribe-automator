@@ -3,10 +3,8 @@
 ## TODO:
 1. Final gas check before submitting the project to gitcoin
 2. Delete the test_gas_costs.py file
-
-5. deploy the contracts
 ## Summary
-### [BribesManager.sol]((https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesManager.sol)) 
+### [BribesManager.sol](https://github.com/realdiganta/votium-bribe-automator/blob/main/contracts/BribesManager.sol)
 The main contract is the BribesManager.sol contract. It has no admin controls.
 
 On deployment of the contract, the user needs to input the following parameters:
@@ -47,7 +45,7 @@ pip install -r requirements.txt
 ```
 
 ## Tests
-All required tests for the contract are included in the [tests/test_main.py](https://github.com/realdiganta/crv-bribe-automator/blob/main/tests/test_main.py) file. We are running the tests in a forked Ethereum Mainnet starting at block 13767837, to test on the Gauge Weight Vote Proposal for the week of 9th Dec, 2021. To run the tests run the following command
+ Tests for all the mentioned specifications for the contract are included in the [tests/test_main.py](https://github.com/realdiganta/crv-bribe-automator/blob/main/tests/test_main.py) file. We are running the tests in a forked Ethereum Mainnet starting at block 13767837, to test on the Gauge Weight Vote Proposal for the week of 9th Dec, 2021. To run the tests run the following command
 ```
 brownie test
 ```
@@ -62,3 +60,6 @@ I further added another <strong>[BribesFactory]((https://github.com/realdiganta/
 1. BribesLogic Library : [0xBE2B68865D63893929a70ddaD63D1596F4F02518](https://ropsten.etherscan.io/address/0xBE2B68865D63893929a70ddaD63D1596F4F02518)
 2. BribesFactory Contract : [0x3Bf391aCF28a315eB83aD90270e3517Bfc131C7F](https://ropsten.etherscan.io/address/0x3bf391acf28a315eb83ad90270e3517bfc131c7f)
 3. BribesManager Contract : [0xD2340282f3289B3d6c80A697C42A11E820dEA5B0](https://ropsten.etherscan.io/address/0xD2340282f3289B3d6c80A697C42A11E820dEA5B0)
+
+## Notes
+Importance has been given here on reducing gas costs as compared to accessiblity. For example, in the BribesManager contract you may see that I have made the storage variables private (TOKEN, GAUGE_INDEX, TOKENS_PER_VOTE). This was done to reduce gas costs. One might ask that when sending bribes a user might want to know about the token address, gauge_index, tokens per vote etc. of the BribesManager contract. But as you can see on contract deployment of the BribesManager using the deployManager() method in the BribesFactory contract, an NewManager() event is emitted. So for the UI we can easily get the details of any BribesManager contract by querying that event.

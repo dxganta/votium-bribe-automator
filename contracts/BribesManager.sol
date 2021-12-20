@@ -5,10 +5,10 @@ import "../interfaces/token/IERC20.sol";
 import "./library/BribesLogic.sol";
 
 contract BribesManager {
-    address public immutable TOKEN;
-    uint public immutable GAUGE_INDEX;
-    uint public immutable TOKENS_PER_VOTE;
-    bytes32 public lastProposal;
+    address immutable TOKEN;
+    uint immutable GAUGE_INDEX;
+    uint immutable TOKENS_PER_VOTE;
+    bytes32 _lastProposal;
     address constant VOTIUM_BRIBE = 0x19BBC3463Dd8d07f55438014b021Fb457EBD4595;
 
     /// @param token Address of the reward/incentive token
@@ -21,9 +21,9 @@ contract BribesManager {
     }
 
     /// @param _proposal bytes32 of snapshot IPFS hash id for a given proposal
-    function sendBribe(bytes32 _proposal) public {
+    function sendBribe(bytes32 _proposal) external {
         IERC20(TOKEN).approve(VOTIUM_BRIBE, TOKENS_PER_VOTE);
-        BribesLogic.sendBribe(TOKEN, _proposal, TOKENS_PER_VOTE, GAUGE_INDEX, lastProposal, VOTIUM_BRIBE);
-        lastProposal = _proposal;
+        BribesLogic.sendBribe(TOKEN, _proposal, TOKENS_PER_VOTE, GAUGE_INDEX, _lastProposal, VOTIUM_BRIBE);
+        _lastProposal = _proposal;
     }
 }
